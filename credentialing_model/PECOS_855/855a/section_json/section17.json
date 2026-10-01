@@ -1,0 +1,37 @@
+{
+  "title": "Section 17: Additional Information",
+  "key": "section17AdditionalInformation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 17: Additional Information</h3><p>Use this section to provide any additional information or clarification regarding your Medicare enrollment application.</p>",
+      "key": "section17Header"
+    },
+    {
+      "type": "textarea",
+      "label": "Additional Information (Optional)",
+      "key": "additionalInformation",
+      "rows": 8,
+      "placeholder": "Enter any additional information, clarifications, or comments about your application..."
+    },
+    {
+      "type": "checkbox",
+      "label": "I am attaching additional documentation with this application",
+      "key": "hasAttachments"
+    },
+    {
+      "type": "textarea",
+      "label": "List of Attachments",
+      "key": "attachmentsList",
+      "rows": 4,
+      "placeholder": "List any documents you are attaching (e.g., CLIA certificates, licenses, financial statements, etc.)",
+      "conditional": {
+        "show": true,
+        "when": "hasAttachments",
+        "eq": true
+      }
+    }
+  ]
+}

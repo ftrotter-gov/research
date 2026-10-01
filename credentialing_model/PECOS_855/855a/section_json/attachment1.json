@@ -1,0 +1,326 @@
+{
+  "title": "Attachment 1: Skilled Nursing Facility Disclosures",
+  "key": "attachment1SnfDisclosures",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<h3>Attachment 1: Skilled Nursing Facility Disclosures</h3><p><strong>All skilled nursing facilities (SNFs) must complete this attachment during:</strong></p><ul><li>Initial enrollment</li><li>Revalidation</li><li>Change of information</li><li>Change of Ownership (CHOW)</li></ul><p><strong>Requirements:</strong> You must submit 2 organizational structure diagrams or flowcharts showing ownership relationships and organizational structures.</p>",
+      "key": "attachment1Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "Not Applicable - This provider is not a Skilled Nursing Facility",
+      "key": "snfNotApplicable"
+    },
+    {
+      "type": "panel",
+      "title": "A. Direct Ownership Interest (5% or Greater)",
+      "key": "directOwnershipPanel",
+      "customConditional": "show = !data.snfNotApplicable;",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Report organizations with actual direct ownership interest in the provider (e.g., owns stock in the business).",
+          "key": "directOwnershipInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "No organizations have 5% or greater direct ownership interest",
+          "key": "noDirectOwnership"
+        },
+        {
+          "type": "datagrid",
+          "label": "Direct Ownership Organizations",
+          "key": "directOwnershipOrgs",
+          "reorder": false,
+          "addAnother": "Add Another Organization",
+          "customConditional": "show = !data.noDirectOwnership;",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Legal Business Name",
+              "key": "orgName"
+            },
+            {
+              "type": "number",
+              "label": "Percentage of Ownership",
+              "key": "ownershipPercent",
+              "placeholder": "Enter percentage (e.g., 100 for 100%)"
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number (TIN)",
+              "key": "orgTin",
+              "placeholder": "XX-XXXXXXX"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "B. Indirect Ownership Interest (5% or Greater)",
+      "key": "indirectOwnershipPanel",
+      "customConditional": "show = !data.snfNotApplicable;",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Report organizations that have an ownership interest in an organization that owns the provider (e.g., holding companies, parent/subsidiary relationships).",
+          "key": "indirectOwnershipInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "No organizations have 5% or greater indirect ownership interest",
+          "key": "noIndirectOwnership"
+        },
+        {
+          "type": "datagrid",
+          "label": "Indirect Ownership Organizations",
+          "key": "indirectOwnershipOrgs",
+          "reorder": false,
+          "addAnother": "Add Another Organization",
+          "customConditional": "show = !data.noIndirectOwnership;",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Legal Business Name",
+              "key": "orgName"
+            },
+            {
+              "type": "number",
+              "label": "Calculated Percentage of Indirect Ownership",
+              "key": "indirectPercent",
+              "placeholder": "Enter calculated percentage"
+            },
+            {
+              "type": "textfield",
+              "label": "Level (e.g., Level 2, Level 3)",
+              "key": "ownershipLevel"
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number (TIN)",
+              "key": "orgTin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "C. Partnership Interests",
+      "key": "partnershipPanel",
+      "customConditional": "show = !data.snfNotApplicable;",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Report all general and limited partnership interests—regardless of the percentage.",
+          "key": "partnershipInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "No partnership interests exist",
+          "key": "noPartnerships"
+        },
+        {
+          "type": "datagrid",
+          "label": "Partnership Interests",
+          "key": "partnershipInterests",
+          "reorder": false,
+          "addAnother": "Add Another Partner",
+          "customConditional": "show = !data.noPartnerships;",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Legal Business Name",
+              "key": "partnerName"
+            },
+            {
+              "type": "radio",
+              "label": "Type of Partner",
+              "key": "partnerType",
+              "values": [
+                {"label": "General Partner", "value": "general"},
+                {"label": "Limited Partner", "value": "limited"}
+              ]
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number (TIN)",
+              "key": "partnerTin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "D. Mortgage or Security Interest (5% or Greater)",
+      "key": "mortgagePanel",
+      "customConditional": "show = !data.snfNotApplicable;",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Report all entities with at least a 5% mortgage, deed of trust, or other security interest in the SNF.",
+          "key": "mortgageInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "No mortgage or security interests exist that meet the 5% threshold",
+          "key": "noMortgages"
+        },
+        {
+          "type": "datagrid",
+          "label": "Mortgage/Security Interests",
+          "key": "mortgageInterests",
+          "reorder": false,
+          "addAnother": "Add Another Entity",
+          "customConditional": "show = !data.noMortgages;",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Entity Name",
+              "key": "entityName"
+            },
+            {
+              "type": "number",
+              "label": "Dollar Amount of Mortgage/Security Interest",
+              "key": "mortgageAmount",
+              "placeholder": "Enter dollar amount"
+            },
+            {
+              "type": "number",
+              "label": "Calculated Percentage",
+              "key": "mortgagePercent",
+              "placeholder": "Mortgage amount / Total assets"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "E. Operational/Managing Control",
+      "key": "managingControlPanel",
+      "customConditional": "show = !data.snfNotApplicable;",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Report organizations that exercise operational, managerial control over the provider, or directly/indirectly conduct day-to-day operations.",
+          "key": "managingControlInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "No organizations have operational/managing control",
+          "key": "noManagingControl"
+        },
+        {
+          "type": "datagrid",
+          "label": "Managing Control Organizations",
+          "key": "managingControlOrgs",
+          "reorder": false,
+          "addAnother": "Add Another Organization",
+          "customConditional": "show = !data.noManagingControl;",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Legal Business Name",
+              "key": "orgName"
+            },
+            {
+              "type": "textarea",
+              "label": "Description of Managing Control Relationship",
+              "key": "controlDescription",
+              "rows": 3
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number (TIN)",
+              "key": "orgTin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "F. Additional Disclosable Parties (ADPs)",
+      "key": "additionalPartiesPanel",
+      "customConditional": "show = !data.snfNotApplicable;",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>Report organizations that:</strong><ul><li>Exercise operational, financial, or managerial control</li><li>Provide policies/procedures for operations</li><li>Provide financial or cash management services</li><li>Lease or sublease real property (5% or greater)</li><li>Provide management, administrative, clinical consulting, accounting, or financial services</li></ul>",
+          "key": "adpInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "No additional disclosable parties exist",
+          "key": "noAdditionalParties"
+        },
+        {
+          "type": "datagrid",
+          "label": "Additional Disclosable Parties",
+          "key": "additionalParties",
+          "reorder": false,
+          "addAnother": "Add Another ADP",
+          "customConditional": "show = !data.noAdditionalParties;",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Legal Business Name",
+              "key": "adpName"
+            },
+            {
+              "type": "selectboxes",
+              "label": "Type of Relationship (Check all that apply)",
+              "key": "adpRelationship",
+              "values": [
+                {"label": "Operational/Financial/Managerial Control", "value": "control"},
+                {"label": "Provides Policies/Procedures", "value": "policies"},
+                {"label": "Financial/Cash Management Services", "value": "financial"},
+                {"label": "Leases/Subleases Real Property (5%+)", "value": "lease"},
+                {"label": "Management/Administrative Services", "value": "management"},
+                {"label": "Clinical Consulting Services", "value": "consulting"},
+                {"label": "Accounting Services", "value": "accounting"}
+              ]
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number (TIN)",
+              "key": "adpTin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "G. Organizational Structure Diagrams",
+      "key": "diagramsPanel",
+      "customConditional": "show = !data.snfNotApplicable;",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-info",
+          "content": "<p><strong>Required Attachments:</strong></p><ol><li>One chart identifying all entities listed above and showing their relationships with the provider and each other</li><li>One chart identifying the organizational structures of all owners, including owners not listed in this attachment (e.g., less than 5% owners)</li></ol>",
+          "key": "diagramRequirements"
+        },
+        {
+          "type": "checkbox",
+          "label": "I confirm that the required organizational structure diagrams will be submitted with this application",
+          "key": "diagramsConfirmed"
+        }
+      ]
+    }
+  ]
+}

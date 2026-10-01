@@ -1,0 +1,493 @@
+{
+  "title": "Section 15: Certification Statement",
+  "key": "section15Certification",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-danger",
+      "content": "<h3>Section 15: Certification Statement</h3><p><strong>IMPORTANT:</strong> By signing this application, you certify under penalty of perjury that all information provided is true, correct, and complete. False statements or misrepresentations may result in civil and/or criminal penalties.</p>",
+      "key": "section15Header"
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<h5>Certification Requirements</h5><p>The Authorized Official(s) signing this form certify that:</p><ul><li>All information is true, accurate, and complete to the best of their knowledge</li><li>They have read and understand the Medicare enrollment requirements</li><li>They will comply with all Medicare laws, regulations, and program instructions</li><li>They will notify the Medicare contractor of any changes</li><li>They understand that payment of claims is subject to Medicare coverage and reimbursement policies</li></ul>",
+      "key": "certificationRequirements"
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Authorized Official Signature(s)",
+      "key": "authorizedOfficials",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "font-weight-bold",
+          "content": "At least one Authorized Official signature is REQUIRED.",
+          "key": "authorizedOfficialNote"
+        },
+        {
+          "type": "panel",
+          "title": "1st Authorized Official (Required)",
+          "key": "authorizedOfficial1Panel",
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Changing or removing 1st Authorized Official",
+              "key": "authOfficial1Changing"
+            },
+            {
+              "type": "radio",
+              "label": "Type of Change",
+              "key": "authOfficial1ChangeType",
+              "values": [
+                {
+                  "label": "Change existing Authorized Official",
+                  "value": "change"
+                },
+                {
+                  "label": "Remove Authorized Official",
+                  "value": "remove"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "authOfficial1Changing",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "First Name",
+              "key": "authOfficial1FirstName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "authOfficial1MiddleInitial",
+              "inputMask": "A"
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "authOfficial1LastName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number",
+              "key": "authOfficial1Phone",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Title/Position",
+              "key": "authOfficial1Title",
+              "placeholder": "e.g., CEO, President, Managing Partner",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Date Signed",
+              "key": "authOfficial1DateSigned",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date of Change",
+              "key": "authOfficial1EffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "authOfficial1Changing",
+                "eq": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "panel",
+          "title": "2nd Authorized Official (if applicable)",
+          "key": "authorizedOfficial2Panel",
+          "collapsible": true,
+          "collapsed": true,
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Add a 2nd Authorized Official",
+              "key": "hasAuthOfficial2"
+            },
+            {
+              "type": "checkbox",
+              "label": "Changing or removing 2nd Authorized Official",
+              "key": "authOfficial2Changing",
+              "conditional": {
+                "show": true,
+                "when": "hasAuthOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "radio",
+              "label": "Type of Change",
+              "key": "authOfficial2ChangeType",
+              "values": [
+                {
+                  "label": "Change existing Authorized Official",
+                  "value": "change"
+                },
+                {
+                  "label": "Remove Authorized Official",
+                  "value": "remove"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "authOfficial2Changing",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "First Name",
+              "key": "authOfficial2FirstName",
+              "conditional": {
+                "show": true,
+                "when": "hasAuthOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "authOfficial2MiddleInitial",
+              "inputMask": "A",
+              "conditional": {
+                "show": true,
+                "when": "hasAuthOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "authOfficial2LastName",
+              "conditional": {
+                "show": true,
+                "when": "hasAuthOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number",
+              "key": "authOfficial2Phone",
+              "conditional": {
+                "show": true,
+                "when": "hasAuthOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Title/Position",
+              "key": "authOfficial2Title",
+              "conditional": {
+                "show": true,
+                "when": "hasAuthOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Date Signed",
+              "key": "authOfficial2DateSigned",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasAuthOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date of Change",
+              "key": "authOfficial2EffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "authOfficial2Changing",
+                "eq": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "D. Delegated Official Signature(s)",
+      "key": "delegatedOfficials",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "text-muted",
+          "content": "<em>Optional - A Delegated Official may sign on behalf of an Authorized Official if properly delegated.</em>",
+          "key": "delegatedOfficialNote"
+        },
+        {
+          "type": "panel",
+          "title": "1st Delegated Official (if applicable)",
+          "key": "delegatedOfficial1Panel",
+          "collapsible": true,
+          "collapsed": true,
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Add a 1st Delegated Official",
+              "key": "hasDelegatedOfficial1"
+            },
+            {
+              "type": "checkbox",
+              "label": "Changing or removing 1st Delegated Official",
+              "key": "delegatedOfficial1Changing",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial1",
+                "eq": true
+              }
+            },
+            {
+              "type": "radio",
+              "label": "Type of Change",
+              "key": "delegatedOfficial1ChangeType",
+              "values": [
+                {
+                  "label": "Change existing Delegated Official",
+                  "value": "change"
+                },
+                {
+                  "label": "Remove Delegated Official",
+                  "value": "remove"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "delegatedOfficial1Changing",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Delegated Official First Name",
+              "key": "delegatedOfficial1FirstName",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial1",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "delegatedOfficial1MiddleInitial",
+              "inputMask": "A",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial1",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "delegatedOfficial1LastName",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial1",
+                "eq": true
+              }
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number",
+              "key": "delegatedOfficial1Phone",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial1",
+                "eq": true
+              }
+            },
+            {
+              "type": "checkbox",
+              "label": "This Delegated Official is a W-2 Employee",
+              "key": "delegatedOfficial1IsW2",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial1",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Date Signed by Delegated Official",
+              "key": "delegatedOfficial1DateSigned",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial1",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Date Signed by Authorized Official Assigning this Delegation",
+              "key": "delegatedOfficial1AuthDateSigned",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial1",
+                "eq": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "panel",
+          "title": "2nd Delegated Official (if applicable)",
+          "key": "delegatedOfficial2Panel",
+          "collapsible": true,
+          "collapsed": true,
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Add a 2nd Delegated Official",
+              "key": "hasDelegatedOfficial2"
+            },
+            {
+              "type": "checkbox",
+              "label": "Changing or removing 2nd Delegated Official",
+              "key": "delegatedOfficial2Changing",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Delegated Official First Name",
+              "key": "delegatedOfficial2FirstName",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "delegatedOfficial2MiddleInitial",
+              "inputMask": "A",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "delegatedOfficial2LastName",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number",
+              "key": "delegatedOfficial2Phone",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "checkbox",
+              "label": "This Delegated Official is a W-2 Employee",
+              "key": "delegatedOfficial2IsW2",
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Date Signed by Delegated Official",
+              "key": "delegatedOfficial2DateSigned",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial2",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Date Signed by Authorized Official Assigning this Delegation",
+              "key": "delegatedOfficial2AuthDateSigned",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasDelegatedOfficial2",
+                "eq": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-success mt-4",
+      "content": "<h5>Application Complete!</h5><p>Thank you for completing the CMS-855B Medicare Enrollment Application. Please review all sections for accuracy before submitting.</p><p><strong>Next Steps:</strong></p><ul><li>Ensure all required supporting documentation (Section 12) is included</li><li>Print and have the Authorized Official(s) physically sign the application</li><li>Submit the completed application to your designated Medicare Administrative Contractor (MAC)</li></ul>",
+      "key": "applicationComplete"
+    }
+  ]
+}

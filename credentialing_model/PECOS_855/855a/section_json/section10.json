@@ -1,0 +1,92 @@
+{
+  "title": "Section 10: Opioid Treatment Program Personnel",
+  "key": "section10OtpPersonnel",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 10: Opioid Treatment Program Personnel</h3><p>Complete this section only if you are an Opioid Treatment Program (OTP).</p>",
+      "key": "section10Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "Not Applicable - This organization is not an OTP",
+      "key": "otpNotApplicable"
+    },
+    {
+      "type": "panel",
+      "title": "A. Ordering Personnel Identification",
+      "key": "orderingPersonnelPanel",
+      "customConditional": "show = !data.otpNotApplicable;",
+      "components": [
+        {
+          "type": "textfield",
+          "label": "First Name",
+          "key": "orderingFirstName"
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name",
+          "key": "orderingLastName"
+        },
+        {
+          "type": "textfield",
+          "label": "Social Security Number (SSN)",
+          "key": "orderingSsn",
+          "placeholder": "XXX-XX-XXXX",
+          "inputMask": "999-99-9999"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI)",
+          "key": "orderingNpi",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999"
+        },
+        {
+          "type": "textfield",
+          "label": "License Number",
+          "key": "orderingLicenseNumber"
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "B. Dispensing Personnel Identification",
+      "key": "dispensingPersonnelPanel",
+      "customConditional": "show = !data.otpNotApplicable;",
+      "components": [
+        {
+          "type": "textfield",
+          "label": "First Name",
+          "key": "dispensingFirstName"
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name",
+          "key": "dispensingLastName"
+        },
+        {
+          "type": "textfield",
+          "label": "Social Security Number (SSN)",
+          "key": "dispensingSsn",
+          "placeholder": "XXX-XX-XXXX",
+          "inputMask": "999-99-9999"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI)",
+          "key": "dispensingNpi",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999"
+        },
+        {
+          "type": "textfield",
+          "label": "License Number",
+          "key": "dispensingLicenseNumber"
+        }
+      ]
+    }
+  ]
+}

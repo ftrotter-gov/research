@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS-855A Medicare Enrollment Application</title>
+    
+    <!-- Form.io CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.form.io/formiojs/formio.full.min.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        #formio {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #666;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CMS-855A Medicare Enrollment Application</h1>
+    <p class="subtitle">Medicare Enrollment Application for Institutional Providers</p>
+    
+    <div id="formio">
+        <div class="loading">Loading form sections...</div>
+    </div>
+
+    <!-- Form.io JS from CDN -->
+    <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
+    
+    <script>
+        // Async function to build the wizard from modular sections
+        async function buildWizard() {
+            try {
+                // Load the wizard configuration
+                const wizardConfig = await (await fetch('./wizard.json')).json();
+                
+                // Load all section files in parallel
+                const sectionPromises = wizardConfig.pageFiles.map(filePath => 
+                    fetch(filePath).then(response => response.json())
+                );
+                
+                const sections = await Promise.all(sectionPromises);
+                
+                // Build the wizard structure
+                const wizardSchema = {
+                    display: wizardConfig.display || "wizard",
+                    components: sections.map((section, index) => ({
+                        type: "panel",
+                        title: section.title || `Section ${index + 1}`,
+                        key: section.key || `section${index + 1}`,
+                        components: section.components || []
+                    }))
+                };
+                
+                return wizardSchema;
+            } catch (error) {
+                console.error('Error loading wizard:', error);
+                document.getElementById('formio').innerHTML = 
+                    '<div class="loading" style="color: red;">Error loading form sections. Please check the console for details.</div>';
+                throw error;
+            }
+        }
+
+        // Initialize the form when the page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const wizardSchema = await buildWizard();
+                
+                // Create the form
+                Formio.createForm(document.getElementById('formio'), wizardSchema, {
+                    buttonSettings: {
+                        showCancel: true,
+                        showPrevious: true,
+                        showNext: true,
+                        showSubmit: true
+                    }
+                }).then(function(form) {
+                    // Handle form submission
+                    form.on('submit', function(submission) {
+                        console.log('Form submitted:', submission);
+                        alert('Form submitted successfully! Check console for data.');
+                    });
+                    
+                    // Handle form changes (optional - for debugging)
+                    form.on('change', function(changed) {
+                        console.log('Form changed:', changed);
+                    });
+                });
+            } catch (error) {
+                console.error('Failed to initialize form:', error);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+{
+  "title": "Section 5: Ownership Interest and/or Managing Control Information (Organizations)",
+  "key": "section5OwnershipOrganizations",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 5: Ownership Interest and/or Managing Control Information (Organizations)</h3><p>Report all organizations with 5% or more ownership interest, partners, or managing control in your business.</p>",
+      "key": "section5Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Organization with Ownership Interest and/or Managing Control",
+      "key": "ownershipOrganizationInfo",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-warning",
+          "content": "<p><strong>Report if the organization has:</strong></p><ul><li>5 percent or more ownership interest</li><li>Partner status</li><li>Managing control</li></ul><p>Complete a separate entry for each organization. If none apply, check 'Not Applicable' below.</p>",
+          "key": "ownershipInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "Not Applicable - No organizations have ownership interest or managing control",
+          "key": "ownershipNotApplicable"
+        },
+        {
+          "type": "panel",
+          "title": "Organization #1",
+          "key": "organization1Panel",
+          "customConditional": "show = !data.ownershipNotApplicable;",
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Changing information for this organization",
+              "key": "org1Changing"
+            },
+            {
+              "type": "radio",
+              "label": "Type of Change",
+              "key": "org1ChangeType",
+              "values": [
+                {
+                  "label": "Change existing information",
+                  "value": "change"
+                },
+                {
+                  "label": "Add new organization",
+                  "value": "add"
+                },
+                {
+                  "label": "Remove organization",
+                  "value": "remove"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "org1Changing",
+                "eq": true
+              }
+            },
+            {
+              "type": "selectboxes",
+              "label": "Relationship to Supplier (Check all that apply)",
+              "key": "org1Relationship",
+              "values": [
+                {
+                  "label": "5 Percent or More Ownership Interest",
+                  "value": "ownership_5pct"
+                },
+                {
+                  "label": "Partner",
+                  "value": "partner"
+                },
+                {
+                  "label": "Managing Control",
+                  "value": "managing_control"
+                }
+              ],
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Legal Business Name as Reported to the IRS",
+              "key": "org1LegalName",
+              "placeholder": "Enter legal business name",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Doing Business As Name (if applicable)",
+              "key": "org1DbaName",
+              "placeholder": "Enter DBA name"
+            },
+            {
+              "type": "textfield",
+              "label": "Address Line 1 (Street Name and Number)",
+              "key": "org1Address1",
+              "placeholder": "Street address",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Address Line 2 (Suite, Room, Apt. #, etc.)",
+              "key": "org1Address2",
+              "placeholder": "Suite, Room, etc."
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "org1City",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "org1State",
+              "inputMask": "AA",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code + 4",
+              "key": "org1Zip",
+              "placeholder": "XXXXX-XXXX",
+              "inputMask": "99999-9999",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number",
+              "key": "org1Phone",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Fax Number (if applicable)",
+              "key": "org1Fax"
+            },
+            {
+              "type": "email",
+              "label": "E-mail Address (if applicable)",
+              "key": "org1Email"
+            },
+            {
+              "type": "textfield",
+              "label": "National Provider Identifier (NPI)",
+              "key": "org1Npi",
+              "placeholder": "10-digit NPI",
+              "inputMask": "9999999999"
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number (TIN) - Required",
+              "key": "org1Tin",
+              "placeholder": "XX-XXXXXXX",
+              "inputMask": "99-9999999",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Medicare Identification Number (PTAN) (if issued)",
+              "key": "org1Ptan",
+              "placeholder": "Enter PTAN if issued"
+            },
+            {
+              "type": "datetime",
+              "label": "Effective date this organization acquired ownership of the supplier",
+              "key": "org1OwnershipDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "org1Relationship",
+                "json": "!!row.org1Relationship && (row.org1Relationship.ownership_5pct || row.org1Relationship.partner)"
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective date this organization acquired managing control of the supplier",
+              "key": "org1ManagingControlDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "org1Relationship",
+                "json": "!!row.org1Relationship && row.org1Relationship.managing_control"
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date of Change",
+              "key": "org1EffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "org1Changing",
+                "eq": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "panel",
+          "title": "Organization #2 (if applicable)",
+          "key": "organization2Panel",
+          "collapsible": true,
+          "collapsed": true,
+          "customConditional": "show = !data.ownershipNotApplicable;",
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Check to add a second organization",
+              "key": "hasOrg2"
+            },
+            {
+              "type": "checkbox",
+              "label": "Changing information for this organization",
+              "key": "org2Changing",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "radio",
+              "label": "Type of Change",
+              "key": "org2ChangeType",
+              "values": [
+                {
+                  "label": "Change existing information",
+                  "value": "change"
+                },
+                {
+                  "label": "Add new organization",
+                  "value": "add"
+                },
+                {
+                  "label": "Remove organization",
+                  "value": "remove"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "org2Changing",
+                "eq": true
+              }
+            },
+            {
+              "type": "selectboxes",
+              "label": "Relationship to Supplier (Check all that apply)",
+              "key": "org2Relationship",
+              "values": [
+                {
+                  "label": "5 Percent or More Ownership Interest",
+                  "value": "ownership_5pct"
+                },
+                {
+                  "label": "Partner",
+                  "value": "partner"
+                },
+                {
+                  "label": "Managing Control",
+                  "value": "managing_control"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Legal Business Name as Reported to the IRS",
+              "key": "org2LegalName",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Doing Business As Name (if applicable)",
+              "key": "org2DbaName",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Address Line 1 (Street Name and Number)",
+              "key": "org2Address1",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Address Line 2 (Suite, Room, Apt. #, etc.)",
+              "key": "org2Address2",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "org2City",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "org2State",
+              "inputMask": "AA",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code + 4",
+              "key": "org2Zip",
+              "inputMask": "99999-9999",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number",
+              "key": "org2Phone",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Fax Number (if applicable)",
+              "key": "org2Fax",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "email",
+              "label": "E-mail Address (if applicable)",
+              "key": "org2Email",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "National Provider Identifier (NPI)",
+              "key": "org2Npi",
+              "inputMask": "9999999999",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number (TIN) - Required",
+              "key": "org2Tin",
+              "inputMask": "99-9999999",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Medicare Identification Number (PTAN) (if issued)",
+              "key": "org2Ptan",
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective date this organization acquired ownership of the supplier",
+              "key": "org2OwnershipDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective date this organization acquired managing control of the supplier",
+              "key": "org2ManagingControlDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasOrg2",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date of Change",
+              "key": "org2EffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "org2Changing",
+                "eq": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-info",
+          "content": "<p><strong>Note:</strong> If you need to report more than 2 organizations with ownership interest or managing control, please attach additional documentation with your application.</p>",
+          "key": "additionalOrgsNote",
+          "customConditional": "show = !data.ownershipNotApplicable;"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Final Adverse Legal Action History",
+      "key": "orgFinalAdverseLegalActions",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-warning",
+          "content": "<p><strong>Complete this section for the organization(s) reported in section 5A above.</strong></p><p>If you need additional information regarding what to report, please refer to section 3 of this application.</p><p><strong>NOTE:</strong> If reporting more than one organization, copy and complete sections 5A and 5B for each organization reported.</p>",
+          "key": "orgAdverseLegalActionsInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Has this organization in section 5A above, under any current or former name or business identity, ever had a final adverse legal action listed in section 3 of this application imposed against it?",
+          "key": "orgHasFinalAdverseAction",
+          "values": [
+            {
+              "label": "Yes - continue below",
+              "value": "yes"
+            },
+            {
+              "label": "No - skip to section 6",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>If yes, report each final adverse legal action, when it occurred, and the federal or state agency or the court/administrative body that imposed the action.</strong><br><em>NOTE: To satisfy the reporting requirement, this section must be filled out in its entirety, and all applicable attachments must be included.</em>",
+          "key": "orgAdverseActionReportingNote",
+          "conditional": {
+            "show": true,
+            "when": "orgHasFinalAdverseAction",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "datagrid",
+          "label": "Final Adverse Legal Actions",
+          "key": "orgAdverseActions",
+          "reorder": false,
+          "addAnother": "Add Another Action",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": true,
+            "when": "orgHasFinalAdverseAction",
+            "eq": "yes"
+          },
+          "components": [
+            {
+              "type": "textarea",
+              "label": "Final Adverse Legal Action",
+              "key": "action",
+              "rows": 3,
+              "placeholder": "Describe the final adverse legal action"
+            },
+            {
+              "type": "datetime",
+              "label": "Date",
+              "key": "date",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false
+            },
+            {
+              "type": "textfield",
+              "label": "Action Taken By",
+              "key": "takenBy",
+              "placeholder": "Federal or state agency or court/administrative body"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

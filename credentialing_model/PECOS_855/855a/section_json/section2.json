@@ -1,0 +1,589 @@
+{
+  "title": "Section 2: Identifying Information",
+  "key": "section2IdentifyingInformation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 2: Identifying Information</h3>",
+      "key": "section2Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Type of Provider",
+      "key": "providerType",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "The provider must meet all federal and state requirements for the type of provider checked. Check only one provider type.",
+          "key": "providerTypeInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Type of provider (other than hospitals)",
+          "key": "providerTypeNonHospital",
+          "values": [
+            {"label": "Community Mental Health Center", "value": "cmhc"},
+            {"label": "Comprehensive Outpatient Rehabilitation Facility", "value": "corf"},
+            {"label": "Critical Access Hospital", "value": "cah"},
+            {"label": "End-Stage Renal Disease Facility", "value": "esrd"},
+            {"label": "Federally Qualified Health Center", "value": "fqhc"},
+            {"label": "Histocompatibility Laboratory", "value": "histo_lab"},
+            {"label": "Home Health Agency", "value": "hha"},
+            {"label": "Hospice", "value": "hospice"},
+            {"label": "Indian Health Services Facility", "value": "ihs"},
+            {"label": "Indian Health Services—Rural Emergency Hospital", "value": "ihs_reh"},
+            {"label": "Opioid Treatment Program", "value": "otp"},
+            {"label": "Organ Procurement Organization", "value": "opo"},
+            {"label": "Outpatient Physical Therapy/Occupational Therapy/Speech Pathology Services", "value": "opt"},
+            {"label": "Religious Non-Medical Health Care Institution", "value": "rnmhci"},
+            {"label": "Rural Emergency Hospital", "value": "reh"},
+            {"label": "Rural Health Clinic", "value": "rhc"},
+            {"label": "Skilled Nursing Facility", "value": "snf"},
+            {"label": "Hospital (go to hospital subgroups below)", "value": "hospital"},
+            {"label": "Other (Specify)", "value": "other"}
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Other provider type (specify)",
+          "key": "providerTypeOther",
+          "conditional": {
+            "show": true,
+            "when": "providerTypeNonHospital",
+            "eq": "other"
+          }
+        },
+        {
+          "type": "selectboxes",
+          "label": "If this provider is a hospital, check all applicable subgroups and units",
+          "key": "hospitalSubgroups",
+          "conditional": {
+            "show": true,
+            "when": "providerTypeNonHospital",
+            "eq": "hospital"
+          },
+          "values": [
+            {"label": "Hospital—General", "value": "general"},
+            {"label": "Hospital—Acute care", "value": "acute"},
+            {"label": "Hospital—Children's (excluded from PPS)", "value": "childrens"},
+            {"label": "Hospital—Long-term (excluded from PPS)", "value": "long_term"},
+            {"label": "Hospital—Psychiatric (excluded from PPS)", "value": "psychiatric"},
+            {"label": "Hospital—Rehabilitation (excluded from PPS)", "value": "rehabilitation"},
+            {"label": "Hospital—Short-term (general and specialty)", "value": "short_term"},
+            {"label": "Hospital—Swing-bed approved", "value": "swing_bed"},
+            {"label": "Hospital—Psychiatric unit", "value": "psych_unit"},
+            {"label": "Hospital—Rehabilitation unit", "value": "rehab_unit"},
+            {"label": "Hospital—Specialty hospital (cardiac, orthopedic, or surgical)", "value": "specialty"},
+            {"label": "Hospital—Transplant program", "value": "transplant"},
+            {"label": "Other (Specify)", "value": "other"}
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "For Transplant program, identify organ type(s)",
+          "key": "transplantOrganTypes",
+          "conditional": {
+            "show": true,
+            "when": "hospitalSubgroups",
+            "json": "!!row.hospitalSubgroups && row.hospitalSubgroups.transplant"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "If 'hospital' was checked, does this hospital have a compliance plan that states that the hospital checks all managing employees against the exclusion/debarment lists of both the HHS Office of the Inspector General (OIG) and the General Services Administration (GSA)?",
+          "key": "hospitalCompliancePlan",
+          "values": [
+            {"label": "Yes", "value": "yes"},
+            {"label": "No", "value": "no"}
+          ],
+          "conditional": {
+            "show": true,
+            "when": "providerTypeNonHospital",
+            "eq": "hospital"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "Is the provider a physician-owned hospital?",
+          "key": "physicianOwnedHospital",
+          "values": [
+            {"label": "Yes", "value": "yes"},
+            {"label": "No", "value": "no"}
+          ],
+          "conditional": {
+            "show": true,
+            "when": "providerTypeNonHospital",
+            "eq": "hospital"
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B1. Business Information",
+      "key": "businessInformation",
+      "components": [
+        {
+          "type": "textfield",
+          "label": "Legal Business Name as reported to the Internal Revenue Service (IRS)",
+          "key": "legalBusinessName",
+          "placeholder": "Enter legal business name"
+        },
+        {
+          "type": "textfield",
+          "label": "Other name (if applicable)",
+          "key": "otherName",
+          "placeholder": "Enter other name"
+        },
+        {
+          "type": "radio",
+          "label": "Type of other name (if applicable)",
+          "key": "otherNameType",
+          "values": [
+            {"label": "Former Legal Business Name", "value": "former"},
+            {"label": "Doing business as name", "value": "dba"},
+            {"label": "Other (specify)", "value": "other"}
+          ],
+          "conditional": {
+            "show": true,
+            "when": "otherName",
+            "json": "!!row.otherName"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Other name type (specify)",
+          "key": "otherNameTypeSpecify",
+          "conditional": {
+            "show": true,
+            "when": "otherNameType",
+            "eq": "other"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Tax Identification Number (TIN)",
+          "key": "tin",
+          "placeholder": "XX-XXXXXXX",
+          "inputMask": "99-9999999"
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number (PTAN) (if issued)",
+          "key": "medicareIdPtan",
+          "placeholder": "Enter PTAN if issued"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI)",
+          "key": "npi",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999"
+        },
+        {
+          "type": "datetime",
+          "label": "What is the provider's year end cost report date?",
+          "key": "costReportDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false
+        },
+        {
+          "type": "radio",
+          "label": "IRS business designation",
+          "key": "irsDesignation",
+          "values": [
+            {"label": "Proprietary", "value": "proprietary"},
+            {"label": "Non-profit (Submit IRS Form 501(c)(3))", "value": "nonprofit"},
+            {"label": "Disregarded Entity (Submit IRS Form 8832, if applicable)", "value": "disregarded"}
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "Identify the business structure",
+          "key": "businessStructure",
+          "values": [
+            {"label": "Corporation", "value": "corporation"},
+            {"label": "Limited Liability Company", "value": "llc"},
+            {"label": "Partnership", "value": "partnership"},
+            {"label": "Sole proprietor", "value": "sole_proprietor"},
+            {"label": "Other (specify)", "value": "other"}
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Other business structure (specify)",
+          "key": "businessStructureOther",
+          "conditional": {
+            "show": true,
+            "when": "businessStructure",
+            "eq": "other"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "Federal and/or state government type (if applicable)",
+          "key": "governmentType",
+          "values": [
+            {"label": "Federal", "value": "federal"},
+            {"label": "State", "value": "state"},
+            {"label": "City", "value": "city"},
+            {"label": "County", "value": "county"},
+            {"label": "City-county", "value": "city_county"},
+            {"label": "Hospital district", "value": "hospital_district"},
+            {"label": "Other (specify)", "value": "other"}
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Other government type (specify)",
+          "key": "governmentTypeOther",
+          "conditional": {
+            "show": true,
+            "when": "governmentType",
+            "eq": "other"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "Is this provider an Indian Health Service (IHS) Facility?",
+          "key": "isIhsFacility",
+          "values": [
+            {"label": "Yes", "value": "yes"},
+            {"label": "No", "value": "no"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B2. License/Certification/Registration Information",
+      "key": "licenseCertification",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Complete the appropriate subsection(s) below for your provider type you reported in Section 2A1.",
+          "key": "licenseInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "License not applicable",
+          "key": "licenseNotApplicable"
+        },
+        {
+          "type": "textfield",
+          "label": "License number",
+          "key": "licenseNumber",
+          "customConditional": "show = !data.licenseNotApplicable;"
+        },
+        {
+          "type": "datetime",
+          "label": "License effective date",
+          "key": "licenseEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "customConditional": "show = !data.licenseNotApplicable;"
+        },
+        {
+          "type": "textfield",
+          "label": "State where license issued",
+          "key": "licenseState",
+          "inputMask": "AA",
+          "customConditional": "show = !data.licenseNotApplicable;"
+        },
+        {
+          "type": "checkbox",
+          "label": "Certification not applicable",
+          "key": "certificationNotApplicable"
+        },
+        {
+          "type": "textfield",
+          "label": "Certification number",
+          "key": "certificationNumber",
+          "customConditional": "show = !data.certificationNotApplicable;"
+        },
+        {
+          "type": "datetime",
+          "label": "Certification effective date",
+          "key": "certificationEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "customConditional": "show = !data.certificationNotApplicable;"
+        },
+        {
+          "type": "textfield",
+          "label": "State where certification issued (If certified by a national entity, put 'all')",
+          "key": "certificationState",
+          "customConditional": "show = !data.certificationNotApplicable;"
+        },
+        {
+          "type": "textfield",
+          "label": "Certifying entity (specialty board, state, other)",
+          "key": "certifyingEntity",
+          "customConditional": "show = !data.certificationNotApplicable;"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Correspondence Mailing Address",
+      "key": "correspondenceAddress",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "This is the address where correspondence will be sent to the provider by your designated MAC. This address cannot be a billing agent or agency's address or a medical management company address.",
+          "key": "correspondenceInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "Change - Checking this will replace any current correspondence mailing address on file",
+          "key": "correspondenceChange"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective date of change",
+          "key": "correspondenceEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "correspondenceChange",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Attention (optional)",
+          "key": "correspondenceAttention"
+        },
+        {
+          "type": "textfield",
+          "label": "Correspondence mailing address line 1 (P.O. Box or street name and number)",
+          "key": "correspondenceAddress1"
+        },
+        {
+          "type": "textfield",
+          "label": "Correspondence mailing address line 2 (Suite, room, apt. #, etc.)",
+          "key": "correspondenceAddress2"
+        },
+        {
+          "type": "textfield",
+          "label": "City/town",
+          "key": "correspondenceCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "correspondenceState",
+          "inputMask": "AA"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "correspondenceZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone number (if applicable)",
+          "key": "correspondencePhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax number (if applicable)",
+          "key": "correspondenceFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail address (if applicable)",
+          "key": "correspondenceEmail"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "D. Medical Record Correspondence Address",
+      "key": "medicalRecordAddress",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "This is the address where the medical record correspondence will be sent to the provider by your designated MAC.",
+          "key": "medicalRecordInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "Check here if your medical record correspondence should be mailed to your correspondence address in section 2C (above) and skip this section",
+          "key": "medicalRecordUseCorrespondence"
+        },
+        {
+          "type": "checkbox",
+          "label": "Change - Checking this will replace any current medical record correspondence address on file",
+          "key": "medicalRecordChange",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective date of change",
+          "key": "medicalRecordEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "medicalRecordChange",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Attention (optional)",
+          "key": "medicalRecordAttention",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "Medical record correspondence mailing address line 1 (P.O. Box or street name and number)",
+          "key": "medicalRecordAddress1",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "Medical record correspondence mailing address line 2 (suite, room, apt. #, etc.)",
+          "key": "medicalRecordAddress2",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "City/town",
+          "key": "medicalRecordCity",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "medicalRecordState",
+          "inputMask": "AA",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "medicalRecordZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone number (if applicable)",
+          "key": "medicalRecordPhone",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax number (if applicable)",
+          "key": "medicalRecordFax",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        },
+        {
+          "type": "email",
+          "label": "E-mail address (if applicable)",
+          "key": "medicalRecordEmail",
+          "customConditional": "show = !data.medicalRecordUseCorrespondence;"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "E. Accreditation",
+      "key": "accreditation",
+      "components": [
+        {
+          "type": "radio",
+          "label": "Is this provider accredited?",
+          "key": "isAccredited",
+          "values": [
+            {"label": "Yes", "value": "yes"},
+            {"label": "No", "value": "no"}
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Date of accreditation",
+          "key": "accreditationDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "isAccredited",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Expiration date of accreditation",
+          "key": "accreditationExpirationDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "isAccredited",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Name of accrediting body",
+          "key": "accreditingBody",
+          "conditional": {
+            "show": true,
+            "when": "isAccredited",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Type of accreditation or accreditation program",
+          "key": "accreditationType",
+          "placeholder": "e.g., hospital accreditation program, home health accreditation, etc.",
+          "conditional": {
+            "show": true,
+            "when": "isAccredited",
+            "eq": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "F. Comments",
+      "key": "comments",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Use this section to clarify any information furnished in this section.",
+          "key": "commentsInstructions"
+        },
+        {
+          "type": "textarea",
+          "label": "Comments (optional)",
+          "key": "commentsText",
+          "rows": 4
+        }
+      ]
+    }
+  ]
+}

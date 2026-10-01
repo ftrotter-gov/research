@@ -1,0 +1,294 @@
+{
+  "title": "Attachment 3: Opioid Treatment Programs (OTPs)",
+  "key": "attachment3Otp",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-primary",
+      "content": "<h3>Attachment 3: Opioid Treatment Programs (OTPs)</h3><p>This attachment is REQUIRED for Opioid Treatment Programs only.</p>",
+      "key": "attachment3Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. OTP Certification and Accreditation",
+      "key": "otpCertification",
+      "components": [
+        {
+          "type": "datetime",
+          "label": "Date of SAMHSA Certification",
+          "key": "samhsaCertificationDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "validate": {
+            "required": true
+          },
+          "description": "Date your OTP was certified by SAMHSA"
+        },
+        {
+          "type": "textfield",
+          "label": "SAMHSA Certification Number",
+          "key": "samhsaCertNumber",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Accrediting Body",
+          "key": "accreditingBody",
+          "placeholder": "e.g., CARF, Joint Commission, SAMHSA",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Date of Accreditation",
+          "key": "accreditationDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Accreditation Expiration Date",
+          "key": "accreditationExpirationDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Medical Director Information",
+      "key": "medicalDirector",
+      "components": [
+        {
+          "type": "textfield",
+          "label": "Medical Director First Name",
+          "key": "mdFirstName",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Middle Initial",
+          "key": "mdMiddleInitial",
+          "inputMask": "A"
+        },
+        {
+          "type": "textfield",
+          "label": "Medical Director Last Name",
+          "key": "mdLastName",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "NPI (National Provider Identifier)",
+          "key": "mdNpi",
+          "inputMask": "9999999999",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "State Medical License Number",
+          "key": "mdLicenseNumber",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "State of Medical Licensure",
+          "key": "mdLicenseState",
+          "inputMask": "AA",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "DEA Number",
+          "key": "mdDeaNumber",
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Prescribing/Ordering Personnel",
+      "key": "prescribingPersonnel",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>List all practitioners authorized to prescribe/order opioid treatment medications.</strong>",
+          "key": "prescribingInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Prescribing Practitioners",
+          "key": "practitioners",
+          "reorder": false,
+          "addAnother": "Add Another Practitioner",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "First Name",
+              "key": "firstName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "middleInitial",
+              "inputMask": "A"
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "lastName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "NPI",
+              "key": "npi",
+              "inputMask": "9999999999",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "DEA Number",
+              "key": "deaNumber",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "State License Number",
+              "key": "licenseNumber",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "radio",
+              "label": "Practitioner Type",
+              "key": "practitionerType",
+              "values": [
+                {
+                  "label": "Physician (MD/DO)",
+                  "value": "physician"
+                },
+                {
+                  "label": "Nurse Practitioner",
+                  "value": "np"
+                },
+                {
+                  "label": "Physician Assistant",
+                  "value": "pa"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "D. Treatment Services Offered",
+      "key": "treatmentServices",
+      "components": [
+        {
+          "type": "selectboxes",
+          "label": "Types of Medications/Treatments Provided",
+          "key": "medicationTypes",
+          "values": [
+            {
+              "label": "Methadone",
+              "value": "methadone"
+            },
+            {
+              "label": "Buprenorphine",
+              "value": "buprenorphine"
+            },
+            {
+              "label": "Naltrexone",
+              "value": "naltrexone"
+            },
+            {
+              "label": "Counseling Services",
+              "value": "counseling"
+            },
+            {
+              "label": "Case Management",
+              "value": "case_management"
+            },
+            {
+              "label": "Other Services",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "label": "Describe Other Services (if applicable)",
+          "key": "otherServicesDescription",
+          "rows": 2,
+          "conditional": {
+            "show": true,
+            "json": {
+              "===": [
+                {
+                  "var": "data.medicationTypes.other"
+                },
+                true
+              ]
+            }
+          }
+        },
+        {
+          "type": "number",
+          "label": "Maximum Patient Capacity",
+          "key": "maxPatientCapacity",
+          "placeholder": "Enter maximum number of patients",
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info mt-3",
+      "content": "<p><strong>Note:</strong> Copies of the OTP approval letter and operating certificate must be uploaded in Section 12 - Supporting Documentation.</p>",
+      "key": "attachment3Footer"
+    }
+  ]
+}

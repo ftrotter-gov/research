@@ -1,0 +1,32 @@
+{
+  "title": "Section 15: Certification Statement",
+  "key": "section15CertificationStatement",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<h3>Section 15: Certification Statement</h3><p><strong>Note:</strong> This section will be fully implemented with signature fields and certification statements. For now, this is a placeholder to allow testing of the form.</p>",
+      "key": "section15Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "I certify that the information provided in this application is true, accurate, and complete",
+      "key": "certificationAgreement"
+    },
+    {
+      "type": "textfield",
+      "label": "Signature (Full Name)",
+      "key": "signatureName",
+      "placeholder": "Type your full name"
+    },
+    {
+      "type": "datetime",
+      "label": "Date",
+      "key": "signatureDate",
+      "format": "MM/dd/yyyy",
+      "enableDate": true,
+      "enableTime": false
+    }
+  ]
+}

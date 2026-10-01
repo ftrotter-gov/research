@@ -1,0 +1,470 @@
+{
+  "title": "Section 6: Ownership Interest and/or Managing Control Information (Individuals)",
+  "key": "section6OwnershipIndividuals",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 6: Ownership Interest and/or Managing Control Information (Individuals)</h3><p>Report all individuals with ownership interest or managing control in your business.</p>",
+      "key": "section6Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Individual Identification Information (Ownership and/or Managing Control)",
+      "key": "ownershipIndividualInfo",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-warning",
+          "content": "<p><strong>Report if the individual has:</strong></p><ul><li>5% or greater direct/indirect ownership</li><li>Director/Officer position</li><li>Authorized or Delegated Official status</li><li>Managing Employee status (W-2 or contracted)</li><li>Partner status</li></ul><p>Complete a separate entry for each individual.</p>",
+          "key": "individualOwnershipInstructions"
+        },
+        {
+          "type": "panel",
+          "title": "Individual #1",
+          "key": "individual1Panel",
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Changing information for this individual",
+              "key": "ind1Changing"
+            },
+            {
+              "type": "radio",
+              "label": "Type of Change",
+              "key": "ind1ChangeType",
+              "values": [
+                {
+                  "label": "Change existing information",
+                  "value": "change"
+                },
+                {
+                  "label": "Add new individual",
+                  "value": "add"
+                },
+                {
+                  "label": "Remove individual",
+                  "value": "remove"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "ind1Changing",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "First Name",
+              "key": "ind1FirstName",
+              "placeholder": "Enter first name",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "ind1MiddleInitial",
+              "inputMask": "A"
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "ind1LastName",
+              "placeholder": "Enter last name",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Title",
+              "key": "ind1Title",
+              "placeholder": "e.g., CEO, CFO, President"
+            },
+            {
+              "type": "datetime",
+              "label": "Date of Birth",
+              "key": "ind1DateOfBirth",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Social Security Number (SSN) or Individual Tax Identification Number (ITIN)",
+              "key": "ind1SsnItin",
+              "placeholder": "XXX-XX-XXXX",
+              "inputMask": "999-99-9999",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "selectboxes",
+              "label": "What is this individual's relationship with the supplier? (Check all that apply)",
+              "key": "ind1Relationship",
+              "values": [
+                {
+                  "label": "5% or Greater Direct/Indirect Owner",
+                  "value": "owner_5pct"
+                },
+                {
+                  "label": "Director/Officer",
+                  "value": "director_officer"
+                },
+                {
+                  "label": "Authorized Official",
+                  "value": "authorized_official"
+                },
+                {
+                  "label": "Contracted Managing Employee",
+                  "value": "contracted_employee"
+                },
+                {
+                  "label": "Delegated Official",
+                  "value": "delegated_official"
+                },
+                {
+                  "label": "W-2 Managing Employee",
+                  "value": "w2_employee"
+                },
+                {
+                  "label": "Partner",
+                  "value": "partner"
+                }
+              ],
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective date this individual acquired ownership of the supplier",
+              "key": "ind1OwnershipDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "ind1Relationship",
+                "json": "!!row.ind1Relationship && (row.ind1Relationship.owner_5pct || row.ind1Relationship.partner)"
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective date this individual acquired managing control of the supplier",
+              "key": "ind1ManagingControlDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "ind1Relationship",
+                "json": "!!row.ind1Relationship && (row.ind1Relationship.director_officer || row.ind1Relationship.authorized_official || row.ind1Relationship.contracted_employee || row.ind1Relationship.delegated_official || row.ind1Relationship.w2_employee)"
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date of Change",
+              "key": "ind1EffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "ind1Changing",
+                "eq": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "panel",
+          "title": "Individual #2 (if applicable)",
+          "key": "individual2Panel",
+          "collapsible": true,
+          "collapsed": true,
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Check to add a second individual",
+              "key": "hasInd2"
+            },
+            {
+              "type": "checkbox",
+              "label": "Changing information for this individual",
+              "key": "ind2Changing",
+              "conditional": {
+                "show": true,
+                "when": "hasInd2",
+                "eq": true
+              }
+            },
+            {
+              "type": "radio",
+              "label": "Type of Change",
+              "key": "ind2ChangeType",
+              "values": [
+                {
+                  "label": "Change existing information",
+                  "value": "change"
+                },
+                {
+                  "label": "Add new individual",
+                  "value": "add"
+                },
+                {
+                  "label": "Remove individual",
+                  "value": "remove"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "ind2Changing",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "First Name",
+              "key": "ind2FirstName",
+              "conditional": {
+                "show": true,
+                "when": "hasInd2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "ind2MiddleInitial",
+              "inputMask": "A",
+              "conditional": {
+                "show": true,
+                "when": "hasInd2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "ind2LastName",
+              "conditional": {
+                "show": true,
+                "when": "hasInd2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Title",
+              "key": "ind2Title",
+              "conditional": {
+                "show": true,
+                "when": "hasInd2",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Date of Birth",
+              "key": "ind2DateOfBirth",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasInd2",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Social Security Number (SSN) or ITIN",
+              "key": "ind2SsnItin",
+              "inputMask": "999-99-9999",
+              "conditional": {
+                "show": true,
+                "when": "hasInd2",
+                "eq": true
+              }
+            },
+            {
+              "type": "selectboxes",
+              "label": "Relationship with supplier (Check all that apply)",
+              "key": "ind2Relationship",
+              "values": [
+                {
+                  "label": "5% or Greater Direct/Indirect Owner",
+                  "value": "owner_5pct"
+                },
+                {
+                  "label": "Director/Officer",
+                  "value": "director_officer"
+                },
+                {
+                  "label": "Authorized Official",
+                  "value": "authorized_official"
+                },
+                {
+                  "label": "Contracted Managing Employee",
+                  "value": "contracted_employee"
+                },
+                {
+                  "label": "Delegated Official",
+                  "value": "delegated_official"
+                },
+                {
+                  "label": "W-2 Managing Employee",
+                  "value": "w2_employee"
+                },
+                {
+                  "label": "Partner",
+                  "value": "partner"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "hasInd2",
+                "eq": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "panel",
+          "title": "Individual #3 (if applicable)",
+          "key": "individual3Panel",
+          "collapsible": true,
+          "collapsed": true,
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "Check to add a third individual",
+              "key": "hasInd3"
+            },
+            {
+              "type": "textfield",
+              "label": "First Name",
+              "key": "ind3FirstName",
+              "conditional": {
+                "show": true,
+                "when": "hasInd3",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "ind3MiddleInitial",
+              "inputMask": "A",
+              "conditional": {
+                "show": true,
+                "when": "hasInd3",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "ind3LastName",
+              "conditional": {
+                "show": true,
+                "when": "hasInd3",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Title",
+              "key": "ind3Title",
+              "conditional": {
+                "show": true,
+                "when": "hasInd3",
+                "eq": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Date of Birth",
+              "key": "ind3DateOfBirth",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "conditional": {
+                "show": true,
+                "when": "hasInd3",
+                "eq": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Social Security Number (SSN) or ITIN",
+              "key": "ind3SsnItin",
+              "inputMask": "999-99-9999",
+              "conditional": {
+                "show": true,
+                "when": "hasInd3",
+                "eq": true
+              }
+            },
+            {
+              "type": "selectboxes",
+              "label": "Relationship with supplier (Check all that apply)",
+              "key": "ind3Relationship",
+              "values": [
+                {
+                  "label": "5% or Greater Direct/Indirect Owner",
+                  "value": "owner_5pct"
+                },
+                {
+                  "label": "Director/Officer",
+                  "value": "director_officer"
+                },
+                {
+                  "label": "Authorized Official",
+                  "value": "authorized_official"
+                },
+                {
+                  "label": "Contracted Managing Employee",
+                  "value": "contracted_employee"
+                },
+                {
+                  "label": "Delegated Official",
+                  "value": "delegated_official"
+                },
+                {
+                  "label": "W-2 Managing Employee",
+                  "value": "w2_employee"
+                },
+                {
+                  "label": "Partner",
+                  "value": "partner"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "hasInd3",
+                "eq": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-info",
+          "content": "<p><strong>Note:</strong> If you need to report more than 3 individuals with ownership interest or managing control, please attach additional documentation with your application.</p>",
+          "key": "additionalIndividualsNote"
+        }
+      ]
+    }
+  ]
+}

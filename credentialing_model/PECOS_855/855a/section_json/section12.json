@@ -1,0 +1,101 @@
+{
+  "title": "Section 12: Special Requirements for Home Health Agencies (HHAs)",
+  "key": "section12HhaRequirements",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 12: Special Requirements for Home Health Agencies (HHAs)</h3><p>All HHAs enrolling in the Medicare program must complete this section.</p>",
+      "key": "section12Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "This section does not apply (Not an HHA) - Skip to Section 13",
+      "key": "hhaNotApplicable"
+    },
+    {
+      "type": "panel",
+      "title": "A. Home Health Agency",
+      "key": "hhaInfoPanel",
+      "customConditional": "show = !data.hhaNotApplicable;",
+      "components": [
+        {
+          "type": "radio",
+          "label": "Type of Home Health Agency",
+          "key": "hhaType",
+          "values": [
+            {"label": "Non-profit agency", "value": "nonprofit"},
+            {"label": "Proprietary agency", "value": "proprietary"}
+          ]
+        },
+        {
+          "type": "number",
+          "label": "Projected number of visits in the first three months of operation",
+          "key": "hhaVisitsThreeMonths",
+          "placeholder": "Enter number"
+        },
+        {
+          "type": "number",
+          "label": "Projected number of visits in the first twelve months of operation",
+          "key": "hhaVisitsTwelveMonths",
+          "placeholder": "Enter number"
+        },
+        {
+          "type": "radio",
+          "label": "Will the HHA be submitting financial documentation with this application?",
+          "key": "hhaSubmittingDocs",
+          "values": [
+            {"label": "Yes", "value": "yes"},
+            {"label": "No", "value": "no"}
+          ]
+        },
+        {
+          "type": "textarea",
+          "label": "Additional information (Explain any unique financial situations)",
+          "key": "hhaAdditionalInfo",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "B. Nursing Registries",
+      "key": "nursingRegistriesPanel",
+      "customConditional": "show = !data.hhaNotApplicable;",
+      "components": [
+        {
+          "type": "radio",
+          "label": "Does this HHA contract with a nursing registry whereby the latter furnishes personnel to perform HHA services?",
+          "key": "hhaUsesRegistry",
+          "values": [
+            {"label": "Yes - Furnish information below", "value": "yes"},
+            {"label": "No - Skip to Section 13", "value": "no"}
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Legal Business/Individual Name as reported to the IRS",
+          "key": "registryLegalName",
+          "conditional": {
+            "show": true,
+            "when": "hhaUsesRegistry",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Tax Identification Number (TIN)",
+          "key": "registryTin",
+          "placeholder": "XX-XXXXXXX",
+          "inputMask": "99-9999999",
+          "conditional": {
+            "show": true,
+            "when": "hhaUsesRegistry",
+            "eq": "yes"
+          }
+        }
+      ]
+    }
+  ]
+}

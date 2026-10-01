@@ -1,0 +1,64 @@
+{
+  "title": "Section 8: Chain Home Office",
+  "key": "section8ChainHomeOffice",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 8: Chain Home Office</h3><p>Complete this section only if your organization is part of a chain organization.</p>",
+      "key": "section8Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "Not Applicable - This organization is not part of a chain",
+      "key": "chainNotApplicable"
+    },
+    {
+      "type": "panel",
+      "title": "Chain Home Office Information",
+      "key": "chainInfoPanel",
+      "customConditional": "show = !data.chainNotApplicable;",
+      "components": [
+        {
+          "type": "textfield",
+          "label": "Chain Organization Name",
+          "key": "chainOrgName"
+        },
+        {
+          "type": "textfield",
+          "label": "Address Line 1",
+          "key": "chainAddress1"
+        },
+        {
+          "type": "textfield",
+          "label": "Address Line 2",
+          "key": "chainAddress2"
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "chainCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "chainState",
+          "inputMask": "AA"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "chainZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "chainPhone"
+        }
+      ]
+    }
+  ]
+}

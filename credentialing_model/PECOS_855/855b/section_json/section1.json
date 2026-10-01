@@ -1,0 +1,260 @@
+{
+  "title": "Section 1: Basic Information",
+  "key": "section1BasicInformation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 1: Basic Information</h3><p><strong>Form Purpose:</strong> Medicare Enrollment Application for Clinics/Group Practices, Certain Health Care Facilities, and Suppliers</p>",
+      "key": "section1Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Reason for Submitting This Application",
+      "key": "reasonForSubmitting",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Check one box and complete the required sections of this application as indicated.",
+          "key": "reasonInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Reason for Submitting",
+          "key": "submissionReason",
+          "values": [
+            {
+              "label": "You are a new enrollee in Medicare",
+              "value": "new_enrollee"
+            },
+            {
+              "label": "You are enrolling with another Medicare Administrative Contractor (MAC)",
+              "value": "enrolling_another_mac"
+            },
+            {
+              "label": "You are revalidating your Medicare enrollment",
+              "value": "revalidating"
+            },
+            {
+              "label": "You are reactivating your Medicare enrollment",
+              "value": "reactivating"
+            },
+            {
+              "label": "You are reporting a change to your Medicare enrollment information",
+              "value": "reporting_change"
+            },
+            {
+              "label": "You are voluntarily terminating your Medicare enrollment",
+              "value": "voluntarily_terminating"
+            }
+          ],
+          "defaultValue": "new_enrollee"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Termination",
+          "key": "terminationEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "submissionReason",
+            "eq": "voluntarily_terminating"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number",
+          "key": "medicareIdNumber",
+          "placeholder": "Enter Medicare ID if already issued"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. What Information is Changing?",
+      "key": "whatIsChanging",
+      "conditional": {
+        "show": true,
+        "when": "submissionReason",
+        "eq": "reporting_change"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Check all that apply and complete the required sections.",
+          "key": "changingInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "Categories of Information Being Changed",
+          "key": "changingCategories",
+          "values": [
+            {
+              "label": "Business Identifying Information",
+              "value": "business_identifying"
+            },
+            {
+              "label": "Private Practice Business Information",
+              "value": "private_practice"
+            },
+            {
+              "label": "Physician Assistant Employment Terminations",
+              "value": "pa_terminations"
+            },
+            {
+              "label": "Supplier Specific Information",
+              "value": "supplier_specific"
+            },
+            {
+              "label": "Medical Specialty Information",
+              "value": "medical_specialty"
+            },
+            {
+              "label": "Final Adverse Legal Actions",
+              "value": "adverse_legal_actions"
+            },
+            {
+              "label": "Change of Ownership (Hospitals, Hospital Departments, Portable X-Ray Suppliers and Ambulatory Surgical Centers Only)",
+              "value": "change_ownership"
+            },
+            {
+              "label": "Ownership Interest and/or Managing Control Information (Organizations)",
+              "value": "ownership_organizations"
+            },
+            {
+              "label": "Ownership Interest and/or Managing Control Information (Individuals)",
+              "value": "ownership_individuals"
+            },
+            {
+              "label": "Managing Employee Information",
+              "value": "managing_employee"
+            },
+            {
+              "label": "Address Information",
+              "value": "address_info"
+            },
+            {
+              "label": "Correspondence Mailing Address",
+              "value": "correspondence_address"
+            },
+            {
+              "label": "Medicare Beneficiary Medical Records Storage Address",
+              "value": "medical_records_address"
+            },
+            {
+              "label": "Practice Location Address",
+              "value": "practice_location"
+            },
+            {
+              "label": "Remittance Notices/Special Payment Mailing Address",
+              "value": "remittance_address"
+            },
+            {
+              "label": "Base of Operations Address for Mobile or Portable Suppliers (location of Business Office or Dispatcher/Scheduler)",
+              "value": "base_operations"
+            },
+            {
+              "label": "Billing Agency Information",
+              "value": "billing_agency"
+            },
+            {
+              "label": "Authorized Official(s) and/or Delegated Official(s)",
+              "value": "authorized_officials"
+            },
+            {
+              "label": "Any other information not specified above",
+              "value": "other"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Attachment 1: Ambulance Service Suppliers (Only)",
+      "key": "ambulanceAttachment",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "Ambulance Service Changes (if applicable)",
+          "key": "ambulanceChanges",
+          "values": [
+            {
+              "label": "Ambulance Supplier Transport Type",
+              "value": "transport_type"
+            },
+            {
+              "label": "Vehicle Information",
+              "value": "vehicle_info"
+            },
+            {
+              "label": "State License Information",
+              "value": "state_license"
+            },
+            {
+              "label": "Geographic Area",
+              "value": "geographic_area"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Attachment 2: Independent Diagnostic Testing Facilities (Only)",
+      "key": "idtfAttachment",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "IDTF Changes (if applicable)",
+          "key": "idtfChanges",
+          "values": [
+            {
+              "label": "Supervising Physicians",
+              "value": "supervising_physicians"
+            },
+            {
+              "label": "Personnel (Technicians) Who Perform Tests",
+              "value": "personnel_technicians"
+            },
+            {
+              "label": "Interpreting Physician Information",
+              "value": "interpreting_physicians"
+            },
+            {
+              "label": "C.P.T.-4 and H.C.P.C.S. Codes",
+              "value": "cpt_codes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Attachment 3: Opioid Treatment Programs (Only)",
+      "key": "otpAttachment",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "OTP Changes (if applicable)",
+          "key": "otpChanges",
+          "values": [
+            {
+              "label": "Opioid Treatment Program Personnel – Ordering Personnel Identification",
+              "value": "ordering_personnel"
+            },
+            {
+              "label": "Opioid Treatment Program Personnel – Dispensing Personnel Identification",
+              "value": "dispensing_personnel"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Section 14: Penalties for Falsifying Information",
+  "key": "section14Penalties",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<h3>Section 14: Penalties for Falsifying Information</h3><p><strong>WARNING:</strong> Any person who knowingly and willfully makes or causes to be made a false statement or representation of a material fact in an application for Medicare enrollment, or for use in determining the right to payment, may be prosecuted under applicable Federal or State laws.</p><p>Additionally, any physician or other eligible professional who orders or refers Medicare services or other items must provide his/her NPI. Failure to submit an NPI may result in claim denials or other adverse action, including under 42 C.F.R. section 424.535(a)(3).</p><p><strong>Section 1128B of the Social Security Act:</strong> Criminal penalties for acts involving Federal health care programs. Provides that whoever knowingly and willfully solicits, receives, offers, or pays remuneration (including any kickback, bribe, or rebate) directly or indirectly, overtly or covertly, in cash or in kind in return for referring an individual, or in return for purchasing, leasing, ordering, or arranging for the purchase, lease, or order of any item or service reimbursable under Medicare or Medicaid may be guilty of a felony punishable by a fine of up to $25,000 and/or imprisonment for up to five years.</p>",
+      "key": "section14Content"
+    },
+    {
+      "type": "checkbox",
+      "label": "I acknowledge that I have read and understand the penalties for falsifying information",
+      "key": "penaltiesAcknowledged"
+    }
+  ]
+}

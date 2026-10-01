@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS-855B Medicare Enrollment Application</title>
+    <link rel="stylesheet" href="https://cdn.form.io/formiojs/formio.full.min.css">
+    <script src="https://cdn.form.io/formiojs/formio.full.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        #formio {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #666;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="formio">
+        <div class="loading">Loading CMS-855B Form...</div>
+    </div>
+    
+    <script>
+        /**
+         * Build a wizard form by loading section definitions from separate JSON files
+         */
+        async function buildWizard() {
+            try {
+                // Load the wizard configuration
+                const wrapper = await (await fetch('./wizard.json')).json();
+                
+                // Load all section files in parallel
+                const pages = await Promise.all(
+                    wrapper.pageFiles.map(p => fetch(p).then(r => {
+                        if (!r.ok) throw new Error(`Failed to load ${p}: ${r.statusText}`);
+                        return r.json();
+                    }))
+                );
+
+                // Build the wizard schema
+                return {
+                    display: "wizard",
+                    title: wrapper.title,
+                    components: pages.map((page, i) => ({
+                        type: "panel",
+                        title: page.title || `Page ${i+1}`,
+                        key: page.key || `page${i+1}`,
+                        components: page.components || []
+                    }))
+                };
+            } catch (error) {
+                console.error('Error building wizard:', error);
+                throw error;
+            }
+        }
+
+        /**
+         * Initialize the form
+         */
+        async function initForm() {
+            try {
+                // Wait for Formio to be available
+                if (typeof Formio === 'undefined') {
+                    throw new Error('Formio library failed to load from CDN');
+                }
+                
+                // Build the form schema
+                const schema = await buildWizard();
+                
+                // Create the form
+                const form = await Formio.createForm(document.getElementById('formio'), schema);
+                
+                console.log('CMS-855B form loaded successfully');
+                
+                // Log form changes
+                form.on('change', (changed) => {
+                    console.log('Form changed:', changed);
+                });
+                
+                // Handle form submission
+                form.on('submit', (submission) => {
+                    console.log('Form submitted:', submission);
+                    alert('Form submitted! Check console for data.');
+                });
+                
+                // Handle page navigation
+                form.on('nextPage', (page) => {
+                    console.log('Moving to next page:', page);
+                });
+                
+                form.on('prevPage', (page) => {
+                    console.log('Moving to previous page:', page);
+                });
+                
+            } catch (error) {
+                console.error('Error initializing form:', error);
+                document.getElementById('formio').innerHTML = `
+                    <div class="error">
+                        <h3>Error Loading Form</h3>
+                        <p>${error.message}</p>
+                        <p>Please check the browser console for more details.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize when page loads - wait for both DOM and scripts
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                // Give the CDN scripts a moment to load
+                setTimeout(initForm, 100);
+            });
+        } else {
+            // DOM already loaded
+            setTimeout(initForm, 100);
+        }
+    </script>
+</body>
+</html>

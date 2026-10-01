@@ -1,0 +1,60 @@
+{
+  "title": "Section 5: Ownership Interest and/or Managing Control Information (Organizations)",
+  "key": "section5OwnershipOrganizations",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 5: Ownership Interest and/or Managing Control Information (Organizations)</h3><p>Report all organizations with 5% or more ownership interest, partners, or managing control in your business.</p>",
+      "key": "section5Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "Not Applicable - No organizations have ownership interest or managing control",
+      "key": "ownershipOrgsNotApplicable"
+    },
+    {
+      "type": "panel",
+      "title": "Organization #1",
+      "key": "organization1Panel",
+      "customConditional": "show = !data.ownershipOrgsNotApplicable;",
+      "components": [
+        {
+          "type": "selectboxes",
+          "label": "Relationship to Provider (Check all that apply)",
+          "key": "org1Relationship",
+          "values": [
+            {"label": "5 Percent or More Ownership Interest", "value": "ownership_5pct"},
+            {"label": "Partner", "value": "partner"},
+            {"label": "Managing Control", "value": "managing_control"}
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Legal Business Name as Reported to the IRS",
+          "key": "org1LegalName"
+        },
+        {
+          "type": "textfield",
+          "label": "Doing Business As Name (if applicable)",
+          "key": "org1DbaName"
+        },
+        {
+          "type": "textfield",
+          "label": "Tax Identification Number (TIN)",
+          "key": "org1Tin",
+          "placeholder": "XX-XXXXXXX",
+          "inputMask": "99-9999999"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI)",
+          "key": "org1Npi",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999"
+        }
+      ]
+    }
+  ]
+}

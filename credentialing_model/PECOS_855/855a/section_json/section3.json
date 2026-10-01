@@ -1,0 +1,108 @@
+{
+  "title": "Section 3: Final Adverse Legal Actions",
+  "key": "section3FinalAdverseLegalActions",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<h3>Section 3: Final Adverse Legal Actions</h3><p>This section captures information regarding final adverse legal actions, such as convictions, exclusions, license revocations and license suspensions. All applicable final adverse legal actions must be reported, regardless of whether any records were expunged or any appeals are pending.</p><p><strong>NOTE:</strong> To satisfy the reporting requirement, Section 3 must be filled out in its entirety, and all applicable attachments must be included.</p>",
+      "key": "section3Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Federal and State Convictions Within the Preceding 10 Years",
+      "key": "federalStateConvictions",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "content": "<p><strong>Report any of the following:</strong></p><ol><li>Any federal or state felony conviction(s) by the provider, supplier, or any owner or managing employee.</li><li>Any crime where judgment of conviction has been withheld, or the criminal conduct has been expunged or otherwise removed, or there is a post-trial motion or appeal pending.</li><li>Any misdemeanor conviction related to: (a) the delivery of an item or service under Medicare or a state health care program, or (b) the abuse or neglect of a patient.</li><li>Any misdemeanor conviction related to theft, fraud, embezzlement, breach of fiduciary duty, or other financial misconduct in connection with health care.</li><li>Any misdemeanor conviction related to the unlawful manufacture, distribution, prescription, or dispensing of a controlled substance.</li><li>Any misdemeanor conviction related to interference with or obstruction of any investigation.</li></ol>",
+          "key": "convictionsInstructions"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Exclusions, Revocations or Suspensions",
+      "key": "exclusionsRevocations",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "content": "<p><strong>Report any of the following:</strong></p><ol><li>Any current or past revocation or suspension of a medical license.</li><li>Any current or past voluntary surrender of a medical license in lieu of further disciplinary action.</li><li>Any current or past revocation or suspension of accreditation.</li><li>Any current or past suspension or exclusion imposed by the HHS Office of Inspector General (OIG).</li><li>Any current or past debarment from participation in any Federal Executive Branch procurement or non-procurement program.</li><li>Any other current or past federal sanctions (e.g., Civil Monetary Penalties (CMP)).</li><li>Any current or past Medicaid or any federal health care program exclusion, revocation, or termination of any billing number.</li></ol>",
+          "key": "exclusionsInstructions"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Final Adverse Legal Action",
+      "key": "finalAdverseAction",
+      "components": [
+        {
+          "type": "radio",
+          "label": "Has your organization, under any current or former name or business identity, had a final adverse legal action listed above imposed against it?",
+          "key": "hasFinalAdverseAction",
+          "values": [
+            {
+              "label": "Yes - continue below",
+              "value": "yes"
+            },
+            {
+              "label": "No - skip to section 4",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>If yes, report each final adverse legal action, when it occurred, and the federal or state agency or the court/administrative body that imposed the action.</strong>",
+          "key": "reportingInstructions",
+          "conditional": {
+            "show": true,
+            "when": "hasFinalAdverseAction",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "datagrid",
+          "label": "Final Adverse Legal Actions",
+          "key": "adverseActions",
+          "reorder": false,
+          "addAnother": "Add Another Action",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": true,
+            "when": "hasFinalAdverseAction",
+            "eq": "yes"
+          },
+          "components": [
+            {
+              "type": "textarea",
+              "label": "Final Adverse Legal Action",
+              "key": "action",
+              "rows": 3,
+              "placeholder": "Describe the final adverse legal action"
+            },
+            {
+              "type": "datetime",
+              "label": "Date",
+              "key": "date",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false
+            },
+            {
+              "type": "textfield",
+              "label": "Action Taken By",
+              "key": "takenBy",
+              "placeholder": "Federal or state agency or court/administrative body"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

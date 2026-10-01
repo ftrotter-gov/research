@@ -1,0 +1,260 @@
+{
+  "title": "Section 1: Basic Information",
+  "key": "section1BasicInformation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 1: Basic Information</h3><p><strong>ALL APPLICANTS MUST COMPLETE THIS SECTION</strong></p>",
+      "key": "section1Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Reason for Submitting This Application",
+      "key": "reasonForSubmitting",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Check one box and complete the required sections.",
+          "key": "reasonInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Reason for Submitting",
+          "key": "submissionReason",
+          "values": [
+            {
+              "label": "You are a new enrollee in Medicare",
+              "value": "new_enrollee"
+            },
+            {
+              "label": "You are solely enrolling in Medicare to participate in Medicaid or another health care program and will not be billing Medicare",
+              "value": "medicaid_only"
+            },
+            {
+              "label": "You are enrolling with another Medicare Administrative Contractor (MAC)",
+              "value": "enrolling_another_mac"
+            },
+            {
+              "label": "You are revalidating your Medicare enrollment",
+              "value": "revalidating"
+            },
+            {
+              "label": "You are reactivating your Medicare enrollment",
+              "value": "reactivating"
+            },
+            {
+              "label": "You are changing your Medicare information",
+              "value": "changing_information"
+            },
+            {
+              "label": "There has been a Change of Ownership (CHOW) of the Medicare-enrolled provider",
+              "value": "change_of_ownership"
+            },
+            {
+              "label": "Your organization has taken part in an acquisition or merger",
+              "value": "acquisition_merger"
+            },
+            {
+              "label": "Your organization has consolidated with another organization",
+              "value": "consolidation"
+            },
+            {
+              "label": "You are voluntarily terminating your Medicare enrollment",
+              "value": "voluntarily_terminating"
+            }
+          ],
+          "defaultValue": "new_enrollee"
+        },
+        {
+          "type": "radio",
+          "label": "For Change of Ownership - You are the:",
+          "key": "chowRole",
+          "values": [
+            {
+              "label": "Seller/Former owner",
+              "value": "seller"
+            },
+            {
+              "label": "Buyer/New owner",
+              "value": "buyer"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "submissionReason",
+            "eq": "change_of_ownership"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "For Acquisition/Merger - You are the:",
+          "key": "acquisitionRole",
+          "values": [
+            {
+              "label": "Seller/former owner",
+              "value": "seller"
+            },
+            {
+              "label": "Buyer/new owner",
+              "value": "buyer"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "submissionReason",
+            "eq": "acquisition_merger"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number of the seller/former owner (if issued)",
+          "key": "acquisitionSellerMedicareId",
+          "placeholder": "Enter Medicare ID",
+          "conditional": {
+            "show": true,
+            "when": "submissionReason",
+            "eq": "acquisition_merger"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "For Consolidation - You are the:",
+          "key": "consolidationRole",
+          "values": [
+            {
+              "label": "Former organization",
+              "value": "former"
+            },
+            {
+              "label": "New organization",
+              "value": "new"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "submissionReason",
+            "eq": "consolidation"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number of the seller/former owner (if issued)",
+          "key": "consolidationFormerMedicareId",
+          "placeholder": "Enter Medicare ID",
+          "conditional": {
+            "show": true,
+            "when": "submissionReason",
+            "eq": "consolidation"
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Termination",
+          "key": "terminationEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "submissionReason",
+            "eq": "voluntarily_terminating"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number",
+          "key": "medicareIdNumber",
+          "placeholder": "Enter Medicare ID if already issued"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. What Information is Changing?",
+      "key": "whatIsChanging",
+      "conditional": {
+        "show": true,
+        "when": "submissionReason",
+        "eq": "changing_information"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>NOTE:</strong> When reporting ANY information, sections 1, 2B1, 3, and 15 MUST always be completed in addition to the information that is changing within the required section.",
+          "key": "changingNote"
+        },
+        {
+          "type": "selectboxes",
+          "label": "Check all that apply",
+          "key": "changingCategories",
+          "values": [
+            {
+              "label": "Business identifying information",
+              "value": "business_identifying"
+            },
+            {
+              "label": "Final adverse legal actions",
+              "value": "adverse_legal_actions"
+            },
+            {
+              "label": "Provider specific information",
+              "value": "provider_specific"
+            },
+            {
+              "label": "Address information",
+              "value": "address_info"
+            },
+            {
+              "label": "Ownership interest and/or managing control information (organizations)",
+              "value": "ownership_organizations"
+            },
+            {
+              "label": "Ownership interest and/or managing control information (individuals)",
+              "value": "ownership_individuals"
+            },
+            {
+              "label": "Chain home office information",
+              "value": "chain_home_office"
+            },
+            {
+              "label": "Managing employee information",
+              "value": "managing_employee"
+            },
+            {
+              "label": "Authorized official(s) and/or delegated official(s)",
+              "value": "authorized_officials"
+            },
+            {
+              "label": "Medicare specialty information",
+              "value": "specialty_info"
+            },
+            {
+              "label": "Renal dialysis facility information",
+              "value": "renal_dialysis"
+            },
+            {
+              "label": "Opioid treatment program personnel",
+              "value": "otp_personnel"
+            },
+            {
+              "label": "Ambulatory surgical center information",
+              "value": "asc_info"
+            },
+            {
+              "label": "Skilled nursing facility disclosures",
+              "value": "snf_disclosures"
+            },
+            {
+              "label": "Any other information not specified above",
+              "value": "other"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

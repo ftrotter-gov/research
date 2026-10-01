@@ -1,0 +1,240 @@
+{
+  "title": "Section 4: Practice Location Information",
+  "key": "section4PracticeLocation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 4: Practice Location Information</h3><p>This section captures information about the physical location(s) where you currently provide health care services. Complete this section for each of your practice locations where you render services to Medicare beneficiaries.</p><p><strong>IMPORTANT:</strong> The provider should designate its primary practice location in Section 4A. All reported practice location addresses must be a specific street address (not a P.O. Box).</p>",
+      "key": "section4Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Practice Location Information",
+      "key": "practiceLocationInfo",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "Changing, adding, or removing practice location information",
+          "key": "practiceLocationChange"
+        },
+        {
+          "type": "radio",
+          "label": "Type of Change",
+          "key": "practiceLocationChangeType",
+          "values": [
+            {"label": "Change", "value": "change"},
+            {"label": "Add", "value": "add"},
+            {"label": "Remove", "value": "remove"}
+          ],
+          "conditional": {
+            "show": true,
+            "when": "practiceLocationChange",
+            "eq": true
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Effective date",
+          "key": "practiceLocationEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "practiceLocationChange",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Practice location name ('Doing business as' name, if applicable)",
+          "key": "practiceLocationName"
+        },
+        {
+          "type": "textfield",
+          "label": "Practice location street address line 1 (street name and number – not a P.O. Box)",
+          "key": "practiceLocationAddress1",
+          "placeholder": "Street address (no P.O. Box)"
+        },
+        {
+          "type": "textfield",
+          "label": "Practice location address line 2 (suite, room, apt. #, etc.)",
+          "key": "practiceLocationAddress2"
+        },
+        {
+          "type": "textfield",
+          "label": "City/town",
+          "key": "practiceLocationCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "practiceLocationState",
+          "inputMask": "AA"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "practiceLocationZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone number (if applicable)",
+          "key": "practiceLocationPhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax number (if applicable)",
+          "key": "practiceLocationFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail address (if applicable)",
+          "key": "practiceLocationEmail"
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number for this location—CCN (if issued)",
+          "key": "practiceLocationCcn"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI)",
+          "key": "practiceLocationNpi",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999"
+        },
+        {
+          "type": "radio",
+          "label": "Is this your primary practice location?",
+          "key": "isPrimaryLocation",
+          "values": [
+            {"label": "Yes", "value": "yes"},
+            {"label": "No", "value": "no"}
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Date you saw or will see your first Medicare patient at this practice location",
+          "key": "firstMedicarePatientDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false
+        },
+        {
+          "type": "textfield",
+          "label": "CLIA Number for this location (if applicable)",
+          "key": "cliaNumber"
+        },
+        {
+          "type": "textfield",
+          "label": "FDA/Radiology (Mammography) Certification Number for this location (if issued)",
+          "key": "fdaCertNumber"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Remittance Notices/Special Payments Mailing Address",
+      "key": "remittanceAddress",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Furnish an address where remittance notices and special payments should be sent for services rendered at the practice location. Medicare will issue all routine payments via EFT.",
+          "key": "remittanceInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Where should remittance notices/special payments be mailed?",
+          "key": "remittanceAddressOption",
+          "values": [
+            {"label": "Mail to primary practice location address (Section 4A)", "value": "practice_location"},
+            {"label": "Mail to correspondence address (Section 2C)", "value": "correspondence"},
+            {"label": "Mail to different address (specify below)", "value": "different"}
+          ]
+        },
+        {
+          "type": "checkbox",
+          "label": "Change - Updating remittance address",
+          "key": "remittanceChange",
+          "conditional": {
+            "show": true,
+            "when": "remittanceAddressOption",
+            "eq": "different"
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Effective date of change",
+          "key": "remittanceEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "remittanceChange",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "'Special payments' address line 1 (P.O. Box or street name and number)",
+          "key": "remittanceAddress1",
+          "conditional": {
+            "show": true,
+            "when": "remittanceAddressOption",
+            "eq": "different"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "'Special payments' address line 2 (suite, room, apt. #, etc.)",
+          "key": "remittanceAddress2",
+          "conditional": {
+            "show": true,
+            "when": "remittanceAddressOption",
+            "eq": "different"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "City/town",
+          "key": "remittanceCity",
+          "conditional": {
+            "show": true,
+            "when": "remittanceAddressOption",
+            "eq": "different"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "remittanceState",
+          "inputMask": "AA",
+          "conditional": {
+            "show": true,
+            "when": "remittanceAddressOption",
+            "eq": "different"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "remittanceZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999",
+          "conditional": {
+            "show": true,
+            "when": "remittanceAddressOption",
+            "eq": "different"
+          }
+        }
+      ]
+    }
+  ]
+}

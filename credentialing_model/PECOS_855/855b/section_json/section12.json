@@ -1,0 +1,440 @@
+{
+  "title": "Section 12: Supporting Documentation Information",
+  "key": "section12SupportingDocumentation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 12: Supporting Documentation Information</h3><p>Check all documents that you are including with this application and upload the files. Required documents vary based on your supplier type and circumstances.</p>",
+      "key": "section12Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "General Required Documents",
+      "key": "generalDocuments",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "Completed Form CMS-855R (Individual Reassignment of Medicare Benefits)",
+          "key": "doc855R",
+          "description": "Required if submitting claims for individual practitioners as part of your group/clinic"
+        },
+        {
+          "type": "file",
+          "label": "Upload CMS-855R Form(s)",
+          "key": "upload855R",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "doc855R",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy(s) of all final adverse legal action documentation",
+          "key": "docAdverseLegalActions",
+          "description": "Include if you answered 'Yes' to Section 3"
+        },
+        {
+          "type": "file",
+          "label": "Upload Adverse Legal Action Documentation",
+          "key": "uploadAdverseLegalActions",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docAdverseLegalActions",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Completed Form CMS-460 (Medicare Participating Physician or Supplier Agreement)",
+          "key": "docCms460"
+        },
+        {
+          "type": "file",
+          "label": "Upload CMS-460 Form",
+          "key": "uploadCms460",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docCms460",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Completed Form CMS-588 (Electronic Funds Transfer Authorization Agreement) with voided check or bank letter",
+          "key": "docCms588"
+        },
+        {
+          "type": "file",
+          "label": "Upload CMS-588 Form and Voided Check/Bank Letter",
+          "key": "uploadCms588",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docCms588",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Bank waiver of right of offset statement",
+          "key": "docBankWaiver",
+          "description": "Required if Medicare payments go to a bank where you have a loan"
+        },
+        {
+          "type": "file",
+          "label": "Upload Bank Waiver Statement",
+          "key": "uploadBankWaiver",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docBankWaiver",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Business Structure & Tax Documents",
+      "key": "businessDocuments",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "Written confirmation from IRS confirming TIN and Legal Business Name (e.g., IRS Form CP-575)",
+          "key": "docIrsTinConfirmation",
+          "description": "Must match the TIN and Legal Business Name in Section 2A"
+        },
+        {
+          "type": "file",
+          "label": "Upload IRS TIN Confirmation (e.g., Form CP-575)",
+          "key": "uploadIrsTinConfirmation",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docIrsTinConfirmation",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "IRS confirmation for LLC classified as Disregarded Entity (e.g., IRS Form 8832)",
+          "key": "docIrsLlcDisregarded",
+          "description": "Required if your business is an LLC, including single-member LLCs"
+        },
+        {
+          "type": "file",
+          "label": "Upload IRS LLC/Disregarded Entity Form (e.g., Form 8832)",
+          "key": "uploadIrsLlcDisregarded",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docIrsLlcDisregarded",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy of IRS Determination Letter for non-profit status (e.g., IRS Form 501(c)(3))",
+          "key": "docIrsNonProfit",
+          "description": "Required if you are registered as non-profit"
+        },
+        {
+          "type": "file",
+          "label": "Upload IRS Non-Profit Determination Letter (Form 501(c)(3))",
+          "key": "uploadIrsNonProfit",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docIrsNonProfit",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Organizational structure diagram/flowchart identifying all entities in Section 5",
+          "key": "docOrgChart",
+          "description": "Must show relationships between provider and all organizations with ownership"
+        },
+        {
+          "type": "file",
+          "label": "Upload Organizational Structure Diagram/Flowchart",
+          "key": "uploadOrgChart",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png,.vsd,.vsdx",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docOrgChart",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy of attestation for government entities and tribal organizations",
+          "key": "docGovernmentAttestation"
+        },
+        {
+          "type": "file",
+          "label": "Upload Government/Tribal Attestation",
+          "key": "uploadGovernmentAttestation",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docGovernmentAttestation",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Ambulance Service Documents",
+      "key": "ambulanceDocuments",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "text-muted",
+          "content": "<em>Required for ambulance service suppliers</em>",
+          "key": "ambulanceNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy of all ambulance licenses",
+          "key": "docAmbulanceLicenses",
+          "description": "REQUIRED for all ambulance application submissions, including changes"
+        },
+        {
+          "type": "file",
+          "label": "Upload Ambulance License(s)",
+          "key": "uploadAmbulanceLicenses",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docAmbulanceLicenses",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy of all mobile vehicle registrations",
+          "key": "docMobileVehicleRegistrations",
+          "description": "Required for all mobile services including ambulance vehicles"
+        },
+        {
+          "type": "file",
+          "label": "Upload Mobile Vehicle Registration(s)",
+          "key": "uploadMobileVehicleRegistrations",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docMobileVehicleRegistrations",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy of FAA 135 Certificate",
+          "key": "docFaa135Certificate",
+          "description": "Required for air ambulance suppliers only"
+        },
+        {
+          "type": "file",
+          "label": "Upload FAA 135 Certificate",
+          "key": "uploadFaa135Certificate",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docFaa135Certificate",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Independent Diagnostic Testing Facility (IDTF) Documents",
+      "key": "idtfDocuments",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "text-muted",
+          "content": "<em>Required for Independent Diagnostic Testing Facilities (IDTFs)</em>",
+          "key": "idtfNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy(s) of comprehensive liability insurance policy",
+          "key": "docIdtfInsurance",
+          "description": "IDTFs only"
+        },
+        {
+          "type": "file",
+          "label": "Upload Comprehensive Liability Insurance Policy",
+          "key": "uploadIdtfInsurance",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docIdtfInsurance",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Documentation verifying IDTF Supervisory Physician(s) proficiency and/or personnel licenses/certifications",
+          "key": "docIdtfPersonnelCredentials"
+        },
+        {
+          "type": "file",
+          "label": "Upload IDTF Personnel Credentials Documentation",
+          "key": "uploadIdtfPersonnelCredentials",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docIdtfPersonnelCredentials",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Independent Clinical Laboratory Documents",
+      "key": "labDocuments",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "text-muted",
+          "content": "<em>Required for independent clinical laboratories</em>",
+          "key": "labNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "Documentation verifying laboratory Director and personnel licenses/certifications",
+          "key": "docLabPersonnelCredentials"
+        },
+        {
+          "type": "file",
+          "label": "Upload Laboratory Personnel Credentials Documentation",
+          "key": "uploadLabPersonnelCredentials",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docLabPersonnelCredentials",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Opioid Treatment Program (OTP) Documents",
+      "key": "otpDocuments",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "text-muted",
+          "content": "<em>Required for Opioid Treatment Programs</em>",
+          "key": "otpNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy of Opioid Treatment Program approval letter",
+          "key": "docOtpApprovalLetter"
+        },
+        {
+          "type": "file",
+          "label": "Upload OTP Approval Letter",
+          "key": "uploadOtpApprovalLetter",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docOtpApprovalLetter",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy of Opioid Treatment Program operating certificate",
+          "key": "docOtpOperatingCertificate"
+        },
+        {
+          "type": "file",
+          "label": "Upload OTP Operating Certificate",
+          "key": "uploadOtpOperatingCertificate",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docOtpOperatingCertificate",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-success mt-3",
+      "content": "<p><strong>File Upload Information:</strong></p><ul><li>Accepted formats: PDF, JPG, JPEG, PNG</li><li>Maximum file size: 10MB per file</li><li>Multiple files can be uploaded where indicated</li><li>Files are stored securely as base64-encoded data</li></ul>",
+      "key": "uploadInfo"
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<p><strong>Important:</strong> Failure to include required supporting documentation may delay processing of your application or result in denial. Please ensure all checked documents are uploaded.</p>",
+      "key": "section12Footer"
+    }
+  ]
+}

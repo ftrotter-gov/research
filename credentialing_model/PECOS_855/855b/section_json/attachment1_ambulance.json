@@ -1,0 +1,212 @@
+{
+  "title": "Attachment 1: Ambulance Service Suppliers",
+  "key": "attachment1Ambulance",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-primary",
+      "content": "<h3>Attachment 1: Ambulance Service Suppliers</h3><p>This attachment is REQUIRED for ambulance service suppliers only.</p>",
+      "key": "attachment1Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Ambulance Supplier Transport Type",
+      "key": "transportType",
+      "components": [
+        {
+          "type": "radio",
+          "label": "What type of ambulance service are you enrolling as?",
+          "key": "ambulanceType",
+          "values": [
+            {
+              "label": "Non-Emergency Ambulance",
+              "value": "non_emergency"
+            },
+            {
+              "label": "Emergency Ambulance",
+              "value": "emergency"
+            },
+            {
+              "label": "Both Non-Emergency and Emergency Ambulance",
+              "value": "both"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Geographic Area Served",
+      "key": "geographicArea",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>List all geographic areas (cities, counties, states, ZIP codes) where you provide ambulance services. You can add multiple service areas.</strong>",
+          "key": "geoInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "Changing geographic service areas",
+          "key": "geoChanging"
+        },
+        {
+          "type": "radio",
+          "label": "Type of Change",
+          "key": "geoChangeType",
+          "values": [
+            {
+              "label": "Add new service area",
+              "value": "add"
+            },
+            {
+              "label": "Remove service area",
+              "value": "remove"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "geoChanging",
+            "eq": true
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Change",
+          "key": "geoEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "geoChanging",
+            "eq": true
+          }
+        },
+        {
+          "type": "datagrid",
+          "label": "Service Areas",
+          "key": "serviceAreas",
+          "reorder": false,
+          "addAnother": "Add Another Service Area",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "city",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "County",
+              "key": "county",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "State/Territory",
+              "key": "state",
+              "inputMask": "AA",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code",
+              "key": "zipCode",
+              "inputMask": "99999",
+              "validate": {
+                "required": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Vehicle Information",
+      "key": "vehicleInfo",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>List all ambulance vehicles. Include license numbers and registration information for each vehicle.</strong>",
+          "key": "vehicleInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Ambulance Vehicles",
+          "key": "vehicles",
+          "reorder": false,
+          "addAnother": "Add Another Vehicle",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Vehicle License/Permit Number",
+              "key": "licenseNumber",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Vehicle Registration Number",
+              "key": "registrationNumber",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Vehicle Make/Model",
+              "key": "makeModel"
+            },
+            {
+              "type": "textfield",
+              "label": "Vehicle Identification Number (VIN)",
+              "key": "vin"
+            },
+            {
+              "type": "radio",
+              "label": "Vehicle Type",
+              "key": "vehicleType",
+              "values": [
+                {
+                  "label": "Ground Ambulance",
+                  "value": "ground"
+                },
+                {
+                  "label": "Air Ambulance",
+                  "value": "air"
+                },
+                {
+                  "label": "Water Ambulance",
+                  "value": "water"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info mt-3",
+      "content": "<p><strong>Note:</strong> Copies of all ambulance licenses and vehicle registrations must be uploaded in Section 12 - Supporting Documentation.</p>",
+      "key": "attachment1Footer"
+    }
+  ]
+}

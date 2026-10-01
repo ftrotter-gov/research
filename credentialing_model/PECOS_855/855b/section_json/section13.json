@@ -1,0 +1,190 @@
+{
+  "title": "Section 13: Contact Person Information (Optional)",
+  "key": "section13ContactPerson",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 13: Contact Person Information (Optional)</h3><p>Designate a contact person for Medicare enrollment questions and correspondence. This section is optional.</p>",
+      "key": "section13Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "I want to designate a contact person",
+      "key": "hasContactPerson",
+      "description": "Check this box if you want to provide a contact person for Medicare enrollment matters"
+    },
+    {
+      "type": "fieldset",
+      "legend": "Contact Person Details",
+      "key": "contactPersonDetails",
+      "conditional": {
+        "show": true,
+        "when": "hasContactPerson",
+        "eq": true
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>Note:</strong> The contact person will be the primary point of contact for Medicare Administrative Contractor (MAC) communication regarding this enrollment application.</p>",
+          "key": "contactPersonNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "Changing or removing contact person information",
+          "key": "contactPersonChanging"
+        },
+        {
+          "type": "radio",
+          "label": "Type of Change",
+          "key": "contactPersonChangeType",
+          "values": [
+            {
+              "label": "Change existing contact person",
+              "value": "change"
+            },
+            {
+              "label": "Add new contact person",
+              "value": "add"
+            },
+            {
+              "label": "Remove contact person",
+              "value": "remove"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "contactPersonChanging",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "First Name",
+          "key": "contactPersonFirstName",
+          "placeholder": "Enter first name",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Middle Initial",
+          "key": "contactPersonMiddleInitial",
+          "inputMask": "A",
+          "placeholder": "M"
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name",
+          "key": "contactPersonLastName",
+          "placeholder": "Enter last name",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Title/Position",
+          "key": "contactPersonTitle",
+          "placeholder": "e.g., Office Manager, Enrollment Coordinator"
+        },
+        {
+          "type": "textfield",
+          "label": "Contact Person Address Line 1 (Street Name and Number)",
+          "key": "contactPersonAddress1",
+          "placeholder": "Street address",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Address Line 2 (Suite, Room, Apt. #, etc.)",
+          "key": "contactPersonAddress2",
+          "placeholder": "Suite, Room, etc."
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "contactPersonCity",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "contactPersonState",
+          "inputMask": "AA",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "contactPersonZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "contactPersonPhone",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "contactPersonFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "contactPersonEmail",
+          "description": "Recommended - enables faster communication"
+        },
+        {
+          "type": "textfield",
+          "label": "Relationship or Affiliation to Organization",
+          "key": "contactPersonRelationship",
+          "placeholder": "e.g., Employee, Consultant, Third-party Administrator"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Change",
+          "key": "contactPersonEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "contactPersonChanging",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info mt-3",
+      "content": "<p><strong>Privacy Notice:</strong> The contact person information provided will be used solely for Medicare enrollment purposes and correspondence from the Medicare Administrative Contractor (MAC).</p>",
+      "key": "section13Footer",
+      "conditional": {
+        "show": true,
+        "when": "hasContactPerson",
+        "eq": true
+      }
+    }
+  ]
+}

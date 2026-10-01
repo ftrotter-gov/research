@@ -1,0 +1,242 @@
+{
+  "title": "Attachment 2: Independent Diagnostic Testing Facilities (IDTFs)",
+  "key": "attachment2Idtf",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-primary",
+      "content": "<h3>Attachment 2: Independent Diagnostic Testing Facilities (IDTFs)</h3><p>This attachment is REQUIRED for Independent Diagnostic Testing Facilities only.</p>",
+      "key": "attachment2Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Standards Qualifications",
+      "key": "standardsQualifications",
+      "components": [
+        {
+          "type": "datetime",
+          "label": "Date this IDTF met all current CMS standards",
+          "key": "cmsStandardsDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "validate": {
+            "required": true
+          },
+          "description": "Provide the date your facility met all CMS IDTF standards"
+        },
+        {
+          "type": "textarea",
+          "label": "Description of CMS Standards Compliance",
+          "key": "complianceDescription",
+          "rows": 3,
+          "placeholder": "Briefly describe how your facility meets CMS IDTF standards"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Supervisory Physician Information",
+      "key": "supervisoryPhysicians",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>List all supervising physicians for the IDTF. Each physician must be properly licensed and credentialed.</strong>",
+          "key": "physicianInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Supervisory Physicians",
+          "key": "physicians",
+          "reorder": false,
+          "addAnother": "Add Another Physician",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Physician First Name",
+              "key": "firstName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "middleInitial",
+              "inputMask": "A"
+            },
+            {
+              "type": "textfield",
+              "label": "Physician Last Name",
+              "key": "lastName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "NPI (National Provider Identifier)",
+              "key": "npi",
+              "inputMask": "9999999999",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "State License Number",
+              "key": "licenseNumber",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "State of Licensure",
+              "key": "licenseState",
+              "inputMask": "AA",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Specialty",
+              "key": "specialty",
+              "placeholder": "e.g., Radiology, Cardiology"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Non-Physician Personnel",
+      "key": "nonPhysicianPersonnel",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>List all non-physician personnel who perform or supervise diagnostic testing.</strong>",
+          "key": "personnelInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Non-Physician Personnel",
+          "key": "personnel",
+          "reorder": false,
+          "addAnother": "Add Another Personnel",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "First Name",
+              "key": "firstName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "lastName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Title/Role",
+              "key": "title",
+              "placeholder": "e.g., Radiologic Technologist, Sonographer"
+            },
+            {
+              "type": "textfield",
+              "label": "License/Certification Number",
+              "key": "licenseNumber"
+            },
+            {
+              "type": "textfield",
+              "label": "State of License/Certification",
+              "key": "licenseState",
+              "inputMask": "AA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "D. Diagnostic Testing Services",
+      "key": "diagnosticServices",
+      "components": [
+        {
+          "type": "selectboxes",
+          "label": "Types of Diagnostic Testing Performed",
+          "key": "testingTypes",
+          "values": [
+            {
+              "label": "Diagnostic Radiology",
+              "value": "radiology"
+            },
+            {
+              "label": "Ultrasound",
+              "value": "ultrasound"
+            },
+            {
+              "label": "Nuclear Medicine",
+              "value": "nuclear"
+            },
+            {
+              "label": "MRI",
+              "value": "mri"
+            },
+            {
+              "label": "CT Scan",
+              "value": "ct"
+            },
+            {
+              "label": "PET Scan",
+              "value": "pet"
+            },
+            {
+              "label": "Cardiovascular Testing",
+              "value": "cardiovascular"
+            },
+            {
+              "label": "Other Diagnostic Testing",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "label": "Describe Other Diagnostic Testing (if applicable)",
+          "key": "otherTestingDescription",
+          "rows": 2,
+          "conditional": {
+            "show": true,
+            "json": {
+              "===": [
+                {
+                  "var": "data.testingTypes.other"
+                },
+                true
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info mt-3",
+      "content": "<p><strong>Note:</strong> Copies of comprehensive liability insurance and all personnel credentials must be uploaded in Section 12 - Supporting Documentation.</p>",
+      "key": "attachment2Footer"
+    }
+  ]
+}

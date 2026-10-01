@@ -1,0 +1,74 @@
+{
+  "title": "Section 6: Ownership Interest and/or Managing Control Information (Individuals)",
+  "key": "section6OwnershipIndividuals",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 6: Ownership Interest and/or Managing Control Information (Individuals)</h3><p>Report all individuals with 5% or more direct or indirect ownership interest, or managing control in your organization.</p>",
+      "key": "section6Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "Not Applicable - No individuals have ownership interest or managing control",
+      "key": "ownershipIndividualsNotApplicable"
+    },
+    {
+      "type": "panel",
+      "title": "Individual #1",
+      "key": "individual1Panel",
+      "customConditional": "show = !data.ownershipIndividualsNotApplicable;",
+      "components": [
+        {
+          "type": "selectboxes",
+          "label": "Relationship to Provider (Check all that apply)",
+          "key": "indiv1Relationship",
+          "values": [
+            {"label": "5 Percent or More Ownership Interest", "value": "ownership_5pct"},
+            {"label": "Partner", "value": "partner"},
+            {"label": "Managing Control", "value": "managing_control"},
+            {"label": "Managing Employee", "value": "managing_employee"}
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "First Name",
+          "key": "indiv1FirstName"
+        },
+        {
+          "type": "textfield",
+          "label": "Middle Name",
+          "key": "indiv1MiddleName"
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name",
+          "key": "indiv1LastName"
+        },
+        {
+          "type": "textfield",
+          "label": "Social Security Number (SSN)",
+          "key": "indiv1Ssn",
+          "placeholder": "XXX-XX-XXXX",
+          "inputMask": "999-99-9999"
+        },
+        {
+          "type": "datetime",
+          "label": "Date of Birth",
+          "key": "indiv1Dob",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI) (if applicable)",
+          "key": "indiv1Npi",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999"
+        }
+      ]
+    }
+  ]
+}

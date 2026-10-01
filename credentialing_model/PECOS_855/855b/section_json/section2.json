@@ -1,0 +1,857 @@
+{
+  "title": "Section 2: Identifying Information",
+  "key": "section2IdentifyingInformation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 2: Identifying Information</h3><p>Provide business identification and structure information.</p>",
+      "key": "section2Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Business Identification Information",
+      "key": "businessIdentification",
+      "components": [
+        {
+          "type": "textfield",
+          "label": "Legal Business Name (LBN)",
+          "key": "legalBusinessName",
+          "placeholder": "Enter your legal business name",
+          "validate": {
+            "required": false
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Tax Identification Number (TIN)",
+          "key": "taxIdNumber",
+          "placeholder": "XX-XXXXXXX",
+          "inputMask": "99-9999999",
+          "validate": {
+            "required": false
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number (PTAN) (if issued)",
+          "key": "medicareIdPtan",
+          "placeholder": "Enter PTAN if already issued"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI)",
+          "key": "npiNumber",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999",
+          "validate": {
+            "required": false
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Other Name (if applicable)",
+          "key": "otherName",
+          "placeholder": "Enter other name if applicable"
+        },
+        {
+          "type": "selectboxes",
+          "label": "Type of Other Name",
+          "key": "otherNameType",
+          "values": [
+            {
+              "label": "Doing Business As Name",
+              "value": "dba"
+            },
+            {
+              "label": "Former Legal Business Name",
+              "value": "former_lbn"
+            },
+            {
+              "label": "Other",
+              "value": "other"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "otherName",
+            "json": "!!row.otherName"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Other Type of Name (Describe)",
+          "key": "otherNameDescribe",
+          "conditional": {
+            "show": true,
+            "when": "otherNameType",
+            "json": "!!row.otherNameType && row.otherNameType.other"
+          }
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "2. License/Certification/Registration Information",
+          "key": "licenseCertificationSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "checkbox",
+          "label": "I have license information",
+          "key": "hasLicenseInformation"
+        },
+        {
+          "type": "datagrid",
+          "label": "Active Licenses",
+          "key": "activeLicenses",
+          "reorder": false,
+          "addAnother": "Add Another License",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": true,
+            "when": "hasLicenseInformation",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "License Number",
+              "key": "licenseNumber",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "effectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "State Where Issued",
+              "key": "stateIssued",
+              "inputMask": "AA",
+              "validate": {
+                "required": true
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "label": "I have certification information",
+          "key": "hasCertificationInformation"
+        },
+        {
+          "type": "datagrid",
+          "label": "Active Certifications",
+          "key": "activeCertifications",
+          "reorder": false,
+          "addAnother": "Add Another Certification",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": true,
+            "when": "hasCertificationInformation",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Certification Number",
+              "key": "certificationNumber",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "effectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "State Where Issued",
+              "key": "stateIssued",
+              "placeholder": "If certified by national entity, put 'ALL'",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Certifying Entity",
+              "key": "certifyingEntity",
+              "placeholder": "Specialty Board, State, or Other"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "Business Structure Information",
+          "key": "businessStructureSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "radio",
+          "label": "Is this supplier an Indian Health Service (IHS) Facility?",
+          "key": "isIhsFacility",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Identify how your business is registered with the IRS (Check one)",
+          "key": "businessStructureInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "IRS Registration Type",
+          "key": "irsRegistrationType",
+          "values": [
+            {
+              "label": "Disregarded Entity (Submit IRS Form 8832)",
+              "value": "disregarded"
+            },
+            {
+              "label": "Government-Owned",
+              "value": "government"
+            },
+            {
+              "label": "Non-Profit (Submit IRS Form 501(c)(3))",
+              "value": "nonprofit"
+            },
+            {
+              "label": "Non-Publicly Traded Corporation",
+              "value": "non_public_corp"
+            },
+            {
+              "label": "Proprietary",
+              "value": "proprietary"
+            },
+            {
+              "label": "Publicly Traded Corporation",
+              "value": "public_corp"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Identify the type of organizational structure (Check one)",
+          "key": "orgStructureInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Organizational Structure",
+          "key": "organizationalStructure",
+          "values": [
+            {
+              "label": "Corporation",
+              "value": "corporation"
+            },
+            {
+              "label": "Limited Liability Company",
+              "value": "llc"
+            },
+            {
+              "label": "Partnership",
+              "value": "partnership"
+            },
+            {
+              "label": "Sole Proprietor",
+              "value": "sole_proprietor"
+            },
+            {
+              "label": "Other (Specify)",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Specify Other Organizational Structure",
+          "key": "organizationalStructureOther",
+          "conditional": {
+            "show": true,
+            "when": "organizationalStructure",
+            "eq": "other"
+          }
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "3. Correspondence Mailing Address",
+          "key": "correspondenceSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "checkbox",
+          "label": "Reporting a change to correspondence address",
+          "key": "correspondenceAddressChange"
+        },
+        {
+          "type": "textfield",
+          "label": "Attention (optional)",
+          "key": "correspondenceAttention"
+        },
+        {
+          "type": "textfield",
+          "label": "Mailing Address Line 1",
+          "key": "correspondenceAddress1",
+          "placeholder": "P.O. Box or Street Name and Number"
+        },
+        {
+          "type": "textfield",
+          "label": "Mailing Address Line 2",
+          "key": "correspondenceAddress2",
+          "placeholder": "Suite, Room, Apt. #, etc."
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "correspondenceCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "correspondenceState",
+          "inputMask": "AA"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "correspondenceZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "correspondencePhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "correspondenceFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "correspondenceEmail"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Change",
+          "key": "correspondenceEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "correspondenceAddressChange",
+            "eq": true
+          }
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "4. Medical Record Correspondence Address",
+          "key": "medicalRecordSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "This is the address where medical record correspondence will be sent by your designated MAC.",
+          "key": "medicalRecordInfo"
+        },
+        {
+          "type": "checkbox",
+          "label": "Reporting a change to medical record correspondence address",
+          "key": "medicalRecordAddressChange"
+        },
+        {
+          "type": "textfield",
+          "label": "Attention (optional)",
+          "key": "medicalRecordAttention"
+        },
+        {
+          "type": "textfield",
+          "label": "Mailing Address Line 1",
+          "key": "medicalRecordAddress1",
+          "placeholder": "P.O. Box or Street Name and Number"
+        },
+        {
+          "type": "textfield",
+          "label": "Mailing Address Line 2",
+          "key": "medicalRecordAddress2",
+          "placeholder": "Suite, Room, Apt. #, etc."
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "medicalRecordCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "medicalRecordState",
+          "inputMask": "AA"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "medicalRecordZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "medicalRecordPhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "medicalRecordFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "medicalRecordEmail"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Change",
+          "key": "medicalRecordEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "medicalRecordAddressChange",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Type of Supplier",
+      "key": "supplierType",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Check one only",
+          "key": "supplierTypeInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Type of Supplier",
+          "key": "supplierTypeSelection",
+          "values": [
+            {
+              "label": "Ambulance Service Supplier",
+              "value": "ambulance"
+            },
+            {
+              "label": "Ambulatory Surgical Center",
+              "value": "surgical_center"
+            },
+            {
+              "label": "Clinic/Group Practice",
+              "value": "clinic_group"
+            },
+            {
+              "label": "Hospital Department(s)",
+              "value": "hospital_dept"
+            },
+            {
+              "label": "Independent Clinical Laboratory",
+              "value": "clinical_lab"
+            },
+            {
+              "label": "Independent Diagnostic Testing Facility (IDTF)",
+              "value": "idtf"
+            },
+            {
+              "label": "Intensive Cardiac Rehabilitation",
+              "value": "cardiac_rehab"
+            },
+            {
+              "label": "Mammography Center",
+              "value": "mammography"
+            },
+            {
+              "label": "Mass Immunization (Roster Biller Only)",
+              "value": "mass_immunization"
+            },
+            {
+              "label": "Opioid Treatment Program (OTP)",
+              "value": "otp"
+            },
+            {
+              "label": "Pharmacy",
+              "value": "pharmacy"
+            },
+            {
+              "label": "Physical/Occupational Therapy Group in Private Practice",
+              "value": "therapy_group"
+            },
+            {
+              "label": "Portable X-ray Supplier",
+              "value": "portable_xray"
+            },
+            {
+              "label": "Radiation Therapy Center",
+              "value": "radiation_therapy"
+            },
+            {
+              "label": "Other (Specify)",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Specify Other Supplier Type",
+          "key": "supplierTypeOther",
+          "conditional": {
+            "show": true,
+            "when": "supplierTypeSelection",
+            "eq": "other"
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Hospitals Only",
+      "key": "hospitalsOnly",
+      "conditional": {
+        "show": true,
+        "when": "supplierTypeSelection",
+        "eq": "hospital_dept"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "This section should only be completed by hospitals that are currently enrolled or enrolling with a MAC (the Part A Medicare contractor), and will be billing a MAC for Medicare Part B services.",
+          "key": "hospitalsOnlyInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Are you going to:",
+          "key": "hospitalBillingType",
+          "values": [
+            {
+              "label": "Bill for the entire hospital with one billing number",
+              "value": "entire_hospital"
+            },
+            {
+              "label": "Separately bill for each hospital department",
+              "value": "separate_departments"
+            }
+          ]
+        },
+        {
+          "type": "datagrid",
+          "label": "Hospital Departments",
+          "key": "hospitalDepartments",
+          "reorder": false,
+          "addAnother": "Add Another Department",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": true,
+            "when": "hospitalBillingType",
+            "eq": "separate_departments"
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Department Name",
+              "key": "departmentName",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Medicare Identification Number",
+              "key": "medicareId"
+            },
+            {
+              "type": "textfield",
+              "label": "NPI",
+              "key": "npi",
+              "inputMask": "9999999999"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "D. Physical Therapy (PT) and Occupational Therapy (OT) Groups Only",
+      "key": "physicalTherapyOnly",
+      "conditional": {
+        "show": true,
+        "when": "supplierTypeSelection",
+        "eq": "therapy_group"
+      },
+      "components": [
+        {
+          "type": "radio",
+          "label": "Does this group ONLY render PT/OT services in patients' homes?",
+          "key": "ptOtHomesOnly",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "Does this group maintain private office space?",
+          "key": "ptOtPrivateOffice",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "Does this group own, lease, or rent its private office space?",
+          "key": "ptOtOwnLease",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "Is this private office space used exclusively for the group's private practice?",
+          "key": "ptOtExclusiveUse",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "Does this group provide PT/OT services outside of its office and/or patients' homes?",
+          "key": "ptOtOutsideServices",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-warning",
+          "content": "<strong>Note:</strong> If you responded YES to questions 2, 3, or 4 above, you must have and attach a copy of any written agreement that gives the group exclusive use of the office space for PT/OT services.",
+          "key": "ptOtNote"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "E. Accreditation for Ambulatory Surgical Centers (ASCs) Only",
+      "key": "ascAccreditationOnly",
+      "conditional": {
+        "show": true,
+        "when": "supplierTypeSelection",
+        "eq": "surgical_center"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "<strong>Note:</strong> Copy and complete this section if more than one accreditation needs to be reported.",
+          "key": "ascInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Accreditation Status",
+          "key": "ascAccreditationStatus",
+          "values": [
+            {
+              "label": "The enrolling ASC supplier is accredited",
+              "value": "accredited"
+            },
+            {
+              "label": "The enrolling ASC supplier is not accredited (includes exempt suppliers)",
+              "value": "not_accredited"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "datagrid",
+          "label": "Accreditations",
+          "key": "ascAccreditations",
+          "reorder": false,
+          "addAnother": "Add Another Accreditation",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": true,
+            "when": "ascAccreditationStatus",
+            "eq": "accredited"
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Name of Accrediting Organization",
+              "key": "accreditingOrg",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date of Current Accreditation",
+              "key": "effectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Expiration of Current Accreditation",
+              "key": "expirationDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "validate": {
+                "required": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "F. Employer Terminating Employment Arrangement with One or More Physician Assistants",
+      "key": "paTermination",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Complete this section if you are a health care provider corporation and you are discontinuing the employment arrangement of a PA(s). Health care provider corporations must also complete section 2A1 with your organizational information.",
+          "key": "paTerminationInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Physician Assistants Being Terminated",
+          "key": "terminatedPAs",
+          "reorder": false,
+          "addAnother": "Add Another PA",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "PA's Name",
+              "key": "paName",
+              "placeholder": "First, Middle, Last Name",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date of Departure",
+              "key": "departureDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "PA's Medicare Identification Number",
+              "key": "paMedicareId",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "PA's NPI",
+              "key": "paNpi",
+              "inputMask": "9999999999",
+              "validate": {
+                "required": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1781 @@
+{
+  "title": "CMS-855O Medicare Enrollment Application",
+  "display": "wizard",
+  "components": [
+    {
+      "title": "Section 1: Basic Information",
+      "label": "Page 1",
+      "type": "panel",
+      "key": "section1BasicInformation",
+      "components": [
+        {
+          "label": "A. Reason for submitting this application",
+          "type": "content",
+          "key": "reasonForSubmittingLabel",
+          "html": "<h3>A. Reason for submitting this application</h3><p>Check one box and complete the sections of this application as indicated.</p>"
+        },
+        {
+          "label": "Reason for Application",
+          "type": "radio",
+          "key": "basic_reason_for_application",
+          "values": [
+            {
+              "label": "You are enrolling for the sole purpose of ordering/certifying",
+              "value": "enrolling"
+            },
+            {
+              "label": "You are currently enrolled solely to order/certify and are updating your information",
+              "value": "updating"
+            },
+            {
+              "label": "You are voluntarily withdrawing your Medicare enrollment to solely order/certify",
+              "value": "withdrawing"
+            }
+          ]
+        },
+        {
+          "label": "B. Reason you are enrolling solely to order/certify",
+          "type": "content",
+          "key": "reasonEnrollingLabel",
+          "html": "<h3>B. Reason you are enrolling solely to order/certify</h3><p><strong>Instructions:</strong> Choose only one reason from Group 1 OR one reason from Group 2.</p><p><strong>Group 1: Employed by</strong></p>"
+        },
+        {
+          "label": "Reason for Enrolling",
+          "type": "radio",
+          "key": "basic_reason_enrolling",
+          "values": [
+            {
+              "label": "Employed by the DVA",
+              "value": "dva"
+            },
+            {
+              "label": "Employed by the P.H.S.",
+              "value": "phs"
+            },
+            {
+              "label": "Employed by the D.O.D./Tricare",
+              "value": "dod_tricare"
+            },
+            {
+              "label": "Employed by the I.H.S. or a Tribal Organization",
+              "value": "ihs_tribal"
+            },
+            {
+              "label": "Employed by a Medicare-enrolled F.Q.H.C.",
+              "value": "fqhc"
+            },
+            {
+              "label": "Employed by a Medicare-enrolled R.H.C.",
+              "value": "rhc"
+            },
+            {
+              "label": "Employed by a Medicare-enrolled C.A.H.",
+              "value": "cah"
+            },
+            {
+              "label": "--- Group 2: Not employed by any entity in Group 1 ---",
+              "value": "divider",
+              "disabled": true
+            },
+            {
+              "label": "Physician not employed by any entity in Group 1",
+              "value": "physician"
+            },
+            {
+              "label": "Eligible Professional not employed by any entity in Group 1",
+              "value": "eligible_professional"
+            },
+            {
+              "label": "Licensed Resident not employed by any entity in Group 1",
+              "value": "licensed_resident"
+            },
+            {
+              "label": "Dentist not employed by any entity in Group 1",
+              "value": "dentist"
+            },
+            {
+              "label": "Pediatrician not employed by any entity in Group 1",
+              "value": "pediatrician"
+            },
+            {
+              "label": "Retired physicians who are licensed",
+              "value": "retired_physician"
+            },
+            {
+              "label": "Other",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "label": "Specify Other",
+          "type": "textfield",
+          "key": "basic_specify_other",
+          "conditional": {
+            "show": true,
+            "when": "basic_reason_enrolling",
+            "eq": "other"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Section 2: Identifying Information - Personal Information",
+      "label": "Page 2",
+      "type": "panel",
+      "key": "section2PersonalInfo",
+      "components": [
+        {
+          "label": "A. PERSONAL INFORMATION",
+          "type": "content",
+          "key": "personalInfoLabel",
+          "html": "<h3>A. PERSONAL INFORMATION</h3><p>Your name, date of birth, and social security number must match your social security record.</p>"
+        },
+        {
+          "label": "First Name",
+          "type": "textfield",
+          "key": "basic_first_name"
+        },
+        {
+          "label": "Middle Initial",
+          "type": "textfield",
+          "key": "basic_middle_initial",
+          "maxLength": 1
+        },
+        {
+          "label": "Last Name",
+          "type": "textfield",
+          "key": "basic_last_name"
+        },
+        {
+          "label": "Suffix (Jr., Sr., M.D., etc.)",
+          "type": "textfield",
+          "key": "basic_suffix"
+        },
+        {
+          "label": "Other Name",
+          "type": "fieldset",
+          "key": "otherNameFieldset",
+          "components": [
+            {
+              "label": "Other Name First",
+              "type": "textfield",
+              "key": "basic_other_name_first"
+            },
+            {
+              "label": "Middle Initial",
+              "type": "textfield",
+              "key": "basic_other_middle_initial",
+              "maxLength": 1
+            },
+            {
+              "label": "Last Name",
+              "type": "textfield",
+              "key": "basic_other_last_name"
+            },
+            {
+              "label": "Suffix (Jr., Sr., M.D., etc.)",
+              "type": "textfield",
+              "key": "basic_other_suffix"
+            },
+            {
+              "label": "Type of Other Name",
+              "type": "radio",
+              "key": "basic_type_other_name",
+              "values": [
+                {
+                  "label": "Former or Maiden Name",
+                  "value": "former_maiden"
+                },
+                {
+                  "label": "Professional Name",
+                  "value": "professional"
+                },
+                {
+                  "label": "Other",
+                  "value": "other"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Social Security Number (S.S.N.)",
+          "type": "textfield",
+          "key": "basic_social_security_number",
+          "inputMask": "999-99-9999"
+        },
+        {
+          "label": "Date of Birth",
+          "type": "datetime",
+          "key": "basic_date_of_birth",
+          "format": "MM/dd/yyyy",
+          "enableTime": false
+        },
+        {
+          "label": "Gender",
+          "type": "radio",
+          "key": "basic_gender",
+          "values": [
+            {
+              "label": "Male",
+              "value": "male"
+            },
+            {
+              "label": "Female",
+              "value": "female"
+            }
+          ]
+        },
+        {
+          "label": "Medicare Identification Number (PTAN) (if issued)",
+          "type": "textfield",
+          "key": "basic_medicare_id"
+        },
+        {
+          "label": "National Provider Identifier (N.P.I.) (Type 1 \u2013 Individual)",
+          "type": "textfield",
+          "key": "basic_npi",
+          "inputMask": "9999999999"
+        },
+        {
+          "label": "Do you owe an existing debt to CMS?",
+          "type": "radio",
+          "key": "basic_debt_to_cms",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "label": "B. EDUCATIONAL INFORMATION",
+          "type": "content",
+          "key": "educationalInfoLabel",
+          "html": "<h3>B. EDUCATIONAL INFORMATION</h3>"
+        },
+        {
+          "label": "Medical or other Professional School (Training Institution, if non-MD)",
+          "type": "select",
+          "key": "basic_professional_school",
+          "data": {
+            "values": [
+              {
+                "label": "Stanford Medical School",
+                "value": "stanford"
+              },
+              {
+                "label": "Harvard Medical School",
+                "value": "harvard"
+              },
+              {
+                "label": "Texas Tech Medical School",
+                "value": "texas_tech"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Year of Graduation (4 digit year)",
+          "type": "number",
+          "key": "basic_graduation_year"
+        }
+      ]
+    },
+    {
+      "title": "Section 2: Identifying Information (Continued)",
+      "label": "Page 3",
+      "type": "panel",
+      "key": "section2LicenseCert",
+      "components": [
+        {
+          "label": "C. LICENSE/CERTIFICATION INFORMATION",
+          "type": "content",
+          "key": "licenseCertLabel",
+          "html": "<h3>C. LICENSE/CERTIFICATION INFORMATION</h3>"
+        },
+        {
+          "label": "I have license information",
+          "type": "checkbox",
+          "key": "identifying_has_license"
+        },
+        {
+          "label": "Active License Information",
+          "type": "fieldset",
+          "key": "activeLicenseFieldset",
+          "conditional": {
+            "show": true,
+            "when": "identifying_has_license",
+            "eq": true
+          },
+          "components": [
+            {
+              "label": "License Number",
+              "type": "textfield",
+              "key": "identifying_license_number"
+            },
+            {
+              "label": "Effective Date",
+              "type": "datetime",
+              "key": "identifying_license_effective_date",
+              "format": "MM/dd/yyyy",
+              "enableTime": false
+            },
+            {
+              "label": "State Where Issued",
+              "type": "select",
+              "key": "identifying_license_state",
+              "data": {
+                "values": [
+                  {
+                    "label": "Alabama",
+                    "value": "AL"
+                  },
+                  {
+                    "label": "Alaska",
+                    "value": "AK"
+                  },
+                  {
+                    "label": "Arizona",
+                    "value": "AZ"
+                  },
+                  {
+                    "label": "Arkansas",
+                    "value": "AR"
+                  },
+                  {
+                    "label": "California",
+                    "value": "CA"
+                  },
+                  {
+                    "label": "Colorado",
+                    "value": "CO"
+                  },
+                  {
+                    "label": "Connecticut",
+                    "value": "CT"
+                  },
+                  {
+                    "label": "Delaware",
+                    "value": "DE"
+                  },
+                  {
+                    "label": "Florida",
+                    "value": "FL"
+                  },
+                  {
+                    "label": "Georgia",
+                    "value": "GA"
+                  },
+                  {
+                    "label": "Hawaii",
+                    "value": "HI"
+                  },
+                  {
+                    "label": "Idaho",
+                    "value": "ID"
+                  },
+                  {
+                    "label": "Illinois",
+                    "value": "IL"
+                  },
+                  {
+                    "label": "Indiana",
+                    "value": "IN"
+                  },
+                  {
+                    "label": "Iowa",
+                    "value": "IA"
+                  },
+                  {
+                    "label": "Kansas",
+                    "value": "KS"
+                  },
+                  {
+                    "label": "Kentucky",
+                    "value": "KY"
+                  },
+                  {
+                    "label": "Louisiana",
+                    "value": "LA"
+                  },
+                  {
+                    "label": "Maine",
+                    "value": "ME"
+                  },
+                  {
+                    "label": "Maryland",
+                    "value": "MD"
+                  },
+                  {
+                    "label": "Massachusetts",
+                    "value": "MA"
+                  },
+                  {
+                    "label": "Michigan",
+                    "value": "MI"
+                  },
+                  {
+                    "label": "Minnesota",
+                    "value": "MN"
+                  },
+                  {
+                    "label": "Mississippi",
+                    "value": "MS"
+                  },
+                  {
+                    "label": "Missouri",
+                    "value": "MO"
+                  },
+                  {
+                    "label": "Montana",
+                    "value": "MT"
+                  },
+                  {
+                    "label": "Nebraska",
+                    "value": "NE"
+                  },
+                  {
+                    "label": "Nevada",
+                    "value": "NV"
+                  },
+                  {
+                    "label": "New Hampshire",
+                    "value": "NH"
+                  },
+                  {
+                    "label": "New Jersey",
+                    "value": "NJ"
+                  },
+                  {
+                    "label": "New Mexico",
+                    "value": "NM"
+                  },
+                  {
+                    "label": "New York",
+                    "value": "NY"
+                  },
+                  {
+                    "label": "North Carolina",
+                    "value": "NC"
+                  },
+                  {
+                    "label": "North Dakota",
+                    "value": "ND"
+                  },
+                  {
+                    "label": "Ohio",
+                    "value": "OH"
+                  },
+                  {
+                    "label": "Oklahoma",
+                    "value": "OK"
+                  },
+                  {
+                    "label": "Oregon",
+                    "value": "OR"
+                  },
+                  {
+                    "label": "Pennsylvania",
+                    "value": "PA"
+                  },
+                  {
+                    "label": "Rhode Island",
+                    "value": "RI"
+                  },
+                  {
+                    "label": "South Carolina",
+                    "value": "SC"
+                  },
+                  {
+                    "label": "South Dakota",
+                    "value": "SD"
+                  },
+                  {
+                    "label": "Tennessee",
+                    "value": "TN"
+                  },
+                  {
+                    "label": "Texas",
+                    "value": "TX"
+                  },
+                  {
+                    "label": "Utah",
+                    "value": "UT"
+                  },
+                  {
+                    "label": "Vermont",
+                    "value": "VT"
+                  },
+                  {
+                    "label": "Virginia",
+                    "value": "VA"
+                  },
+                  {
+                    "label": "Washington",
+                    "value": "WA"
+                  },
+                  {
+                    "label": "West Virginia",
+                    "value": "WV"
+                  },
+                  {
+                    "label": "Wisconsin",
+                    "value": "WI"
+                  },
+                  {
+                    "label": "Wyoming",
+                    "value": "WY"
+                  },
+                  {
+                    "label": "District of Columbia",
+                    "value": "DC"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "I have certification information",
+          "type": "checkbox",
+          "key": "identifying_has_certification"
+        },
+        {
+          "label": "Active Certification Information",
+          "type": "fieldset",
+          "key": "activeCertificationFieldset",
+          "conditional": {
+            "show": true,
+            "when": "identifying_has_certification",
+            "eq": true
+          },
+          "components": [
+            {
+              "label": "Certification Number",
+              "type": "textfield",
+              "key": "identifying_certification_number"
+            },
+            {
+              "label": "Effective Date",
+              "type": "datetime",
+              "key": "identifying_certification_effective_date",
+              "format": "MM/dd/yyyy",
+              "enableTime": false
+            },
+            {
+              "label": "State Where Issued",
+              "type": "textfield",
+              "key": "identifying_certification_state"
+            },
+            {
+              "label": "Certifying Entity (Specialty Board, State, Other)",
+              "type": "textfield",
+              "key": "identifying_certifying_entity"
+            }
+          ]
+        },
+        {
+          "label": "I have DEA registration information",
+          "type": "checkbox",
+          "key": "identifying_has_dea"
+        },
+        {
+          "label": "Drug Enforcement Agency (D.E.A.) Registration Information",
+          "type": "fieldset",
+          "key": "deaFieldset",
+          "conditional": {
+            "show": true,
+            "when": "identifying_has_dea",
+            "eq": true
+          },
+          "components": [
+            {
+              "label": "DEA Registration Number",
+              "type": "textfield",
+              "key": "identifying_dea_number"
+            },
+            {
+              "label": "Effective Date",
+              "type": "datetime",
+              "key": "identifying_dea_effective_date",
+              "format": "MM/dd/yyyy",
+              "enableTime": false
+            },
+            {
+              "label": "State Where Issued",
+              "type": "textfield",
+              "key": "identifying_dea_state"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Section 3: Final Adverse Legal Actions",
+      "label": "Page 4",
+      "type": "panel",
+      "key": "section3LegalActions",
+      "components": [
+        {
+          "label": "Final Adverse Legal Action History",
+          "type": "content",
+          "key": "legalActionsLabel",
+          "html": "<h3>Final Adverse Legal Action History</h3><p>Have you, under any current or former name or business identity, ever had a final adverse legal action imposed against you?</p>"
+        },
+        {
+          "label": "Have you had any final adverse legal actions?",
+          "type": "radio",
+          "key": "final_adverse_legal_actions_history",
+          "values": [
+            {
+              "label": "YES \u2013 continue below",
+              "value": "yes"
+            },
+            {
+              "label": "NO \u2013 skip to section 4",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "label": "Legal Actions",
+          "type": "datagrid",
+          "key": "final_adverse_legal_actions",
+          "conditional": {
+            "show": true,
+            "when": "final_adverse_legal_actions_history",
+            "eq": "yes"
+          },
+          "components": [
+            {
+              "label": "Final Adverse Legal Action",
+              "type": "textfield",
+              "key": "action"
+            },
+            {
+              "label": "Date",
+              "type": "datetime",
+              "key": "date",
+              "format": "MM/dd/yyyy",
+              "enableTime": false
+            },
+            {
+              "label": "Action Taken By",
+              "type": "textfield",
+              "key": "action_taken_by"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Section 4: Medical Specialty Information",
+      "label": "Page 5",
+      "type": "panel",
+      "key": "section4Specialty",
+      "components": [
+        {
+          "label": "Are you a physician?",
+          "type": "radio",
+          "key": "medical_specialty_is_physician",
+          "values": [
+            {
+              "label": "Yes, I am a physician",
+              "value": "yes"
+            },
+            {
+              "label": "No, I am not a physician",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "label": "A. Physician Specialty",
+          "type": "content",
+          "key": "physicianSpecialtyLabel",
+          "html": "<h3>A. Physician Specialty</h3><p>Check your primary specialty below. Only check one (1) specialty. Physicians must meet all federal and state requirements for the type of specialty checked.</p>",
+          "conditional": {
+            "show": true,
+            "when": "medical_specialty_is_physician",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Physician Primary Specialty",
+          "type": "select",
+          "key": "medical_specialty_physician",
+          "conditional": {
+            "show": true,
+            "when": "medical_specialty_is_physician",
+            "eq": "yes"
+          },
+          "data": {
+            "values": [
+              {
+                "label": "Addiction Medicine",
+                "value": "addiction_medicine"
+              },
+              {
+                "label": "Adult Congenital Heart Disease",
+                "value": "adult_congenital_heart_disease"
+              },
+              {
+                "label": "Advanced Heart Failure and Transplant Cardiology",
+                "value": "advanced_heart_failure"
+              },
+              {
+                "label": "Allergy/Immunology",
+                "value": "allergy_immunology"
+              },
+              {
+                "label": "Anesthesiology",
+                "value": "anesthesiology"
+              },
+              {
+                "label": "Cardiac Electrophysiology",
+                "value": "cardiac_electrophysiology"
+              },
+              {
+                "label": "Cardiac Surgery",
+                "value": "cardiac_surgery"
+              },
+              {
+                "label": "Cardiovascular Disease (Cardiology)",
+                "value": "cardiovascular_disease"
+              },
+              {
+                "label": "Colorectal Surgery (Proctology)",
+                "value": "colorectal_surgery"
+              },
+              {
+                "label": "Critical Care (Intensivists)",
+                "value": "critical_care"
+              },
+              {
+                "label": "Dentist",
+                "value": "dentist"
+              },
+              {
+                "label": "Dermatology",
+                "value": "dermatology"
+              },
+              {
+                "label": "Diagnostic Radiology",
+                "value": "diagnostic_radiology"
+              },
+              {
+                "label": "Emergency Medicine",
+                "value": "emergency_medicine"
+              },
+              {
+                "label": "Endocrinology",
+                "value": "endocrinology"
+              },
+              {
+                "label": "Family Practice",
+                "value": "family_practice"
+              },
+              {
+                "label": "Gastroenterology",
+                "value": "gastroenterology"
+              },
+              {
+                "label": "General Practice",
+                "value": "general_practice"
+              },
+              {
+                "label": "General Surgery",
+                "value": "general_surgery"
+              },
+              {
+                "label": "Geriatric Medicine",
+                "value": "geriatric_medicine"
+              },
+              {
+                "label": "Geriatric Psychiatry",
+                "value": "geriatric_psychiatry"
+              },
+              {
+                "label": "Gynecological Oncology",
+                "value": "gynecological_oncology"
+              },
+              {
+                "label": "Hand Surgery",
+                "value": "hand_surgery"
+              },
+              {
+                "label": "Hematology",
+                "value": "hematology"
+              },
+              {
+                "label": "Hematology/Oncology",
+                "value": "hematology_oncology"
+              },
+              {
+                "label": "Hematopoietic Cell Transplantation and Cellular Therapy",
+                "value": "hematopoietic_cell"
+              },
+              {
+                "label": "Hospice/Palliative Care",
+                "value": "hospice_palliative_care"
+              },
+              {
+                "label": "Hospitalist",
+                "value": "hospitalist"
+              },
+              {
+                "label": "Infectious Disease",
+                "value": "infectious_disease"
+              },
+              {
+                "label": "Internal Medicine",
+                "value": "internal_medicine"
+              },
+              {
+                "label": "Interventional Cardiology",
+                "value": "interventional_cardiology"
+              },
+              {
+                "label": "Interventional Pain Management",
+                "value": "interventional_pain"
+              },
+              {
+                "label": "Interventional Radiology",
+                "value": "interventional_radiology"
+              },
+              {
+                "label": "Maxillofacial Surgery",
+                "value": "maxillofacial_surgery"
+              },
+              {
+                "label": "Medical Genetics and Genomics",
+                "value": "medical_genetics"
+              },
+              {
+                "label": "Medical Oncology",
+                "value": "medical_oncology"
+              },
+              {
+                "label": "Medical Toxicology",
+                "value": "medical_toxicology"
+              },
+              {
+                "label": "Micrographic Dermatologic Surgery",
+                "value": "micrographic_dermatologic"
+              },
+              {
+                "label": "Nephrology",
+                "value": "nephrology"
+              },
+              {
+                "label": "Neurology",
+                "value": "neurology"
+              },
+              {
+                "label": "Neuropsychiatry",
+                "value": "neuropsychiatry"
+              },
+              {
+                "label": "Neurosurgery",
+                "value": "neurosurgery"
+              },
+              {
+                "label": "Nuclear Medicine",
+                "value": "nuclear_medicine"
+              },
+              {
+                "label": "Obstetrics/Gynecology",
+                "value": "obstetrics_gynecology"
+              },
+              {
+                "label": "Ophthalmology",
+                "value": "ophthalmology"
+              },
+              {
+                "label": "Optometry",
+                "value": "optometry"
+              },
+              {
+                "label": "Oral Surgery",
+                "value": "oral_surgery"
+              },
+              {
+                "label": "Orthopedic Surgery",
+                "value": "orthopedic_surgery"
+              },
+              {
+                "label": "Osteopathic Manipulative Medicine",
+                "value": "osteopathic_manipulative"
+              },
+              {
+                "label": "Otolaryngology",
+                "value": "otolaryngology"
+              },
+              {
+                "label": "Pain Management",
+                "value": "pain_management"
+              },
+              {
+                "label": "Pathology",
+                "value": "pathology"
+              },
+              {
+                "label": "Pediatric Medicine",
+                "value": "pediatric_medicine"
+              },
+              {
+                "label": "Peripheral Vascular Disease",
+                "value": "peripheral_vascular"
+              },
+              {
+                "label": "Physical Medicine and Rehabilitation",
+                "value": "physical_medicine"
+              },
+              {
+                "label": "Plastic and Reconstructive Surgery",
+                "value": "plastic_surgery"
+              },
+              {
+                "label": "Podiatry",
+                "value": "podiatry"
+              },
+              {
+                "label": "Preventive Medicine",
+                "value": "preventive_medicine"
+              },
+              {
+                "label": "Psychiatry",
+                "value": "psychiatry"
+              },
+              {
+                "label": "Pulmonary Disease",
+                "value": "pulmonary_disease"
+              },
+              {
+                "label": "Radiation Oncology",
+                "value": "radiation_oncology"
+              },
+              {
+                "label": "Rheumatology",
+                "value": "rheumatology"
+              },
+              {
+                "label": "Sleep Medicine",
+                "value": "sleep_medicine"
+              },
+              {
+                "label": "Sports Medicine",
+                "value": "sports_medicine"
+              },
+              {
+                "label": "Surgical Oncology",
+                "value": "surgical_oncology"
+              },
+              {
+                "label": "Thoracic Surgery",
+                "value": "thoracic_surgery"
+              },
+              {
+                "label": "Undersea and Hyperbaric Medicine",
+                "value": "undersea_hyperbaric"
+              },
+              {
+                "label": "Urology",
+                "value": "urology"
+              },
+              {
+                "label": "Vascular Surgery",
+                "value": "vascular_surgery"
+              },
+              {
+                "label": "Undefined Physician Specialty",
+                "value": "undefined_physician"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Specify Undefined Physician Specialty",
+          "type": "textfield",
+          "key": "medical_specialty_specify_undefined",
+          "conditional": {
+            "show": true,
+            "when": "medical_specialty_physician",
+            "eq": "undefined_physician"
+          }
+        },
+        {
+          "label": "B. Eligible Professional or other non-physician specialty type",
+          "type": "content",
+          "key": "eligibleProfessionalLabel",
+          "html": "<h3>B. Eligible Professional or other non-physician specialty type</h3><p>Check only one of the following:</p>",
+          "conditional": {
+            "show": true,
+            "when": "medical_specialty_is_physician",
+            "eq": "no"
+          }
+        },
+        {
+          "label": "Eligible Professional Type",
+          "type": "radio",
+          "key": "medical_specialty_eligible_professional",
+          "conditional": {
+            "show": true,
+            "when": "medical_specialty_is_physician",
+            "eq": "no"
+          },
+          "values": [
+            {
+              "label": "Certified Nurse Midwife",
+              "value": "certified_nurse_midwife"
+            },
+            {
+              "label": "Clinical Nurse Specialist",
+              "value": "clinical_nurse_specialist"
+            },
+            {
+              "label": "Clinical Psychologist",
+              "value": "clinical_psychologist"
+            },
+            {
+              "label": "Clinical Social Worker",
+              "value": "clinical_social_worker"
+            },
+            {
+              "label": "Nurse Practitioner",
+              "value": "nurse_practitioner"
+            },
+            {
+              "label": "Physician Assistant",
+              "value": "physician_assistant"
+            },
+            {
+              "label": "Unlisted Practitioner Type",
+              "value": "unlisted"
+            }
+          ]
+        },
+        {
+          "label": "Specify Unlisted Practitioner Type",
+          "type": "textfield",
+          "key": "medical_specialty_specify_unlisted",
+          "conditional": {
+            "show": true,
+            "when": "medical_specialty_eligible_professional",
+            "eq": "unlisted"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Section 5: Correspondence Address Information",
+      "label": "Page 6",
+      "type": "panel",
+      "key": "section5Address",
+      "components": [
+        {
+          "label": "Correspondence Mailing Address",
+          "type": "content",
+          "key": "correspondenceAddressLabel",
+          "html": "<h3>Correspondence Mailing Address</h3>"
+        },
+        {
+          "label": "Business Location Name",
+          "type": "textfield",
+          "key": "address_business_location_name"
+        },
+        {
+          "label": "Attention (optional)",
+          "type": "textfield",
+          "key": "address_attention"
+        },
+        {
+          "label": "Mailing Address Line 1 (P.O. Box or Street Name and Number)",
+          "type": "textfield",
+          "key": "address_mailing_address_line1"
+        },
+        {
+          "label": "Mailing Address Line 2 (Suite, Room, Apt. #, etc.)",
+          "type": "textfield",
+          "key": "address_mailing_address_line2"
+        },
+        {
+          "label": "City/Town",
+          "type": "textfield",
+          "key": "address_city"
+        },
+        {
+          "label": "State",
+          "type": "select",
+          "key": "address_state",
+          "data": {
+            "values": [
+              {
+                "label": "Alabama",
+                "value": "AL"
+              },
+              {
+                "label": "Alaska",
+                "value": "AK"
+              },
+              {
+                "label": "Arizona",
+                "value": "AZ"
+              },
+              {
+                "label": "Arkansas",
+                "value": "AR"
+              },
+              {
+                "label": "California",
+                "value": "CA"
+              },
+              {
+                "label": "Colorado",
+                "value": "CO"
+              },
+              {
+                "label": "Connecticut",
+                "value": "CT"
+              },
+              {
+                "label": "Delaware",
+                "value": "DE"
+              },
+              {
+                "label": "Florida",
+                "value": "FL"
+              },
+              {
+                "label": "Georgia",
+                "value": "GA"
+              },
+              {
+                "label": "Hawaii",
+                "value": "HI"
+              },
+              {
+                "label": "Idaho",
+                "value": "ID"
+              },
+              {
+                "label": "Illinois",
+                "value": "IL"
+              },
+              {
+                "label": "Indiana",
+                "value": "IN"
+              },
+              {
+                "label": "Iowa",
+                "value": "IA"
+              },
+              {
+                "label": "Kansas",
+                "value": "KS"
+              },
+              {
+                "label": "Kentucky",
+                "value": "KY"
+              },
+              {
+                "label": "Louisiana",
+                "value": "LA"
+              },
+              {
+                "label": "Maine",
+                "value": "ME"
+              },
+              {
+                "label": "Maryland",
+                "value": "MD"
+              },
+              {
+                "label": "Massachusetts",
+                "value": "MA"
+              },
+              {
+                "label": "Michigan",
+                "value": "MI"
+              },
+              {
+                "label": "Minnesota",
+                "value": "MN"
+              },
+              {
+                "label": "Mississippi",
+                "value": "MS"
+              },
+              {
+                "label": "Missouri",
+                "value": "MO"
+              },
+              {
+                "label": "Montana",
+                "value": "MT"
+              },
+              {
+                "label": "Nebraska",
+                "value": "NE"
+              },
+              {
+                "label": "Nevada",
+                "value": "NV"
+              },
+              {
+                "label": "New Hampshire",
+                "value": "NH"
+              },
+              {
+                "label": "New Jersey",
+                "value": "NJ"
+              },
+              {
+                "label": "New Mexico",
+                "value": "NM"
+              },
+              {
+                "label": "New York",
+                "value": "NY"
+              },
+              {
+                "label": "North Carolina",
+                "value": "NC"
+              },
+              {
+                "label": "North Dakota",
+                "value": "ND"
+              },
+              {
+                "label": "Ohio",
+                "value": "OH"
+              },
+              {
+                "label": "Oklahoma",
+                "value": "OK"
+              },
+              {
+                "label": "Oregon",
+                "value": "OR"
+              },
+              {
+                "label": "Pennsylvania",
+                "value": "PA"
+              },
+              {
+                "label": "Rhode Island",
+                "value": "RI"
+              },
+              {
+                "label": "South Carolina",
+                "value": "SC"
+              },
+              {
+                "label": "South Dakota",
+                "value": "SD"
+              },
+              {
+                "label": "Tennessee",
+                "value": "TN"
+              },
+              {
+                "label": "Texas",
+                "value": "TX"
+              },
+              {
+                "label": "Utah",
+                "value": "UT"
+              },
+              {
+                "label": "Vermont",
+                "value": "VT"
+              },
+              {
+                "label": "Virginia",
+                "value": "VA"
+              },
+              {
+                "label": "Washington",
+                "value": "WA"
+              },
+              {
+                "label": "West Virginia",
+                "value": "WV"
+              },
+              {
+                "label": "Wisconsin",
+                "value": "WI"
+              },
+              {
+                "label": "Wyoming",
+                "value": "WY"
+              },
+              {
+                "label": "District of Columbia",
+                "value": "DC"
+              }
+            ]
+          }
+        },
+        {
+          "label": "ZIP Code + 4",
+          "type": "textfield",
+          "key": "address_zip_code",
+          "inputMask": "99999-9999"
+        },
+        {
+          "label": "Telephone Number",
+          "type": "phoneNumber",
+          "key": "address_telephone_number"
+        },
+        {
+          "label": "Fax Number (if applicable)",
+          "type": "phoneNumber",
+          "key": "address_fax_number"
+        },
+        {
+          "label": "E-mail Address (if applicable)",
+          "type": "email",
+          "key": "address_email_address"
+        },
+        {
+          "label": "Effective Date",
+          "type": "datetime",
+          "key": "address_effective_date",
+          "format": "MM/dd/yyyy",
+          "enableTime": false
+        }
+      ]
+    },
+    {
+      "title": "Section 6: Contact Person Information (Optional)",
+      "label": "Page 7",
+      "type": "panel",
+      "key": "section6Contact",
+      "components": [
+        {
+          "label": "Contact Person Information",
+          "type": "content",
+          "key": "contactPersonLabel",
+          "html": "<h3>Contact Person Information (Optional)</h3>"
+        },
+        {
+          "label": "Would you like to have a contact person other than yourself for this application?",
+          "type": "radio",
+          "key": "contact_has_contact_person",
+          "defaultValue": "no",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "label": "First Name",
+          "type": "textfield",
+          "key": "contact_first_name",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Middle Initial",
+          "type": "textfield",
+          "key": "contact_middle_initial",
+          "maxLength": 1,
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Last Name",
+          "type": "textfield",
+          "key": "contact_last_name",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Suffix (Jr., Sr., MD., etc.)",
+          "type": "textfield",
+          "key": "contact_suffix",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Address Line 1 (P.O. Box or Street Name and Number)",
+          "type": "textfield",
+          "key": "contact_address_line1",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Address Line 2 (Suite, Room, Apt. #, etc.)",
+          "type": "textfield",
+          "key": "contact_address_line2",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "City/Town",
+          "type": "textfield",
+          "key": "contact_city",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "State",
+          "type": "select",
+          "key": "contact_state",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          },
+          "data": {
+            "values": [
+              {
+                "label": "Alabama",
+                "value": "AL"
+              },
+              {
+                "label": "Alaska",
+                "value": "AK"
+              },
+              {
+                "label": "Arizona",
+                "value": "AZ"
+              },
+              {
+                "label": "Arkansas",
+                "value": "AR"
+              },
+              {
+                "label": "California",
+                "value": "CA"
+              },
+              {
+                "label": "Colorado",
+                "value": "CO"
+              },
+              {
+                "label": "Connecticut",
+                "value": "CT"
+              },
+              {
+                "label": "Delaware",
+                "value": "DE"
+              },
+              {
+                "label": "Florida",
+                "value": "FL"
+              },
+              {
+                "label": "Georgia",
+                "value": "GA"
+              },
+              {
+                "label": "Hawaii",
+                "value": "HI"
+              },
+              {
+                "label": "Idaho",
+                "value": "ID"
+              },
+              {
+                "label": "Illinois",
+                "value": "IL"
+              },
+              {
+                "label": "Indiana",
+                "value": "IN"
+              },
+              {
+                "label": "Iowa",
+                "value": "IA"
+              },
+              {
+                "label": "Kansas",
+                "value": "KS"
+              },
+              {
+                "label": "Kentucky",
+                "value": "KY"
+              },
+              {
+                "label": "Louisiana",
+                "value": "LA"
+              },
+              {
+                "label": "Maine",
+                "value": "ME"
+              },
+              {
+                "label": "Maryland",
+                "value": "MD"
+              },
+              {
+                "label": "Massachusetts",
+                "value": "MA"
+              },
+              {
+                "label": "Michigan",
+                "value": "MI"
+              },
+              {
+                "label": "Minnesota",
+                "value": "MN"
+              },
+              {
+                "label": "Mississippi",
+                "value": "MS"
+              },
+              {
+                "label": "Missouri",
+                "value": "MO"
+              },
+              {
+                "label": "Montana",
+                "value": "MT"
+              },
+              {
+                "label": "Nebraska",
+                "value": "NE"
+              },
+              {
+                "label": "Nevada",
+                "value": "NV"
+              },
+              {
+                "label": "New Hampshire",
+                "value": "NH"
+              },
+              {
+                "label": "New Jersey",
+                "value": "NJ"
+              },
+              {
+                "label": "New Mexico",
+                "value": "NM"
+              },
+              {
+                "label": "New York",
+                "value": "NY"
+              },
+              {
+                "label": "North Carolina",
+                "value": "NC"
+              },
+              {
+                "label": "North Dakota",
+                "value": "ND"
+              },
+              {
+                "label": "Ohio",
+                "value": "OH"
+              },
+              {
+                "label": "Oklahoma",
+                "value": "OK"
+              },
+              {
+                "label": "Oregon",
+                "value": "OR"
+              },
+              {
+                "label": "Pennsylvania",
+                "value": "PA"
+              },
+              {
+                "label": "Rhode Island",
+                "value": "RI"
+              },
+              {
+                "label": "South Carolina",
+                "value": "SC"
+              },
+              {
+                "label": "South Dakota",
+                "value": "SD"
+              },
+              {
+                "label": "Tennessee",
+                "value": "TN"
+              },
+              {
+                "label": "Texas",
+                "value": "TX"
+              },
+              {
+                "label": "Utah",
+                "value": "UT"
+              },
+              {
+                "label": "Vermont",
+                "value": "VT"
+              },
+              {
+                "label": "Virginia",
+                "value": "VA"
+              },
+              {
+                "label": "Washington",
+                "value": "WA"
+              },
+              {
+                "label": "West Virginia",
+                "value": "WV"
+              },
+              {
+                "label": "Wisconsin",
+                "value": "WI"
+              },
+              {
+                "label": "Wyoming",
+                "value": "WY"
+              },
+              {
+                "label": "District of Columbia",
+                "value": "DC"
+              }
+            ]
+          }
+        },
+        {
+          "label": "ZIP Code + 4",
+          "type": "textfield",
+          "key": "contact_zip_code",
+          "inputMask": "99999-9999",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Telephone Number",
+          "type": "phoneNumber",
+          "key": "contact_telephone_number",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Fax Number (if applicable)",
+          "type": "phoneNumber",
+          "key": "contact_fax_number",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "E-mail Address (if applicable)",
+          "type": "email",
+          "key": "contact_email_address",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        },
+        {
+          "label": "Relationship or Affiliation to You",
+          "type": "textfield",
+          "key": "contact_relationship",
+          "conditional": {
+            "show": true,
+            "when": "contact_has_contact_person",
+            "eq": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Section 8: Certification Statement and Signature",
+      "label": "Page 8",
+      "type": "panel",
+      "key": "section8Certification",
+      "components": [
+        {
+          "label": "Certification Statement",
+          "type": "content",
+          "key": "certificationLabel",
+          "html": "<h3>CERTIFICATION STATEMENT</h3><p>I certify that I have read the contents of this application and that the information provided is true, accurate, and complete to the best of my knowledge. I understand that the intentional submission of false information may result in the revocation of my Medicare enrollment and may subject me to criminal, civil and/or administrative penalties.</p><p>I understand that upon submission of this enrollment application, if approved, I will be bound by the Medicare laws, regulations, and program instructions. I agree to abide by the Medicare laws, regulations, and program instructions, including but not limited to, applicable statutory and regulatory provisions of Titles XI and XVIII of the Social Security Act; 42 C.F.R. Parts 400, 424 and 498; and CMS program instructions, including those contained in applicable manuals.</p>"
+        },
+        {
+          "label": "First Name (Print)",
+          "type": "textfield",
+          "key": "certification_first_name"
+        },
+        {
+          "label": "Middle Initial",
+          "type": "textfield",
+          "key": "certification_middle_initial",
+          "maxLength": 1
+        },
+        {
+          "label": "Last Name (Print)",
+          "type": "textfield",
+          "key": "certification_last_name"
+        },
+        {
+          "label": "Suffix (Jr., Sr., M.D., etc.)",
+          "type": "textfield",
+          "key": "certification_suffix"
+        },
+        {
+          "label": "Practitioner Signature",
+          "type": "textfield",
+          "key": "certification_signature"
+        },
+        {
+          "label": "Date Signed",
+          "type": "datetime",
+          "key": "certification_date_signed",
+          "format": "MM/dd/yyyy",
+          "enableTime": false
+        },
+        {
+          "type": "button",
+          "label": "Submit Application",
+          "key": "submit",
+          "action": "submit",
+          "theme": "primary"
+        }
+      ]
+    }
+  ]
+}

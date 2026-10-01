@@ -1,0 +1,530 @@
+{
+  "title": "Section 4: Practice Location Information",
+  "key": "section4PracticeLocationInfo",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 4: Practice Location Information</h3><p>Provide information about your practice location(s) and related addresses.</p>",
+      "key": "section4Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Practice Location Address",
+      "key": "practiceLocationAddress",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "Reporting a change to practice location information",
+          "key": "practiceLocationChange"
+        },
+        {
+          "type": "textfield",
+          "label": "Practice Location Name ('Doing Business As' Name, if applicable)",
+          "key": "practiceLocationName",
+          "placeholder": "Enter practice location name"
+        },
+        {
+          "type": "textfield",
+          "label": "Practice Location Address Line 1 (Street Name and Number)",
+          "key": "practiceAddress1",
+          "placeholder": "Street address"
+        },
+        {
+          "type": "textfield",
+          "label": "Practice Location Address Line 2 (Suite, Room, Apt. #, etc.)",
+          "key": "practiceAddress2",
+          "placeholder": "Suite, Room, etc."
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "practiceCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "practiceState",
+          "inputMask": "AA"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "practiceZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "practicePhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "practiceFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "practiceEmail"
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number for this location – PTAN (if issued)",
+          "key": "practiceLocationPtan",
+          "placeholder": "Enter PTAN if issued"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI)",
+          "key": "practiceLocationNpi",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999"
+        },
+        {
+          "type": "radio",
+          "label": "Is this your primary practice location?",
+          "key": "isPrimaryPracticeLocation",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Date you saw or will see your first Medicare patient at this practice location",
+          "key": "firstMedicarePatientDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false
+        },
+        {
+          "type": "radio",
+          "label": "Is your private practice location reported above located in a:",
+          "key": "practiceLocationType",
+          "values": [
+            {
+              "label": "Group Practice Office/Clinic",
+              "value": "group_practice"
+            },
+            {
+              "label": "Home/Business Office for Administrative Use Only",
+              "value": "home_office"
+            },
+            {
+              "label": "Hospital or Hospital Department",
+              "value": "hospital"
+            },
+            {
+              "label": "Indian Health Services (IHS) or Tribal Facility",
+              "value": "ihs_tribal"
+            },
+            {
+              "label": "Retirement or Assisted Living",
+              "value": "retirement_living"
+            },
+            {
+              "label": "Skilled Nursing Facility or Other Nursing Facility",
+              "value": "nursing_facility"
+            },
+            {
+              "label": "Other Health Care Facility",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Other Health Care Facility (Specify)",
+          "key": "practiceLocationTypeOther",
+          "conditional": {
+            "show": true,
+            "when": "practiceLocationType",
+            "eq": "other"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "CLIA Number for this location (if applicable)",
+          "key": "cliaNumber",
+          "placeholder": "Enter CLIA number"
+        },
+        {
+          "type": "textfield",
+          "label": "FDA/Radiology (Mammography) Certification Number (if issued)",
+          "key": "fdaMammographyNumber",
+          "placeholder": "Enter FDA/Mammography certification number"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Change",
+          "key": "practiceLocationEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "practiceLocationChange",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Remittance Notices/Special Payments Mailing Address",
+      "key": "remittanceAddress",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Furnish an address where remittance notices and special payments should be sent for services rendered at the practice location(s) reported in section 4A.",
+          "key": "remittanceInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "Check here if your Remittance Notice/Special Payments should be mailed to your Primary Practice Location Address in section 4A above and skip this section",
+          "key": "remittanceSameAsPracticeLocation"
+        },
+        {
+          "type": "checkbox",
+          "label": "Check here if your Remittance Notice/Special Payments should be mailed to your Correspondence Address in section 2A3 and skip this section",
+          "key": "remittanceSameAsCorrespondence"
+        },
+        {
+          "type": "checkbox",
+          "label": "Reporting a change to remittance/special payments address",
+          "key": "remittanceAddressChange",
+          "customConditional": "show = !data.remittanceSameAsPracticeLocation && !data.remittanceSameAsCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "Special Payments Address Line 1 (P.O. Box or Street Name and Number)",
+          "key": "remittanceAddress1",
+          "placeholder": "P.O. Box or Street Name and Number",
+          "customConditional": "show = !data.remittanceSameAsPracticeLocation && !data.remittanceSameAsCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "Special Payments Address Line 2 (Suite, Room, Apt. #, etc.)",
+          "key": "remittanceAddress2",
+          "placeholder": "Suite, Room, Apt. #, etc.",
+          "customConditional": "show = !data.remittanceSameAsPracticeLocation && !data.remittanceSameAsCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "remittanceCity",
+          "customConditional": "show = !data.remittanceSameAsPracticeLocation && !data.remittanceSameAsCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "remittanceState",
+          "inputMask": "AA",
+          "customConditional": "show = !data.remittanceSameAsPracticeLocation && !data.remittanceSameAsCorrespondence;"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "remittanceZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999",
+          "customConditional": "show = !data.remittanceSameAsPracticeLocation && !data.remittanceSameAsCorrespondence;"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Change",
+          "key": "remittanceEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "remittanceAddressChange",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Medicare Beneficiary Medical Records Storage Address",
+      "key": "medicalRecordsStorage",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "If your Medicare beneficiaries' medical records are stored at a location other than the Practice Location Address shown in section 4A complete this section with the name and address of the storage location. This includes the records for both current and former Medicare beneficiaries.",
+          "key": "storageInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "Records are stored at the Practice Location reported in section 4A.",
+          "key": "recordsStoredAtPracticeLocation"
+        },
+        {
+          "type": "checkbox",
+          "label": "Adding or removing a storage location",
+          "key": "storageLocationChange",
+          "customConditional": "show = !data.recordsStoredAtPracticeLocation;"
+        },
+        {
+          "type": "panel",
+          "title": "1. Paper Storage",
+          "key": "paperStoragePanel",
+          "collapsible": true,
+          "customConditional": "show = !data.recordsStoredAtPracticeLocation;",
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Storage Facility Name",
+              "key": "paperStorageName"
+            },
+            {
+              "type": "textfield",
+              "label": "Storage Facility Address Line 1 (Street Name and Number)",
+              "key": "paperStorageAddress1"
+            },
+            {
+              "type": "textfield",
+              "label": "Storage Facility Address Line 2",
+              "key": "paperStorageAddress2"
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "paperStorageCity"
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "paperStorageState",
+              "inputMask": "AA"
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code + 4",
+              "key": "paperStorageZip",
+              "placeholder": "XXXXX-XXXX",
+              "inputMask": "99999-9999"
+            }
+          ]
+        },
+        {
+          "type": "panel",
+          "title": "2. Electronic Storage",
+          "key": "electronicStoragePanel",
+          "collapsible": true,
+          "customConditional": "show = !data.recordsStoredAtPracticeLocation;",
+          "components": [
+            {
+              "type": "radio",
+              "label": "Do you store your patient medical records electronically?",
+              "key": "hasElectronicStorage",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ]
+            },
+            {
+              "type": "textfield",
+              "label": "Site where electronic records are stored",
+              "key": "electronicStorageSite",
+              "placeholder": "URL, cloud service, or server location",
+              "description": "This can be a website, URL, in-house software program, online service, vendor, etc. This must be an electronic storage site that can be accessed by CMS or its designees if necessary.",
+              "conditional": {
+                "show": true,
+                "when": "hasElectronicStorage",
+                "eq": "yes"
+              }
+            }
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Change",
+          "key": "storageEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "storageLocationChange",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "D. Rendering Services in Patients' Homes",
+      "key": "patientsHomesServices",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "List the states/territories where you render services in patients' homes.",
+          "key": "patientsHomesInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Do you render services in patients' homes?",
+          "key": "renderInPatientsHomes",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "selectboxes",
+          "label": "Select all states/territories where you render services",
+          "key": "patientsHomesStates",
+          "values": [
+            {"label": "Alabama", "value": "AL"},
+            {"label": "Alaska", "value": "AK"},
+            {"label": "Arizona", "value": "AZ"},
+            {"label": "Arkansas", "value": "AR"},
+            {"label": "California", "value": "CA"},
+            {"label": "Colorado", "value": "CO"},
+            {"label": "Connecticut", "value": "CT"},
+            {"label": "Delaware", "value": "DE"},
+            {"label": "District of Columbia", "value": "DC"},
+            {"label": "Florida", "value": "FL"},
+            {"label": "Georgia", "value": "GA"},
+            {"label": "Hawaii", "value": "HI"},
+            {"label": "Idaho", "value": "ID"},
+            {"label": "Illinois", "value": "IL"},
+            {"label": "Indiana", "value": "IN"},
+            {"label": "Iowa", "value": "IA"},
+            {"label": "Kansas", "value": "KS"},
+            {"label": "Kentucky", "value": "KY"},
+            {"label": "Louisiana", "value": "LA"},
+            {"label": "Maine", "value": "ME"},
+            {"label": "Maryland", "value": "MD"},
+            {"label": "Massachusetts", "value": "MA"},
+            {"label": "Michigan", "value": "MI"},
+            {"label": "Minnesota", "value": "MN"},
+            {"label": "Mississippi", "value": "MS"},
+            {"label": "Missouri", "value": "MO"},
+            {"label": "Montana", "value": "MT"},
+            {"label": "Nebraska", "value": "NE"},
+            {"label": "Nevada", "value": "NV"},
+            {"label": "New Hampshire", "value": "NH"},
+            {"label": "New Jersey", "value": "NJ"},
+            {"label": "New Mexico", "value": "NM"},
+            {"label": "New York", "value": "NY"},
+            {"label": "North Carolina", "value": "NC"},
+            {"label": "North Dakota", "value": "ND"},
+            {"label": "Ohio", "value": "OH"},
+            {"label": "Oklahoma", "value": "OK"},
+            {"label": "Oregon", "value": "OR"},
+            {"label": "Pennsylvania", "value": "PA"},
+            {"label": "Rhode Island", "value": "RI"},
+            {"label": "South Carolina", "value": "SC"},
+            {"label": "South Dakota", "value": "SD"},
+            {"label": "Tennessee", "value": "TN"},
+            {"label": "Texas", "value": "TX"},
+            {"label": "Utah", "value": "UT"},
+            {"label": "Vermont", "value": "VT"},
+            {"label": "Virginia", "value": "VA"},
+            {"label": "Washington", "value": "WA"},
+            {"label": "West Virginia", "value": "WV"},
+            {"label": "Wisconsin", "value": "WI"},
+            {"label": "Wyoming", "value": "WY"}
+          ],
+          "conditional": {
+            "show": true,
+            "when": "renderInPatientsHomes",
+            "eq": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "E. Base of Operations Address for Mobile or Portable Suppliers",
+      "key": "baseOfOperations",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Location of Business Office or Dispatcher/Scheduler for mobile or portable suppliers.",
+          "key": "baseOfOperationsInfo"
+        },
+        {
+          "type": "checkbox",
+          "label": "Check here if the Base of Operations address is the same as the Practice Location listed in Section 4A (skip remaining fields if checked)",
+          "key": "baseOfOpsSameAsPractice"
+        },
+        {
+          "type": "checkbox",
+          "label": "Changing, adding, or removing base of operations information",
+          "key": "baseOfOpsChange",
+          "customConditional": "show = !data.baseOfOpsSameAsPractice;"
+        },
+        {
+          "type": "textfield",
+          "label": "Base of Operations Address Line 1",
+          "key": "baseOfOpsAddress1",
+          "placeholder": "Street Name and Number",
+          "customConditional": "show = !data.baseOfOpsSameAsPractice;"
+        },
+        {
+          "type": "textfield",
+          "label": "Base of Operations Address Line 2",
+          "key": "baseOfOpsAddress2",
+          "placeholder": "Suite, Room, etc.",
+          "customConditional": "show = !data.baseOfOpsSameAsPractice;"
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "baseOfOpsCity",
+          "customConditional": "show = !data.baseOfOpsSameAsPractice;"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "baseOfOpsState",
+          "inputMask": "AA",
+          "customConditional": "show = !data.baseOfOpsSameAsPractice;"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "baseOfOpsZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999",
+          "customConditional": "show = !data.baseOfOpsSameAsPractice;"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "baseOfOpsPhone",
+          "customConditional": "show = !data.baseOfOpsSameAsPractice;"
+        }
+      ]
+    }
+  ]
+}

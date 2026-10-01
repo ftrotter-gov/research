@@ -1,0 +1,19 @@
+{
+  "display": "wizard",
+  "title": "CMS-855B Medicare Enrollment Application",
+  "pageFiles": [
+    "section_json/section1.json",
+    "section_json/section2.json",
+    "section_json/section3.json",
+    "section_json/section4.json",
+    "section_json/section5.json",
+    "section_json/section6.json",
+    "section_json/section8.json",
+    "section_json/section12.json",
+    "section_json/section13.json",
+    "section_json/section15.json",
+    "section_json/attachment1_ambulance.json",
+    "section_json/attachment2_idtf.json",
+    "section_json/attachment3_otp.json"
+  ]
+}

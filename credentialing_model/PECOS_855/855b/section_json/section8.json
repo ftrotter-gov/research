@@ -1,0 +1,242 @@
+{
+  "title": "Section 8: Billing Agency/Agent Information",
+  "key": "section8BillingAgency",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 8: Billing Agency/Agent Information</h3><p>If you use a billing agency or billing agent to submit claims on your behalf, provide their information here.</p>",
+      "key": "section8Header"
+    },
+    {
+      "type": "checkbox",
+      "label": "Not Applicable - Skip this section (I do not use a billing agency or agent)",
+      "key": "billingAgencyNotApplicable",
+      "description": "Check this box if you do not use a billing agency or billing agent, then skip to Section 12."
+    },
+    {
+      "type": "fieldset",
+      "legend": "Billing Agency/Agent Information",
+      "key": "billingAgencyInfo",
+      "customConditional": "show = !data.billingAgencyNotApplicable;",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-warning",
+          "content": "<p><strong>Important:</strong> A billing agency is a business entity. A billing agent is an individual person. Provide the appropriate information below.</p>",
+          "key": "billingAgencyNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "Changing, adding, or removing billing agency/agent information",
+          "key": "billingAgencyChanging"
+        },
+        {
+          "type": "radio",
+          "label": "Type of Change",
+          "key": "billingAgencyChangeType",
+          "values": [
+            {
+              "label": "Change existing information",
+              "value": "change"
+            },
+            {
+              "label": "Add new billing agency/agent",
+              "value": "add"
+            },
+            {
+              "label": "Remove billing agency/agent",
+              "value": "remove"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "billingAgencyChanging",
+            "eq": true
+          }
+        },
+        {
+          "type": "radio",
+          "label": "Are you reporting a Billing Agency (business) or Billing Agent (individual)?",
+          "key": "billingAgencyOrAgent",
+          "values": [
+            {
+              "label": "Billing Agency (Business Entity)",
+              "value": "agency"
+            },
+            {
+              "label": "Billing Agent (Individual Person)",
+              "value": "agent"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Legal Business Name (as reported to the IRS)",
+          "key": "billingAgencyLegalName",
+          "placeholder": "Enter legal business name",
+          "validate": {
+            "required": true
+          },
+          "conditional": {
+            "show": true,
+            "when": "billingAgencyOrAgent",
+            "eq": "agency"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Individual Name (as reported to the Social Security Administration)",
+          "key": "billingAgentName",
+          "placeholder": "Enter full name (First Middle Last)",
+          "validate": {
+            "required": true
+          },
+          "conditional": {
+            "show": true,
+            "when": "billingAgencyOrAgent",
+            "eq": "agent"
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Billing Agent Date of Birth",
+          "key": "billingAgentDob",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "validate": {
+            "required": true
+          },
+          "conditional": {
+            "show": true,
+            "when": "billingAgencyOrAgent",
+            "eq": "agent"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agency Tax Identification Number (TIN)",
+          "key": "billingAgencyTin",
+          "placeholder": "XX-XXXXXXX",
+          "inputMask": "99-9999999",
+          "validate": {
+            "required": true
+          },
+          "conditional": {
+            "show": true,
+            "when": "billingAgencyOrAgent",
+            "eq": "agency"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agent Social Security Number (SSN)",
+          "key": "billingAgentSsn",
+          "placeholder": "XXX-XX-XXXX",
+          "inputMask": "999-99-9999",
+          "validate": {
+            "required": true
+          },
+          "conditional": {
+            "show": true,
+            "when": "billingAgencyOrAgent",
+            "eq": "agent"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agency 'Doing Business As' Name (if applicable)",
+          "key": "billingAgencyDba",
+          "placeholder": "Enter DBA name"
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agency/Agent Address Line 1 (Street Name and Number)",
+          "key": "billingAgencyAddress1",
+          "placeholder": "Street address",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Address Line 2 (Suite, Room, Apt. #, etc.)",
+          "key": "billingAgencyAddress2",
+          "placeholder": "Suite, Room, etc."
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "billingAgencyCity",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "billingAgencyState",
+          "inputMask": "AA",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "billingAgencyZip",
+          "placeholder": "XXXXX-XXXX",
+          "inputMask": "99999-9999",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "billingAgencyPhone",
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "billingAgencyFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "billingAgencyEmail"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Change",
+          "key": "billingAgencyEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "conditional": {
+            "show": true,
+            "when": "billingAgencyChanging",
+            "eq": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<p><strong>Note:</strong> After completing this section, proceed to Section 12.</p>",
+      "key": "section8Footer",
+      "customConditional": "show = !data.billingAgencyNotApplicable;"
+    }
+  ]
+}

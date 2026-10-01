@@ -1,0 +1,25 @@
+{
+  "display": "wizard",
+  "title": "CMS-855A Medicare Enrollment Application",
+  "description": "Medicare Enrollment Application for Institutional Providers",
+  "pageFiles": [
+    "section_json/section1.json",
+    "section_json/section2.json",
+    "section_json/section3.json",
+    "section_json/section4.json",
+    "section_json/section5.json",
+    "section_json/section6.json",
+    "section_json/section7.json",
+    "section_json/section8.json",
+    "section_json/section9.json",
+    "section_json/section10.json",
+    "section_json/section11.json",
+    "section_json/section12.json",
+    "section_json/section13.json",
+    "section_json/section14.json",
+    "section_json/section15.json",
+    "section_json/section16.json",
+    "section_json/section17.json",
+    "section_json/attachment1.json"
+  ]
+}

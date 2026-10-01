@@ -169,19 +169,19 @@ On paper, the 855I tells you to "Go to Section 1B below" — an instruction that
 sense in a wizard, where the target is hidden until you trigger it. Conditional sections
 therefore *look* missing.
 
-To fix this, every option that **reveals** additional fields has the literal suffix
-`(Shows new form)` appended to its label (46 across 8 sections). `855i_index.html` then
-wraps each occurrence in `<span class="shows-new-form">` and renders it dark green
-(`#14612c`), with a legend above the form explaining the marker.
+To fix this, every option that **reveals** additional fields has the suffix
+`(Shows new form) ◿` appended to its label (46 across 8 sections), where `◿` is the
+Lower Right Triangle character (U+25FF, `&#9727;` / `&#x25FF;`).
 
 Implementation notes:
 
-- The marker lives in the **JSON labels**, not the HTML, so it survives in exported
-  schemas and is greppable: `grep -c '(Shows new form)' section_json/*.json`
-- Highlighting walks **text nodes only** via `TreeWalker`, so no markup is disturbed.
-- A `MutationObserver` (plus the `render` event) re-applies highlighting after page
-  navigation, conditional reveals, and datagrid row additions. The observer disconnects
-  while mutating to avoid retriggering itself.
+- The marker lives entirely in the **JSON labels** — there is no supporting JavaScript
+  or CSS. This keeps the indicator visible in the underlying data, so it survives schema
+  export and stays greppable: `grep -c '(Shows new form)' section_json/*.json`
+- An earlier version wrapped the marker in a green `<span>` via a DOM-walking script in
+  `855i_index.html`. That was removed: it added fragile client-side machinery (a
+  `TreeWalker` plus a `MutationObserver` to survive conditional reveals) for a purely
+  cosmetic gain, and it hid the marker from anyone reading the JSON directly.
 - Only *revealing* options are marked. Triggers that **hide** content when checked —
   `licenseNotApplicable`, `certificationNotApplicable`, `deaNotApplicable`,
   `medicalRecordSameAsCorrespondence`, `recordsStoredAtPracticeLocation`,

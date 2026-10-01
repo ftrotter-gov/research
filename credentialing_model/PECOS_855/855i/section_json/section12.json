@@ -23,7 +23,7 @@
       "components": [
         {
           "type": "checkbox",
-          "label": "Copy(s) of all final adverse legal action documentation (e.g., notifications, resolutions, and reinstatement letters) (Shows new form)",
+          "label": "Copy(s) of all final adverse legal action documentation (e.g., notifications, resolutions, and reinstatement letters) (Shows new form) ◿",
           "key": "docAdverseLegalActions",
           "description": "Include if you answered 'Yes' to Section 3C, 4A2, or 6B"
         },
@@ -43,7 +43,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Completed Form CMS-460, Medicare Participating Physician or Supplier Agreement (Shows new form)",
+          "label": "Completed Form CMS-460, Medicare Participating Physician or Supplier Agreement (Shows new form) ◿",
           "key": "docCms460"
         },
         {
@@ -61,7 +61,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Completed Form CMS-588, Electronic Funds Transfer Authorization Agreement (include a voided check or bank letter) (Shows new form)",
+          "label": "Completed Form CMS-588, Electronic Funds Transfer Authorization Agreement (include a voided check or bank letter) (Shows new form) ◿",
           "key": "docCms588",
           "description": "NOTE: If you currently receive payments electronically and are not making a change to your banking information, the CMS-588 is not required."
         },
@@ -81,7 +81,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Written statement regarding a lending relationship with the financial institution receiving Medicare payments (Shows new form)",
+          "label": "Written statement regarding a lending relationship with the financial institution receiving Medicare payments (Shows new form) ◿",
           "key": "docLendingRelationship",
           "description": "Required if Medicare payments due to you are being sent to a bank (or similar financial institution) where you have a lending relationship (that is, any type of loan)"
         },
@@ -101,7 +101,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Written confirmation from the IRS confirming your Tax Identification Number and Legal Business Name provided in Section 4A (e.g., IRS Form CP-575) (Shows new form)",
+          "label": "Written confirmation from the IRS confirming your Tax Identification Number and Legal Business Name provided in Section 4A (e.g., IRS Form CP-575) (Shows new form) ◿",
           "key": "docIrsTinConfirmation",
           "description": "NOTE: This is only required if you reported a Legal Business Name and TIN in Section 4A."
         },
@@ -121,7 +121,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Written confirmation from the IRS if your business is registered as a Limited Liability Company (LLC), including single member LLCs, confirming your LLC is authorized to use the reported TIN (Shows new form)",
+          "label": "Written confirmation from the IRS if your business is registered as a Limited Liability Company (LLC), including single member LLCs, confirming your LLC is authorized to use the reported TIN (Shows new form) ◿",
           "key": "docLlcConfirmation"
         },
         {
@@ -140,7 +140,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Copy of IRS Determination Letter if you are registered with the IRS as non-profit (e.g., IRS Form 501(c)(3)) (Shows new form)",
+          "label": "Copy of IRS Determination Letter if you are registered with the IRS as non-profit (e.g., IRS Form 501(c)(3)) (Shows new form) ◿",
           "key": "docIrsNonProfit",
           "description": "NOTE: Government-owned entities do not need to submit this documentation."
         },
@@ -160,7 +160,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Current copy of certification and proof of educational requirements for eligible professionals or other non-physician specialty types who provide acupuncture services (Shows new form)",
+          "label": "Current copy of certification and proof of educational requirements for eligible professionals or other non-physician specialty types who provide acupuncture services (Shows new form) ◿",
           "key": "docAcupunctureCertification"
         },
         {

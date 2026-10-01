@@ -20,15 +20,15 @@
           "key": "practiceArrangement",
           "values": [
             {
-              "label": "I do NOT have a private practice but I reassign ALL of my benefits to an entity (complete Section 4F only) (Shows new form)",
+              "label": "I do NOT have a private practice but I reassign ALL of my benefits to an entity (complete Section 4F only) (Shows new form) ◿",
               "value": "no_practice_all_reassigned"
             },
             {
-              "label": "I DO have a private practice and I also reassign ANY of my benefits to an entity (complete Sections 4A-4F) (Shows new form)",
+              "label": "I DO have a private practice and I also reassign ANY of my benefits to an entity (complete Sections 4A-4F) (Shows new form) ◿",
               "value": "practice_and_some_reassigned"
             },
             {
-              "label": "I DO have a private practice and I ONLY render services in my own private practice (complete Sections 4A-4E) (Shows new form)",
+              "label": "I DO have a private practice and I ONLY render services in my own private practice (complete Sections 4A-4E) (Shows new form) ◿",
               "value": "practice_only"
             }
           ]
@@ -128,7 +128,7 @@
           "key": "businessHasAdverseAction",
           "values": [
             {
-              "label": "Yes (Shows new form)",
+              "label": "Yes (Shows new form) ◿",
               "value": "yes"
             },
             {
@@ -198,7 +198,7 @@
               "value": "ssn"
             },
             {
-              "label": "Under my Employer Identification Number (EIN) - fill in the EIN below (Shows new form)",
+              "label": "Under my Employer Identification Number (EIN) - fill in the EIN below (Shows new form) ◿",
               "value": "ein"
             }
           ]
@@ -280,7 +280,7 @@
               "type": "textfield",
               "label": "Practice Location Name",
               "key": "locationName",
-              "description": "\u201cDoing Business As\u201d Name"
+              "description": "“Doing Business As” Name"
             },
             {
               "type": "textfield",
@@ -431,7 +431,7 @@
               "value": "practice_location_4b"
             },
             {
-              "label": "Mail to a different address (complete the fields below) (Shows new form)",
+              "label": "Mail to a different address (complete the fields below) (Shows new form) ◿",
               "value": "other"
             }
           ]
@@ -551,7 +551,7 @@
               "key": "storesPaperRecords",
               "values": [
                 {
-                  "label": "Yes (Shows new form)",
+                  "label": "Yes (Shows new form) ◿",
                   "value": "yes"
                 },
                 {
@@ -613,7 +613,7 @@
               "key": "storesElectronicRecords",
               "values": [
                 {
-                  "label": "Yes (Shows new form)",
+                  "label": "Yes (Shows new form) ◿",
                   "value": "yes"
                 },
                 {
@@ -655,7 +655,7 @@
         },
         {
           "type": "checkbox",
-          "label": "I render health care services in patients' homes (Shows new form)",
+          "label": "I render health care services in patients' homes (Shows new form) ◿",
           "key": "rendersServicesInHomes"
         },
         {
@@ -686,7 +686,7 @@
             },
             {
               "type": "checkbox",
-              "label": "I am reporting or adding an entire state (specify the state below) (Shows new form)",
+              "label": "I am reporting or adding an entire state (specify the state below) (Shows new form) ◿",
               "key": "addingEntireState"
             },
             {
@@ -747,7 +747,7 @@
             },
             {
               "type": "checkbox",
-              "label": "I am deleting an entire state (specify the state below) (Shows new form)",
+              "label": "I am deleting an entire state (specify the state below) (Shows new form) ◿",
               "key": "deletingEntireState"
             },
             {
@@ -902,11 +902,11 @@
               "key": "reassigneeIdentifierType",
               "values": [
                 {
-                  "label": "Social Security Number (Shows new form)",
+                  "label": "Social Security Number (Shows new form) ◿",
                   "value": "ssn"
                 },
                 {
-                  "label": "Employer Identification Number (EIN) (Shows new form)",
+                  "label": "Employer Identification Number (EIN) (Shows new form) ◿",
                   "value": "ein"
                 }
               ]
@@ -1094,7 +1094,7 @@
               "type": "textfield",
               "label": "Practice Location Name",
               "key": "locationName",
-              "description": "\u201cDoing Business As\u201d Name"
+              "description": "“Doing Business As” Name"
             },
             {
               "type": "textfield",

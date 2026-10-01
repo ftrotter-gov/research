@@ -106,7 +106,7 @@
         },
         {
           "type": "checkbox",
-          "label": "This application establishes, changes or terminates a reassignment of benefits (Section 4F is completed) (Shows new form)",
+          "label": "This application establishes, changes or terminates a reassignment of benefits (Section 4F is completed) (Shows new form) ◿",
           "key": "hasReassignment"
         },
         {

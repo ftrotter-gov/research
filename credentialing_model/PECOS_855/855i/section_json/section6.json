@@ -161,7 +161,7 @@
           "key": "managingEmployeeHasAdverseAction",
           "values": [
             {
-              "label": "Yes",
+              "label": "Yes (Shows new form)",
               "value": "yes"
             },
             {

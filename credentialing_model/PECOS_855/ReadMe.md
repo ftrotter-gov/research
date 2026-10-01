@@ -163,6 +163,31 @@ The CMS-855I (rev. 05/23) models physicians and non-physician practitioners:
   conditionally-shown address blocks) and `signature` (Section 15 signatures). Both are
   core Form.io types.
 
+### The "(Shows new form)" convention
+
+On paper, the 855I tells you to "Go to Section 1B below" — an instruction that makes no
+sense in a wizard, where the target is hidden until you trigger it. Conditional sections
+therefore *look* missing.
+
+To fix this, every option that **reveals** additional fields has the literal suffix
+`(Shows new form)` appended to its label (46 across 8 sections). `855i_index.html` then
+wraps each occurrence in `<span class="shows-new-form">` and renders it dark green
+(`#14612c`), with a legend above the form explaining the marker.
+
+Implementation notes:
+
+- The marker lives in the **JSON labels**, not the HTML, so it survives in exported
+  schemas and is greppable: `grep -c '(Shows new form)' section_json/*.json`
+- Highlighting walks **text nodes only** via `TreeWalker`, so no markup is disturbed.
+- A `MutationObserver` (plus the `render` event) re-applies highlighting after page
+  navigation, conditional reveals, and datagrid row additions. The observer disconnects
+  while mutating to avoid retriggering itself.
+- Only *revealing* options are marked. Triggers that **hide** content when checked —
+  `licenseNotApplicable`, `certificationNotApplicable`, `deaNotApplicable`,
+  `medicalRecordSameAsCorrespondence`, `recordsStoredAtPracticeLocation`,
+  `iAmTheManagingEmployee`, `billingAgencyNotApplicable` — are deliberately left
+  unmarked, since marking them would be actively misleading.
+
 ## References
 
 - Form PDFs: `CoreDM/forms/`

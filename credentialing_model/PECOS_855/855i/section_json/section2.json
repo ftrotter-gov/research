@@ -84,7 +84,7 @@
               "value": "professional"
             },
             {
-              "label": "Other",
+              "label": "Other (Shows new form)",
               "value": "other"
             }
           ]
@@ -349,7 +349,7 @@
       "components": [
         {
           "type": "checkbox",
-          "label": "If you are reporting a change to your Correspondence Mailing Address, check this box and furnish the effective date (Change)",
+          "label": "If you are reporting a change to your Correspondence Mailing Address, check this box and furnish the effective date (Change) (Shows new form)",
           "key": "correspondenceAddressChanging"
         },
         {
@@ -528,7 +528,7 @@
         },
         {
           "type": "checkbox",
-          "label": "I am currently a resident in a formal residency or fellowship program",
+          "label": "I am currently a resident in a formal residency or fellowship program (Shows new form)",
           "key": "isResident"
         },
         {
@@ -600,7 +600,7 @@
               "key": "residentOtherLocations",
               "values": [
                 {
-                  "label": "Yes",
+                  "label": "Yes (Shows new form)",
                   "value": "yes"
                 },
                 {
@@ -615,7 +615,7 @@
               "key": "residentOtherLocationsForGraduation",
               "values": [
                 {
-                  "label": "Yes",
+                  "label": "Yes (Shows new form)",
                   "value": "yes"
                 },
                 {
@@ -671,11 +671,11 @@
           "key": "practitionerType",
           "values": [
             {
-              "label": "Physician (complete Section 2G)",
+              "label": "Physician (complete Section 2G) (Shows new form)",
               "value": "physician"
             },
             {
-              "label": "Eligible Professional or Other Non-Physician Practitioner (complete Section 2H)",
+              "label": "Eligible Professional or Other Non-Physician Practitioner (complete Section 2H) (Shows new form)",
               "value": "non_physician"
             }
           ]
@@ -987,7 +987,7 @@
                 "value": "vascular_surgery"
               },
               {
-                "label": "Undefined Physician Specialty",
+                "label": "Undefined Physician Specialty (Shows new form)",
                 "value": "undefined_physician_specialty"
               }
             ]
@@ -1292,7 +1292,7 @@
                 "value": "vascular_surgery"
               },
               {
-                "label": "Undefined Physician Specialty",
+                "label": "Undefined Physician Specialty (Shows new form)",
                 "value": "undefined_physician_specialty"
               }
             ]
@@ -1351,7 +1351,7 @@
               "value": "certified_registered_nurse_anesthetist_c_r_n_a"
             },
             {
-              "label": "Certified Clinical Nurse Specialist C.N.S.",
+              "label": "Certified Clinical Nurse Specialist C.N.S. (Shows new form)",
               "value": "certified_clinical_nurse_specialist_c_n_s"
             },
             {
@@ -1363,15 +1363,15 @@
               "value": "mass_immunization_roster_biller"
             },
             {
-              "label": "Nurse Practitioner",
+              "label": "Nurse Practitioner (Shows new form)",
               "value": "nurse_practitioner"
             },
             {
-              "label": "Occupational Therapist In Private Practice (See section 2J)",
+              "label": "Occupational Therapist In Private Practice (See section 2J) (Shows new form)",
               "value": "occupational_therapist_in_private_practice_see_section_2j"
             },
             {
-              "label": "Physical Therapist In Private Practice (See section 2J)",
+              "label": "Physical Therapist In Private Practice (See section 2J) (Shows new form)",
               "value": "physical_therapist_in_private_practice_see_section_2j"
             },
             {
@@ -1379,11 +1379,11 @@
               "value": "physician_assistant"
             },
             {
-              "label": "Psychologist, Clinical",
+              "label": "Psychologist, Clinical (Shows new form)",
               "value": "psychologist_clinical"
             },
             {
-              "label": "Psychologist Billing Independently",
+              "label": "Psychologist Billing Independently (Shows new form)",
               "value": "psychologist_billing_independently"
             },
             {
@@ -1399,7 +1399,7 @@
               "value": "registered_dietitian_or_nutrition_professional"
             },
             {
-              "label": "Undefined Non-Physician Practitioner Specialty",
+              "label": "Undefined Non-Physician Practitioner Specialty (Shows new form)",
               "value": "undefined_non_physician_practitioner_specialty"
             }
           ]
@@ -1420,7 +1420,7 @@
           "key": "providesAcupunctureServices",
           "values": [
             {
-              "label": "Yes",
+              "label": "Yes (Shows new form)",
               "value": "yes"
             },
             {
@@ -1546,7 +1546,7 @@
           "key": "psychologistPracticeInInstitution",
           "values": [
             {
-              "label": "Yes",
+              "label": "Yes (Shows new form)",
               "value": "yes"
             },
             {
@@ -1752,7 +1752,7 @@
           "key": "cnsNpIsSnfEmployee",
           "values": [
             {
-              "label": "Yes",
+              "label": "Yes (Shows new form)",
               "value": "yes"
             },
             {

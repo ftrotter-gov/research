@@ -53,7 +53,7 @@
               "value": "reactivating"
             },
             {
-              "label": "You are reporting a change to your Medicare enrollment information (Go to Section 1B below)",
+              "label": "You are reporting a change to your Medicare enrollment information (Shows the form to gather what information is changing)",
               "value": "reporting_change"
             },
             {
@@ -76,19 +76,6 @@
             "when": "submissionReason",
             "eq": "voluntarily_terminating"
           }
-        },
-        {
-          "type": "textfield",
-          "label": "Medicare Identification Number (PTAN) (if issued)",
-          "key": "medicareIdNumber",
-          "placeholder": "Enter Medicare ID if already issued"
-        },
-        {
-          "type": "textfield",
-          "label": "National Provider Identifier (NPI) (Type 1 - Individual)",
-          "key": "basicInfoNpi",
-          "placeholder": "10-digit NPI",
-          "inputMask": "9999999999"
         }
       ]
     },
@@ -105,7 +92,7 @@
         {
           "type": "htmlelement",
           "tag": "p",
-          "content": "Check all that apply and complete the required sections. <strong>Please note:</strong> Sections 1, 2A, 3, 12, 13 (optional), and 15 must be completed for all changes, in addition to the specific section(s) being changed.",
+          "content": "<p>Check all that apply and complete the required sections.</p><p><strong>Please note:</strong> Sections 1, 2A, 3, 12, 13 (optional), and 15 must be completed for all changes, in addition to the specific section(s) being changed.</p>",
           "key": "changingInstructions"
         },
         {

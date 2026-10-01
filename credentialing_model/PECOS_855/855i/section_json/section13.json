@@ -1,0 +1,143 @@
+{
+  "title": "Section 13: Contact Person Information (Optional)",
+  "key": "section13ContactPerson",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 13: Contact Person Information (Optional)</h3><p>If questions arise during the processing of this application, your designated MAC will contact the individual reported below. This section is optional.</p>",
+      "key": "section13Header"
+    },
+    {
+      "type": "radio",
+      "label": "Contact Person Designation",
+      "key": "contactPersonDesignation",
+      "values": [
+        {
+          "label": "Contact the individual listed in Section 2A of this application as the designated contact person",
+          "value": "use_section_2a"
+        },
+        {
+          "label": "Designate a different contact person (complete the fields below)",
+          "value": "designate_other"
+        },
+        {
+          "label": "Do not designate a contact person",
+          "value": "none"
+        }
+      ],
+      "defaultValue": "none"
+    },
+    {
+      "type": "fieldset",
+      "legend": "Contact Person Details",
+      "key": "contactPersonDetails",
+      "conditional": {
+        "show": true,
+        "when": "contactPersonDesignation",
+        "eq": "designate_other"
+      },
+      "components": [
+        {
+          "type": "selectboxes",
+          "label": "If you are changing, adding or removing contact person information, check the applicable box and furnish the effective date",
+          "key": "contactPersonChangeType",
+          "values": [
+            {
+              "label": "Change",
+              "value": "change"
+            },
+            {
+              "label": "Add",
+              "value": "add"
+            },
+            {
+              "label": "Remove",
+              "value": "remove"
+            }
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date",
+          "key": "contactPersonEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year"
+        },
+        {
+          "type": "textfield",
+          "label": "First Name",
+          "key": "contactPersonFirstName"
+        },
+        {
+          "type": "textfield",
+          "label": "Middle Initial",
+          "key": "contactPersonMiddleInitial",
+          "inputMask": "A"
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name",
+          "key": "contactPersonLastName"
+        },
+        {
+          "type": "textfield",
+          "label": "Jr., Sr., M.D., etc.",
+          "key": "contactPersonSuffix"
+        },
+        {
+          "type": "textfield",
+          "label": "Contact Person Address Line 1 (Street Name and Number)",
+          "key": "contactPersonAddressLine1"
+        },
+        {
+          "type": "textfield",
+          "label": "Contact Person Address Line 2 (Suite, Room, Apt. #, etc.)",
+          "key": "contactPersonAddressLine2"
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "contactPersonCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "contactPersonState",
+          "inputMask": "AA",
+          "description": "2 letter abbreviation"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "contactPersonZip",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "contactPersonPhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "contactPersonFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "contactPersonEmail"
+        },
+        {
+          "type": "textfield",
+          "label": "Relationship or Affiliation to Individual or Organization/Group",
+          "key": "contactPersonRelationship",
+          "placeholder": "Spouse, Secretary, Attorney, Billing Agent, etc."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "title": "Section 12: Supporting Documentation Information",
+  "key": "section12SupportingDocumentation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 12: Supporting Documentation Information</h3><p>Check all documents that you are including with this application and upload the files. Required documents vary based on your specialty type and circumstances.</p>",
+      "key": "section12Header"
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<p><strong>NOTE:</strong> The CMS-855R (Reassignment of Medicare Benefits) form has been discontinued. All reassignment actions are reported in Section 4F of this application.</p>",
+      "key": "section12ReassignmentNote"
+    },
+    {
+      "type": "fieldset",
+      "legend": "Supporting Documents",
+      "key": "supportingDocuments",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "Copy(s) of all final adverse legal action documentation (e.g., notifications, resolutions, and reinstatement letters)",
+          "key": "docAdverseLegalActions",
+          "description": "Include if you answered 'Yes' to Section 3C, 4A2, or 6B"
+        },
+        {
+          "type": "file",
+          "label": "Upload Final Adverse Legal Action Documentation",
+          "key": "uploadAdverseLegalActions",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docAdverseLegalActions",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Completed Form CMS-460, Medicare Participating Physician or Supplier Agreement",
+          "key": "docCms460"
+        },
+        {
+          "type": "file",
+          "label": "Upload CMS-460 Form",
+          "key": "uploadCms460",
+          "storage": "base64",
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docCms460",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Completed Form CMS-588, Electronic Funds Transfer Authorization Agreement (include a voided check or bank letter)",
+          "key": "docCms588",
+          "description": "NOTE: If you currently receive payments electronically and are not making a change to your banking information, the CMS-588 is not required."
+        },
+        {
+          "type": "file",
+          "label": "Upload CMS-588 Form and Voided Check/Bank Letter",
+          "key": "uploadCms588",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docCms588",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Written statement regarding a lending relationship with the financial institution receiving Medicare payments",
+          "key": "docLendingRelationship",
+          "description": "Required if Medicare payments due to you are being sent to a bank (or similar financial institution) where you have a lending relationship (that is, any type of loan)"
+        },
+        {
+          "type": "file",
+          "label": "Upload Lending Relationship Statement",
+          "key": "uploadLendingRelationship",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docLendingRelationship",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Written confirmation from the IRS confirming your Tax Identification Number and Legal Business Name provided in Section 4A (e.g., IRS Form CP-575)",
+          "key": "docIrsTinConfirmation",
+          "description": "NOTE: This is only required if you reported a Legal Business Name and TIN in Section 4A."
+        },
+        {
+          "type": "file",
+          "label": "Upload IRS TIN/Legal Business Name Confirmation",
+          "key": "uploadIrsTinConfirmation",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docIrsTinConfirmation",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Written confirmation from the IRS if your business is registered as a Limited Liability Company (LLC), including single member LLCs, confirming your LLC is authorized to use the reported TIN",
+          "key": "docLlcConfirmation"
+        },
+        {
+          "type": "file",
+          "label": "Upload LLC IRS Confirmation",
+          "key": "uploadLlcConfirmation",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docLlcConfirmation",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Copy of IRS Determination Letter if you are registered with the IRS as non-profit (e.g., IRS Form 501(c)(3))",
+          "key": "docIrsNonProfit",
+          "description": "NOTE: Government-owned entities do not need to submit this documentation."
+        },
+        {
+          "type": "file",
+          "label": "Upload IRS Determination Letter",
+          "key": "uploadIrsNonProfit",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docIrsNonProfit",
+            "eq": true
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Current copy of certification and proof of educational requirements for eligible professionals or other non-physician specialty types who provide acupuncture services",
+          "key": "docAcupunctureCertification"
+        },
+        {
+          "type": "file",
+          "label": "Upload Acupuncture Certification and Educational Documentation",
+          "key": "uploadAcupunctureCertification",
+          "storage": "base64",
+          "multiple": true,
+          "filePattern": ".pdf,.jpg,.jpeg,.png",
+          "fileMaxSize": "10MB",
+          "conditional": {
+            "show": true,
+            "when": "docAcupunctureCertification",
+            "eq": true
+          }
+        }
+      ]
+    }
+  ]
+}

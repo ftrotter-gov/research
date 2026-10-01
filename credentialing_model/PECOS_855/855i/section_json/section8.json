@@ -1,0 +1,136 @@
+{
+  "title": "Section 8: Billing Agency/Agent Information",
+  "key": "section8BillingAgency",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 8: Billing Agency/Agent Information</h3><p>Complete this section if you use a billing agency or billing agent to prepare and/or submit your Medicare claims.</p>",
+      "key": "section8Header"
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-secondary",
+      "content": "<p><strong>NOTE:</strong> A billing agency/agent is a company or individual that you contract with to prepare and/or submit your claims. If you use a billing agency/agent, that agency/agent must comply with all Medicare rules and regulations, including 42 C.F.R. 424.80 which limits the circumstances under which a billing agency/agent may receive payment on your behalf.</p>",
+      "key": "section8Note"
+    },
+    {
+      "type": "checkbox",
+      "label": "This section does not apply (I do not use a billing agency/agent) - skip to Section 12",
+      "key": "billingAgencyNotApplicable"
+    },
+    {
+      "type": "fieldset",
+      "legend": "Billing Agency/Agent Name and Address",
+      "key": "billingAgencyDetails",
+      "conditional": {
+        "show": false,
+        "when": "billingAgencyNotApplicable",
+        "eq": true
+      },
+      "components": [
+        {
+          "type": "selectboxes",
+          "label": "If you are changing information about your current billing agency/agent, or adding or removing a billing agency/agent, check the applicable box and furnish the effective date",
+          "key": "billingAgencyChangeType",
+          "values": [
+            {
+              "label": "Change",
+              "value": "change"
+            },
+            {
+              "label": "Add",
+              "value": "add"
+            },
+            {
+              "label": "Remove",
+              "value": "remove"
+            }
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date",
+          "key": "billingAgencyEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year"
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agency Legal Business Name (as reported to the IRS) or Individual Billing Agent Name (as reported to the Social Security Administration)",
+          "key": "billingAgencyName",
+          "validate": {
+            "required": false
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "If Individual Billing Agent, Date of Birth",
+          "key": "billingAgentDateOfBirth",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year"
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agency Tax Identification Number or Billing Agent Social Security Number",
+          "key": "billingAgencyTinOrSsn",
+          "description": "Required"
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agency \"Doing Business As\" Name (if applicable)",
+          "key": "billingAgencyDbaName"
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agency/Agent Address Line 1 (Street Name and Number)",
+          "key": "billingAgencyAddressLine1"
+        },
+        {
+          "type": "textfield",
+          "label": "Billing Agency/Agent Address Line 2 (Suite, Room, etc.)",
+          "key": "billingAgencyAddressLine2"
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "billingAgencyCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "billingAgencyState",
+          "inputMask": "AA",
+          "description": "2 letter abbreviation"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "billingAgencyZip",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "billingAgencyPhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "billingAgencyFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "billingAgencyEmail"
+        }
+      ]
+    }
+  ]
+}

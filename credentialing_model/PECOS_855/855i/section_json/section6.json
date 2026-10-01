@@ -1,0 +1,220 @@
+{
+  "title": "Section 6: Managing Employee Information",
+  "key": "section6ManagingEmployee",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 6: Managing Employee Information</h3><p>Report the managing employee of your private practice.</p>",
+      "key": "section6Header"
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-secondary",
+      "content": "<p><strong>NOTE:</strong> A managing employee means a general manager, business manager, administrator, director, or other individual who exercises operational or managerial control over, or who directly or indirectly conducts the day-to-day operations of the supplier, either under contract or through some other arrangement, regardless of whether the individual is a W-2 employee.</p><p><strong>NOTE:</strong> All managing employees must be reported, including those who are not W-2 employees.</p>",
+      "key": "section6Note"
+    },
+    {
+      "type": "checkbox",
+      "label": "I am the managing employee - skip to Section 8",
+      "key": "iAmTheManagingEmployee"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Managing Employee Identifying Information",
+      "key": "managingEmployeeIdentifying",
+      "conditional": {
+        "show": false,
+        "when": "iAmTheManagingEmployee",
+        "eq": true
+      },
+      "components": [
+        {
+          "type": "selectboxes",
+          "label": "If you are changing information about your current managing employee, or adding or removing a managing employee, check the applicable box and furnish the effective date",
+          "key": "managingEmployeeChangeType",
+          "values": [
+            {
+              "label": "Change",
+              "value": "change"
+            },
+            {
+              "label": "Add",
+              "value": "add"
+            },
+            {
+              "label": "Remove",
+              "value": "remove"
+            }
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date",
+          "key": "managingEmployeeEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year"
+        },
+        {
+          "type": "textfield",
+          "label": "First Name",
+          "key": "managingEmployeeFirstName"
+        },
+        {
+          "type": "textfield",
+          "label": "Middle Initial",
+          "key": "managingEmployeeMiddleInitial",
+          "inputMask": "A"
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name",
+          "key": "managingEmployeeLastName"
+        },
+        {
+          "type": "textfield",
+          "label": "Jr., Sr., M.D., etc.",
+          "key": "managingEmployeeSuffix"
+        },
+        {
+          "type": "textfield",
+          "label": "Social Security Number",
+          "key": "managingEmployeeSsn",
+          "inputMask": "999-99-9999"
+        },
+        {
+          "type": "datetime",
+          "label": "Date of Birth",
+          "key": "managingEmployeeDateOfBirth",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year"
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number (if issued)",
+          "key": "managingEmployeeMedicareId"
+        },
+        {
+          "type": "textfield",
+          "label": "NPI (if issued)",
+          "key": "managingEmployeeNpi",
+          "inputMask": "9999999999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number",
+          "key": "managingEmployeePhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "managingEmployeeFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "managingEmployeeEmail"
+        },
+        {
+          "type": "radio",
+          "label": "1. What is the above individual's relationship with the practitioner in Section 2A?",
+          "key": "managingEmployeeRelationship",
+          "values": [
+            {
+              "label": "Contracted Managing Employee",
+              "value": "contracted"
+            },
+            {
+              "label": "W-2 Managing Employee",
+              "value": "w2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Final Adverse Legal Action History",
+      "key": "managingEmployeeAdverseHistory",
+      "conditional": {
+        "show": false,
+        "when": "iAmTheManagingEmployee",
+        "eq": true
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> All applicable final adverse legal actions must be reported, regardless of whether any records were expunged or any appeals are pending.</p>",
+          "key": "managingEmployeeAdverseNote"
+        },
+        {
+          "type": "radio",
+          "label": "Has the individual in Section 6A above, under any current or former name, ever had a final adverse legal action listed in Section 3 of this application imposed against them?",
+          "key": "managingEmployeeHasAdverseAction",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "If yes, report each final adverse legal action, when it occurred, and the federal or state agency or the court/administrative body that imposed the action.",
+          "key": "managingEmployeeAdverseInstructions",
+          "conditional": {
+            "show": true,
+            "when": "managingEmployeeHasAdverseAction",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "datagrid",
+          "label": "Final Adverse Legal Actions",
+          "key": "managingEmployeeAdverseActions",
+          "reorder": false,
+          "addAnother": "Add Another Final Adverse Legal Action",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": true,
+            "when": "managingEmployeeHasAdverseAction",
+            "eq": "yes"
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Final Adverse Legal Action",
+              "key": "adverseAction"
+            },
+            {
+              "type": "datetime",
+              "label": "Date",
+              "key": "adverseActionDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false
+            },
+            {
+              "type": "textfield",
+              "label": "Action Taken By",
+              "key": "adverseActionTakenBy"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

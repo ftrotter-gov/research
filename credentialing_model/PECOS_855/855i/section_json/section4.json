@@ -1,0 +1,1144 @@
+{
+  "title": "Section 4: Business Information",
+  "key": "section4BusinessInformation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 4: Business Information</h3><p>Report your private practice business information, practice locations, and any reassignment of benefits.</p>",
+      "key": "section4Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "Which Sub-Sections Apply to You?",
+      "key": "section4Applicability",
+      "components": [
+        {
+          "type": "radio",
+          "label": "Select the statement that describes your situation",
+          "key": "practiceArrangement",
+          "values": [
+            {
+              "label": "I do NOT have a private practice but I reassign ALL of my benefits to an entity (complete Section 4F only)",
+              "value": "no_practice_all_reassigned"
+            },
+            {
+              "label": "I DO have a private practice and I also reassign ANY of my benefits to an entity (complete Sections 4A-4F)",
+              "value": "practice_and_some_reassigned"
+            },
+            {
+              "label": "I DO have a private practice and I ONLY render services in my own private practice (complete Sections 4A-4E)",
+              "value": "practice_only"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Private Practice Business Information",
+      "key": "privatePracticeBusinessInformation",
+      "conditional": {
+        "show": false,
+        "when": "practiceArrangement",
+        "eq": "no_practice_all_reassigned"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "Business Structure Information",
+          "key": "businessStructureSubheader"
+        },
+        {
+          "type": "selectboxes",
+          "label": "Identify how your business is registered with the IRS",
+          "key": "irsBusinessStructure",
+          "values": [
+            {
+              "label": "Proprietary",
+              "value": "proprietary"
+            },
+            {
+              "label": "Non-Profit (Submit IRS Form 501(c)(3))",
+              "value": "non_profit"
+            },
+            {
+              "label": "Disregarded Entity (Submit IRS Form 8832)",
+              "value": "disregarded_entity"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "1. Corporations, Associations and Limited Liability Company (LLC)",
+          "key": "corporationSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> Complete this sub-section only if your private practice is a corporation, association, or LLC. Written confirmation from the IRS confirming your Tax Identification Number and Legal Business Name must be submitted with this application (see Section 12).</p>",
+          "key": "corporationNote"
+        },
+        {
+          "type": "textfield",
+          "label": "Legal Business Name as Reported to the Internal Revenue Service",
+          "key": "legalBusinessName"
+        },
+        {
+          "type": "textfield",
+          "label": "Tax Identification Number",
+          "key": "businessTin",
+          "inputMask": "99-9999999",
+          "placeholder": "XX-XXXXXXX"
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number (PTAN) (if issued)",
+          "key": "businessMedicareIdPtan"
+        },
+        {
+          "type": "textfield",
+          "label": "NPI (Type 2 - Organization)",
+          "key": "businessNpi",
+          "inputMask": "9999999999",
+          "placeholder": "10-digit NPI"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "2. Final Adverse Legal Action History",
+          "key": "businessAdverseSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> All applicable final adverse legal actions must be reported, regardless of whether any records were expunged or any appeals are pending.</p>",
+          "key": "businessAdverseNote"
+        },
+        {
+          "type": "radio",
+          "label": "a. Has your business, under any current or former name or business identity, had a final adverse legal action listed in Section 3 of this application imposed against it?",
+          "key": "businessHasAdverseAction",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "b. If yes, report each final adverse legal action, when it occurred, and the federal or state agency or the court/administrative body that imposed the action.",
+          "key": "businessAdverseInstructions",
+          "conditional": {
+            "show": true,
+            "when": "businessHasAdverseAction",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "datagrid",
+          "label": "Final Adverse Legal Actions",
+          "key": "businessAdverseActions",
+          "reorder": false,
+          "addAnother": "Add Another Final Adverse Legal Action",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": true,
+            "when": "businessHasAdverseAction",
+            "eq": "yes"
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Final Adverse Legal Action",
+              "key": "adverseAction"
+            },
+            {
+              "type": "datetime",
+              "label": "Date",
+              "key": "adverseActionDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false
+            },
+            {
+              "type": "textfield",
+              "label": "Action Taken By",
+              "key": "adverseActionTakenBy"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "3. Sole Proprietor/Sole Proprietorship",
+          "key": "soleProprietorSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "radio",
+          "label": "If you are a sole proprietor, how do you want your Medicare payments to be paid?",
+          "key": "soleProprietorPaymentBasis",
+          "values": [
+            {
+              "label": "Under my Social Security Number (SSN) - continue to Section 4B",
+              "value": "ssn"
+            },
+            {
+              "label": "Under my Employer Identification Number (EIN) - fill in the EIN below",
+              "value": "ein"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Employer Identification Number (EIN)",
+          "key": "soleProprietorEin",
+          "inputMask": "99-9999999",
+          "placeholder": "XX-XXXXXXX",
+          "conditional": {
+            "show": true,
+            "when": "soleProprietorPaymentBasis",
+            "eq": "ein"
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Practice Location Information",
+      "key": "practiceLocationInformation",
+      "conditional": {
+        "show": false,
+        "when": "practiceArrangement",
+        "eq": "no_practice_all_reassigned"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p>Report each practice location where you render services. If you are changing information about a currently reported practice location, or adding or removing a practice location, select the applicable action and furnish the effective date for that location.</p>",
+          "key": "practiceLocationInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Practice Locations",
+          "key": "practiceLocations",
+          "reorder": false,
+          "addAnother": "Add Another Practice Location",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "radio",
+              "label": "Action",
+              "key": "locationAction",
+              "values": [
+                {
+                  "label": "Change",
+                  "value": "change"
+                },
+                {
+                  "label": "Add",
+                  "value": "add"
+                },
+                {
+                  "label": "Remove",
+                  "value": "remove"
+                }
+              ]
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "locationEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "textfield",
+              "label": "Employer Identification Number (EIN)",
+              "key": "locationEin",
+              "inputMask": "99-9999999"
+            },
+            {
+              "type": "textfield",
+              "label": "Practice Location Name",
+              "key": "locationName",
+              "description": "\u201cDoing Business As\u201d Name"
+            },
+            {
+              "type": "textfield",
+              "label": "Practice Location Street Address Line 1",
+              "key": "locationAddressLine1",
+              "description": "Street Name and Number - NOT a P.O. Box"
+            },
+            {
+              "type": "textfield",
+              "label": "Practice Location Street Address Line 2",
+              "key": "locationAddressLine2",
+              "description": "Suite, Room, Apt. #, etc."
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "locationCity"
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "locationState",
+              "inputMask": "AA"
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code + 4",
+              "key": "locationZip",
+              "inputMask": "99999-9999"
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number",
+              "key": "locationPhone"
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Fax Number (if applicable)",
+              "key": "locationFax"
+            },
+            {
+              "type": "email",
+              "label": "E-mail Address (if applicable)",
+              "key": "locationEmail"
+            },
+            {
+              "type": "textfield",
+              "label": "Medicare Identification Number for this location - PTAN (if issued)",
+              "key": "locationPtan"
+            },
+            {
+              "type": "datetime",
+              "label": "Date you saw or will see your first Medicare patient at this practice location",
+              "key": "locationFirstMedicarePatientDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "radio",
+              "label": "Is this your primary practice location?",
+              "key": "locationIsPrimary",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ]
+            },
+            {
+              "type": "selectboxes",
+              "label": "Practice Location Setting(s)",
+              "key": "locationSettings",
+              "values": [
+                {
+                  "label": "Ambulatory Surgical Center",
+                  "value": "ambulatory_surgical_center"
+                },
+                {
+                  "label": "Business Office for Administrative Telehealth Use Only",
+                  "value": "business_office_admin_telehealth"
+                },
+                {
+                  "label": "Home Office for Administrative Telehealth Use Only",
+                  "value": "home_office_admin_telehealth"
+                },
+                {
+                  "label": "Hospital",
+                  "value": "hospital"
+                },
+                {
+                  "label": "Indian Health Services (IHS) or Tribal Facility",
+                  "value": "ihs_or_tribal_facility"
+                },
+                {
+                  "label": "Private Office Setting",
+                  "value": "private_office_setting"
+                },
+                {
+                  "label": "Retirement or Assisted Living Community",
+                  "value": "retirement_or_assisted_living"
+                },
+                {
+                  "label": "Skilled Nursing Facility or Other Nursing Facility",
+                  "value": "snf_or_other_nursing"
+                },
+                {
+                  "label": "Other Health Care Facility",
+                  "value": "other_health_care_facility"
+                }
+              ]
+            },
+            {
+              "type": "textfield",
+              "label": "Specify Other Health Care Facility",
+              "key": "locationOtherFacilitySpecify"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Remittance Notices/Special Payments Mailing Address",
+      "key": "remittanceAddress",
+      "conditional": {
+        "show": false,
+        "when": "practiceArrangement",
+        "eq": "no_practice_all_reassigned"
+      },
+      "components": [
+        {
+          "type": "radio",
+          "label": "Where should your Remittance Notices/Special Payments be mailed?",
+          "key": "remittanceAddressChoice",
+          "values": [
+            {
+              "label": "Mail to my Correspondence Address in Section 2D",
+              "value": "correspondence_2d"
+            },
+            {
+              "label": "Mail to my Practice Location Address in Section 4B",
+              "value": "practice_location_4b"
+            },
+            {
+              "label": "Mail to a different address (complete the fields below)",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "type": "container",
+          "label": "Special Payments Address",
+          "key": "specialPaymentsAddress",
+          "hideLabel": true,
+          "conditional": {
+            "show": true,
+            "when": "remittanceAddressChoice",
+            "eq": "other"
+          },
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "If you are reporting a change to your Remittance Notice/Special Payments Mailing Address, check this box and furnish the effective date (Change)",
+              "key": "remittanceAddressChanging"
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "remittanceEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "textfield",
+              "label": "Special Payments Address Line 1",
+              "key": "remittanceAddressLine1",
+              "description": "P.O. Box or Street Name and Number"
+            },
+            {
+              "type": "textfield",
+              "label": "Special Payments Address Line 2",
+              "key": "remittanceAddressLine2",
+              "description": "Suite, Room, Apt. #, etc."
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "remittanceCity"
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "remittanceState",
+              "inputMask": "AA",
+              "description": "2 letter abbreviation"
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code + 4",
+              "key": "remittanceZip",
+              "inputMask": "99999-9999"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "D. Medicare Beneficiary Medical Records Storage Address",
+      "key": "recordsStorageAddress",
+      "conditional": {
+        "show": false,
+        "when": "practiceArrangement",
+        "eq": "no_practice_all_reassigned"
+      },
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "Records are stored at the Practice Location reported in Section 4B",
+          "key": "recordsStoredAtPracticeLocation"
+        },
+        {
+          "type": "container",
+          "label": "Storage Details",
+          "key": "storageDetails",
+          "hideLabel": true,
+          "conditional": {
+            "show": false,
+            "when": "recordsStoredAtPracticeLocation",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "selectboxes",
+              "label": "If you are adding or removing a storage location, check the applicable box and furnish the effective date",
+              "key": "storageChangeType",
+              "values": [
+                {
+                  "label": "Add",
+                  "value": "add"
+                },
+                {
+                  "label": "Remove",
+                  "value": "remove"
+                }
+              ]
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "storageEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "radio",
+              "label": "1. Paper Storage. Do you store your patient medical records in a physical location?",
+              "key": "storesPaperRecords",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "label": "Paper Storage Facility",
+              "key": "paperStorageFacility",
+              "hideLabel": true,
+              "conditional": {
+                "show": true,
+                "when": "storesPaperRecords",
+                "eq": "yes"
+              },
+              "components": [
+                {
+                  "type": "textfield",
+                  "label": "Name of Storage Facility",
+                  "key": "storageFacilityName"
+                },
+                {
+                  "type": "textfield",
+                  "label": "Storage Facility Address Line 1",
+                  "key": "storageAddressLine1",
+                  "description": "Street Name and Number"
+                },
+                {
+                  "type": "textfield",
+                  "label": "Storage Facility Address Line 2",
+                  "key": "storageAddressLine2",
+                  "description": "Suite, Room, Apt. #, etc."
+                },
+                {
+                  "type": "textfield",
+                  "label": "City/Town",
+                  "key": "storageCity"
+                },
+                {
+                  "type": "textfield",
+                  "label": "State",
+                  "key": "storageState",
+                  "inputMask": "AA"
+                },
+                {
+                  "type": "textfield",
+                  "label": "ZIP Code + 4",
+                  "key": "storageZip",
+                  "inputMask": "99999-9999"
+                }
+              ]
+            },
+            {
+              "type": "radio",
+              "label": "2. Electronic Storage. Do you store your patient medical records electronically?",
+              "key": "storesElectronicRecords",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ]
+            },
+            {
+              "type": "textfield",
+              "label": "Site where electronic records are stored",
+              "key": "electronicStorageSite",
+              "conditional": {
+                "show": true,
+                "when": "storesElectronicRecords",
+                "eq": "yes"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "E. Rendering Services in Patients' Homes",
+      "key": "servicesInPatientsHomes",
+      "conditional": {
+        "show": false,
+        "when": "practiceArrangement",
+        "eq": "no_practice_all_reassigned"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p>List the city/town, county, state, or ZIP code for all locations where you render health care services in patients' homes.</p>",
+          "key": "homeServicesInstructions"
+        },
+        {
+          "type": "checkbox",
+          "label": "I render health care services in patients' homes",
+          "key": "rendersServicesInHomes"
+        },
+        {
+          "type": "container",
+          "label": "Home Service Locations",
+          "key": "homeServiceLocations",
+          "hideLabel": true,
+          "conditional": {
+            "show": true,
+            "when": "rendersServicesInHomes",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "homeServicesEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "htmlelement",
+              "tag": "h5",
+              "content": "1. Initial Reporting and/or Additions",
+              "key": "homeAdditionsSubheader"
+            },
+            {
+              "type": "checkbox",
+              "label": "I am reporting or adding an entire state (specify the state below)",
+              "key": "addingEntireState"
+            },
+            {
+              "type": "textfield",
+              "label": "Specify the State",
+              "key": "addedState",
+              "inputMask": "AA",
+              "conditional": {
+                "show": true,
+                "when": "addingEntireState",
+                "eq": true
+              }
+            },
+            {
+              "type": "htmlelement",
+              "tag": "p",
+              "content": "If services are only provided in selected cities/towns or counties, provide the locations below.",
+              "key": "homeAdditionsTableInstructions"
+            },
+            {
+              "type": "datagrid",
+              "label": "Locations Being Reported or Added",
+              "key": "homeServiceAdditions",
+              "reorder": false,
+              "addAnother": "Add Another Location",
+              "addAnotherPosition": "bottom",
+              "components": [
+                {
+                  "type": "textfield",
+                  "label": "City/Town",
+                  "key": "city"
+                },
+                {
+                  "type": "textfield",
+                  "label": "County",
+                  "key": "county"
+                },
+                {
+                  "type": "textfield",
+                  "label": "State/Territory",
+                  "key": "state",
+                  "inputMask": "AA"
+                },
+                {
+                  "type": "textfield",
+                  "label": "ZIP Code",
+                  "key": "zip",
+                  "description": "Only list ZIP codes if you are not servicing the entire city/town or county"
+                }
+              ]
+            },
+            {
+              "type": "htmlelement",
+              "tag": "h5",
+              "content": "2. Deletions",
+              "key": "homeDeletionsSubheader",
+              "className": "mt-3"
+            },
+            {
+              "type": "checkbox",
+              "label": "I am deleting an entire state (specify the state below)",
+              "key": "deletingEntireState"
+            },
+            {
+              "type": "textfield",
+              "label": "Specify the State",
+              "key": "deletedState",
+              "inputMask": "AA",
+              "conditional": {
+                "show": true,
+                "when": "deletingEntireState",
+                "eq": true
+              }
+            },
+            {
+              "type": "htmlelement",
+              "tag": "p",
+              "content": "If services are no longer provided in selected cities/towns or counties, provide the locations below.",
+              "key": "homeDeletionsTableInstructions"
+            },
+            {
+              "type": "datagrid",
+              "label": "Locations Being Deleted",
+              "key": "homeServiceDeletions",
+              "reorder": false,
+              "addAnother": "Add Another Location",
+              "addAnotherPosition": "bottom",
+              "components": [
+                {
+                  "type": "textfield",
+                  "label": "City/Town",
+                  "key": "city"
+                },
+                {
+                  "type": "textfield",
+                  "label": "County",
+                  "key": "county"
+                },
+                {
+                  "type": "textfield",
+                  "label": "State/Territory",
+                  "key": "state",
+                  "inputMask": "AA"
+                },
+                {
+                  "type": "textfield",
+                  "label": "ZIP Code",
+                  "key": "zip",
+                  "description": "Only list ZIP codes if you are not servicing the entire city/town or county"
+                }
+              ]
+            },
+            {
+              "type": "textarea",
+              "label": "3. Comments/Special Circumstances",
+              "key": "homeServicesComments",
+              "rows": 4,
+              "description": "Explain any unique circumstances concerning your practice location(s) or the method by which you render health care services"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "F. Individual/Organization/Group Receiving the Reassigned Benefits",
+      "key": "reassignedBenefits",
+      "conditional": {
+        "show": false,
+        "when": "practiceArrangement",
+        "eq": "practice_only"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-warning",
+          "content": "<p><strong>NOTE:</strong> All reassignment actions should now be reported via this section of the CMS-855I. The CMS-855R (Reassignment of Medicare Benefits) form has been discontinued.</p><p><strong>NOTE:</strong> Both the individual practitioner and the eligible organization/group must be currently enrolled (or concurrently enrolling via submission of the CMS-855B for the eligible organization/group and the CMS-855I for the individual practitioner) in the Medicare program before the reassignment can take effect.</p>",
+          "key": "reassignmentNote"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "1. Individual Practitioner Receiving Reassigned Benefits Identification",
+          "key": "individualReassigneeSubheader"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Complete this sub-section if you are reassigning your benefits to an individual practitioner (e.g., a sole owner).",
+          "key": "individualReassigneeInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Individual Practitioners Receiving Reassigned Benefits",
+          "key": "individualReassignees",
+          "reorder": false,
+          "addAnother": "Add Another Individual Practitioner",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "radio",
+              "label": "Action",
+              "key": "reassignmentAction",
+              "values": [
+                {
+                  "label": "Change",
+                  "value": "change"
+                },
+                {
+                  "label": "Add",
+                  "value": "add"
+                },
+                {
+                  "label": "Terminate",
+                  "value": "terminate"
+                }
+              ]
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "reassignmentEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "textfield",
+              "label": "First Name",
+              "key": "reassigneeFirstName"
+            },
+            {
+              "type": "textfield",
+              "label": "Middle Initial",
+              "key": "reassigneeMiddleInitial",
+              "inputMask": "A"
+            },
+            {
+              "type": "textfield",
+              "label": "Last Name",
+              "key": "reassigneeLastName"
+            },
+            {
+              "type": "textfield",
+              "label": "Jr., Sr., M.D., etc.",
+              "key": "reassigneeSuffix"
+            },
+            {
+              "type": "radio",
+              "label": "Identifier Type",
+              "key": "reassigneeIdentifierType",
+              "values": [
+                {
+                  "label": "Social Security Number",
+                  "value": "ssn"
+                },
+                {
+                  "label": "Employer Identification Number (EIN)",
+                  "value": "ein"
+                }
+              ]
+            },
+            {
+              "type": "textfield",
+              "label": "Social Security Number (SSN)",
+              "key": "reassigneeSsn",
+              "inputMask": "999-99-9999",
+              "conditional": {
+                "show": true,
+                "when": "reassigneeIdentifierType",
+                "eq": "ssn"
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Employer Identification Number (EIN) (list number below if applicable)",
+              "key": "reassigneeEin",
+              "inputMask": "99-9999999",
+              "conditional": {
+                "show": true,
+                "when": "reassigneeIdentifierType",
+                "eq": "ein"
+              }
+            },
+            {
+              "type": "textfield",
+              "label": "Medicare Identification Number (PTAN) (if issued)",
+              "key": "reassigneePtan"
+            },
+            {
+              "type": "textfield",
+              "label": "National Provider Identifier (NPI) (Type 1 - Individual)",
+              "key": "reassigneeNpi",
+              "inputMask": "9999999999"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "2. Organization/Group Receiving Reassigned Benefits Identification",
+          "key": "orgReassigneeSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Complete this sub-section if you are reassigning your benefits to an organization or group.",
+          "key": "orgReassigneeInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Organizations/Groups Receiving Reassigned Benefits",
+          "key": "organizationReassignees",
+          "reorder": false,
+          "addAnother": "Add Another Organization/Group",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "radio",
+              "label": "Action",
+              "key": "reassignmentAction",
+              "values": [
+                {
+                  "label": "Change",
+                  "value": "change"
+                },
+                {
+                  "label": "Add",
+                  "value": "add"
+                },
+                {
+                  "label": "Terminate",
+                  "value": "terminate"
+                }
+              ]
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "reassignmentEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "textfield",
+              "label": "Organization/Group Legal Business Name (as Reported to the Internal Revenue Service)",
+              "key": "orgLegalBusinessName"
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number (TIN)",
+              "key": "orgTin",
+              "inputMask": "99-9999999"
+            },
+            {
+              "type": "textfield",
+              "label": "Medicare Identification Number (PTAN) (if issued)",
+              "key": "orgPtan"
+            },
+            {
+              "type": "textfield",
+              "label": "National Provider Identifier (NPI)",
+              "key": "orgNpi",
+              "inputMask": "9999999999"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> If you are a sole owner and intend to add an Authorized/Delegated Official, the reassignment must be signed by a delegated or authorized official of the individual/organization/group receiving the reassigned benefits in Section 15C.</p>",
+          "key": "reassignmentSignatureNote"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "3. Primary and Secondary Practice Locations (Optional)",
+          "key": "reassignmentLocationsSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Optionally report the primary and secondary practice location(s) associated with the reassignment above.",
+          "key": "reassignmentLocationsInstructions"
+        },
+        {
+          "type": "datagrid",
+          "label": "Reassignment Practice Locations",
+          "key": "reassignmentPracticeLocations",
+          "reorder": false,
+          "addAnother": "Add Another Practice Location",
+          "addAnotherPosition": "bottom",
+          "components": [
+            {
+              "type": "radio",
+              "label": "Location Type",
+              "key": "locationType",
+              "values": [
+                {
+                  "label": "a. Primary Practice Location",
+                  "value": "primary"
+                },
+                {
+                  "label": "b. Secondary Practice Location",
+                  "value": "secondary"
+                }
+              ]
+            },
+            {
+              "type": "radio",
+              "label": "Action",
+              "key": "locationAction",
+              "values": [
+                {
+                  "label": "Change",
+                  "value": "change"
+                },
+                {
+                  "label": "Add",
+                  "value": "add"
+                },
+                {
+                  "label": "Remove",
+                  "value": "remove"
+                }
+              ]
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "locationEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "textfield",
+              "label": "Practice Location Name",
+              "key": "locationName",
+              "description": "\u201cDoing Business As\u201d Name"
+            },
+            {
+              "type": "textfield",
+              "label": "Practice Location Street Address Line 1",
+              "key": "locationAddressLine1",
+              "description": "Street Name and Number - NOT a P.O. Box"
+            },
+            {
+              "type": "textfield",
+              "label": "Practice Location Street Address Line 2",
+              "key": "locationAddressLine2",
+              "description": "Suite, Room, Apt. #, etc."
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "locationCity"
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "locationState",
+              "inputMask": "AA"
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code + 4",
+              "key": "locationZip",
+              "inputMask": "99999-9999"
+            },
+            {
+              "type": "textfield",
+              "label": "Medicare Identification Number for this location - PTAN (if issued)",
+              "key": "locationPtan"
+            },
+            {
+              "type": "textfield",
+              "label": "National Provider Identifier (NPI)",
+              "key": "locationNpi",
+              "inputMask": "9999999999"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

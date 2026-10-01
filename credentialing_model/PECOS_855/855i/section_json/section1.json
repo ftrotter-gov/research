@@ -1,0 +1,181 @@
+{
+  "title": "Section 1: Basic Information",
+  "key": "section1BasicInformation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 1: Basic Information</h3><p><strong>Form Purpose:</strong> Medicare Enrollment Application for Physicians and Non-Physician Practitioners</p><p>See Section 12 for a list of supporting documentation to be submitted with this application. To view your current Medicare enrollment record go to pecos.cms.hhs.gov.</p>",
+      "key": "section1Header"
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<p><strong>NOTE:</strong> All reassignment actions should now be reported via the CMS-855I (Section 4F). The CMS-855R (Reassignment of Medicare Benefits) form has been discontinued.</p>",
+      "key": "section1ReassignmentNote"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Reason for Submitting This Application",
+      "key": "reasonForSubmitting",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Check one box and complete the sections of this application as indicated.",
+          "key": "reasonInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Reason for Submitting",
+          "key": "submissionReason",
+          "values": [
+            {
+              "label": "You are a new enrollee in Medicare (Complete all applicable sections)",
+              "value": "new_enrollee"
+            },
+            {
+              "label": "You are currently enrolled in Medicare to order and certify and want to enroll as an Individual Practitioner (Complete all applicable sections)",
+              "value": "order_certify_to_practitioner"
+            },
+            {
+              "label": "You are enrolling with another Medicare Administrative Contractor (MAC) (Complete all applicable sections)",
+              "value": "enrolling_another_mac"
+            },
+            {
+              "label": "You are revalidating your Medicare enrollment (Complete all applicable sections)",
+              "value": "revalidating"
+            },
+            {
+              "label": "You are reactivating your Medicare enrollment (Complete all applicable sections)",
+              "value": "reactivating"
+            },
+            {
+              "label": "You are reporting a change to your Medicare enrollment information (Go to Section 1B below)",
+              "value": "reporting_change"
+            },
+            {
+              "label": "You are voluntarily terminating your Medicare enrollment (Complete Sections 1A, 2A, 13 (optional), and 15)",
+              "value": "voluntarily_terminating"
+            }
+          ],
+          "defaultValue": "new_enrollee"
+        },
+        {
+          "type": "datetime",
+          "label": "Effective Date of Termination",
+          "key": "terminationEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year",
+          "conditional": {
+            "show": true,
+            "when": "submissionReason",
+            "eq": "voluntarily_terminating"
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number (PTAN) (if issued)",
+          "key": "medicareIdNumber",
+          "placeholder": "Enter Medicare ID if already issued"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI) (Type 1 - Individual)",
+          "key": "basicInfoNpi",
+          "placeholder": "10-digit NPI",
+          "inputMask": "9999999999"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. What Information is Changing?",
+      "key": "whatIsChanging",
+      "conditional": {
+        "show": true,
+        "when": "submissionReason",
+        "eq": "reporting_change"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Check all that apply and complete the required sections. <strong>Please note:</strong> Sections 1, 2A, 3, 12, 13 (optional), and 15 must be completed for all changes, in addition to the specific section(s) being changed.",
+          "key": "changingInstructions"
+        },
+        {
+          "type": "selectboxes",
+          "label": "Categories of Information Being Changed",
+          "key": "changingCategories",
+          "values": [
+            {
+              "label": "Personal Identifying Information (Complete Sections 1, 2A, 3, 12, 13 (optional), 15)",
+              "value": "personal_identifying"
+            },
+            {
+              "label": "Medical Specialty Information (Complete Sections 1, 2A, 2G or 2H, 3, 4, 12, 13 (optional), 15)",
+              "value": "medical_specialty"
+            },
+            {
+              "label": "Supplier Specific Information (Complete Sections 1, 2A, 2B-2F, 2I-2K (as applicable), 3, 12, 13 (optional), 15)",
+              "value": "supplier_specific"
+            },
+            {
+              "label": "Physician Assistant Employment Arrangements (Complete Sections 1, 2A, 4F, 12, 13 (optional), 15)",
+              "value": "pa_employment"
+            },
+            {
+              "label": "Private Practice Business Information (Complete Sections 1, 2A, 3, 4A, 12, 13 (optional), 15)",
+              "value": "private_practice_business"
+            },
+            {
+              "label": "Managing Employee Information (Complete Sections 1, 2A, 3, 6, 12, 13 (optional), 15)",
+              "value": "managing_employee"
+            },
+            {
+              "label": "Address Information (Complete Sections 1, 2A, 3, 12, 13 (optional), 15 AND Sections 2D, 2E, 4B, 4C, and/or 4D as applicable for the address being changed)",
+              "value": "address_information"
+            },
+            {
+              "label": "Correspondence Mailing Address (Section 2D)",
+              "value": "correspondence_address"
+            },
+            {
+              "label": "Medical Record Correspondence Mailing Address (Section 2E)",
+              "value": "medical_record_correspondence_address"
+            },
+            {
+              "label": "Practice Location Address (Section 4B)",
+              "value": "practice_location_address"
+            },
+            {
+              "label": "Remittance Notices/Special Payment Mailing Address (Section 4C)",
+              "value": "remittance_address"
+            },
+            {
+              "label": "Medicare Beneficiary Medical Records Storage Address (Section 4D)",
+              "value": "records_storage_address"
+            },
+            {
+              "label": "Final Adverse Legal Action (Complete Sections 1, 2A, 3, 12, 13 (optional), 15)",
+              "value": "final_adverse_legal_action"
+            },
+            {
+              "label": "Billing Agency Information (Complete Sections 1, 2A, 3, 6, 8, 13 (optional), 15)",
+              "value": "billing_agency"
+            },
+            {
+              "label": "Any other information not specified above (Complete Sections 1, 2A, 3, 13 (optional), 15 and the applicable section or sub-section that is changing)",
+              "value": "other"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

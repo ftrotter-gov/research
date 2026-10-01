@@ -1,0 +1,13 @@
+{
+  "title": "Section 11: This Section Intentionally Left Blank",
+  "key": "section11IntentionallyLeftBlank",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-secondary",
+      "content": "<h3>Section 11: This Section Intentionally Left Blank</h3><p>This section is not applicable to the CMS-855I and is reserved for future use.</p>",
+      "key": "section11Header"
+    }
+  ]
+}

@@ -1,0 +1,1842 @@
+{
+  "title": "Section 2: Personal Identifying Information",
+  "key": "section2PersonalIdentifyingInformation",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-info",
+      "content": "<h3>Section 2: Personal Identifying Information</h3><p>Provide your personal identifying, licensing, and specialty information.</p>",
+      "key": "section2Header"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Individual Information",
+      "key": "individualInformation",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> The provider's name, date of birth, and Social Security Number must match his/her Social Security record.</p>",
+          "key": "individualInformationNote"
+        },
+        {
+          "type": "textfield",
+          "label": "First Name",
+          "key": "practitionerFirstName"
+        },
+        {
+          "type": "textfield",
+          "label": "Middle Initial",
+          "key": "practitionerMiddleInitial",
+          "inputMask": "A"
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name",
+          "key": "practitionerLastName"
+        },
+        {
+          "type": "textfield",
+          "label": "Jr., Sr., M.D., etc.",
+          "key": "practitionerSuffix"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "Other Name (if applicable)",
+          "key": "otherNameSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "textfield",
+          "label": "Other Name, First",
+          "key": "otherNameFirst"
+        },
+        {
+          "type": "textfield",
+          "label": "Other Name, Middle Initial",
+          "key": "otherNameMiddleInitial",
+          "inputMask": "A"
+        },
+        {
+          "type": "textfield",
+          "label": "Other Name, Last",
+          "key": "otherNameLast"
+        },
+        {
+          "type": "textfield",
+          "label": "Other Name, Jr., Sr., M.D., etc.",
+          "key": "otherNameSuffix"
+        },
+        {
+          "type": "radio",
+          "label": "Type of Other Name",
+          "key": "otherNameType",
+          "values": [
+            {
+              "label": "Former or Maiden Name",
+              "value": "former_or_maiden"
+            },
+            {
+              "label": "Professional Name",
+              "value": "professional"
+            },
+            {
+              "label": "Other",
+              "value": "other"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Other Type of Name (Describe)",
+          "key": "otherNameDescribe",
+          "conditional": {
+            "show": true,
+            "when": "otherNameType",
+            "eq": "other"
+          }
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "Identifiers and Education",
+          "key": "identifiersSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "textfield",
+          "label": "Social Security Number (SSN)",
+          "key": "practitionerSsn",
+          "inputMask": "999-99-9999"
+        },
+        {
+          "type": "datetime",
+          "label": "Date of Birth",
+          "key": "practitionerDateOfBirth",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year"
+        },
+        {
+          "type": "textfield",
+          "label": "Medicare Identification Number (PTAN) (if issued)",
+          "key": "practitionerMedicareIdPtan"
+        },
+        {
+          "type": "textfield",
+          "label": "National Provider Identifier (NPI) (Type 1 - Individual)",
+          "key": "practitionerNpi",
+          "inputMask": "9999999999",
+          "placeholder": "10-digit NPI"
+        },
+        {
+          "type": "textfield",
+          "label": "Medical or other Professional School",
+          "key": "professionalSchool",
+          "description": "Training Institution, if non-MD"
+        },
+        {
+          "type": "textfield",
+          "label": "Year of Graduation",
+          "key": "yearOfGraduation",
+          "inputMask": "9999",
+          "description": "4 digit year"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. License/Certification/Registration Information",
+      "key": "licenseCertificationRegistration",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "1. Active License Information",
+          "key": "activeLicenseSubheader"
+        },
+        {
+          "type": "checkbox",
+          "label": "License Not Applicable",
+          "key": "licenseNotApplicable"
+        },
+        {
+          "type": "datagrid",
+          "label": "Active Licenses",
+          "key": "activeLicenses",
+          "reorder": false,
+          "addAnother": "Add Another License",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": false,
+            "when": "licenseNotApplicable",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "License Number",
+              "key": "licenseNumber"
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "licenseEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false
+            },
+            {
+              "type": "textfield",
+              "label": "State Where Issued",
+              "key": "licenseStateIssued",
+              "inputMask": "AA"
+            },
+            {
+              "type": "radio",
+              "label": "Is this a compact license?",
+              "key": "isCompactLicense",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "2. Active Certification Information",
+          "key": "activeCertificationSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> If you are certified by a national entity, enter \"ALL\" in the State Where Issued field.</p>",
+          "key": "certificationNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "Certification Not Applicable",
+          "key": "certificationNotApplicable"
+        },
+        {
+          "type": "datagrid",
+          "label": "Active Certifications",
+          "key": "activeCertifications",
+          "reorder": false,
+          "addAnother": "Add Another Certification",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": false,
+            "when": "certificationNotApplicable",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "Certification Number",
+              "key": "certificationNumber"
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "certificationEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false
+            },
+            {
+              "type": "textfield",
+              "label": "Certifying Entity",
+              "key": "certifyingEntity",
+              "placeholder": "Specialty Board, State, Other"
+            },
+            {
+              "type": "textfield",
+              "label": "State Where Issued",
+              "key": "certificationStateIssued",
+              "placeholder": "If certified by a national entity, enter 'ALL'"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "3. Drug Enforcement Agency (DEA) Registration Information",
+          "key": "deaSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "checkbox",
+          "label": "DEA Registration Not Applicable",
+          "key": "deaNotApplicable"
+        },
+        {
+          "type": "datagrid",
+          "label": "DEA Registrations",
+          "key": "deaRegistrations",
+          "reorder": false,
+          "addAnother": "Add Another DEA Registration",
+          "addAnotherPosition": "bottom",
+          "conditional": {
+            "show": false,
+            "when": "deaNotApplicable",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "textfield",
+              "label": "DEA Registration Number",
+              "key": "deaRegistrationNumber"
+            },
+            {
+              "type": "datetime",
+              "label": "Effective Date",
+              "key": "deaEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false
+            },
+            {
+              "type": "textfield",
+              "label": "State Where Issued",
+              "key": "deaStateIssued",
+              "inputMask": "AA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. New Patient Information",
+      "key": "newPatientInformation",
+      "components": [
+        {
+          "type": "radio",
+          "label": "Accepting New Patient Status (optional)",
+          "key": "acceptingNewPatients",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "D. Correspondence Mailing Address",
+      "key": "correspondenceMailingAddress",
+      "components": [
+        {
+          "type": "checkbox",
+          "label": "If you are reporting a change to your Correspondence Mailing Address, check this box and furnish the effective date (Change)",
+          "key": "correspondenceAddressChanging"
+        },
+        {
+          "type": "datetime",
+          "label": "Change Effective Date",
+          "key": "correspondenceAddressEffectiveDate",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year",
+          "conditional": {
+            "show": true,
+            "when": "correspondenceAddressChanging",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Attention (optional)",
+          "key": "correspondenceAttention"
+        },
+        {
+          "type": "textfield",
+          "label": "Correspondence Address Line 1",
+          "key": "correspondenceAddressLine1",
+          "description": "P.O. Box or Street Name and Number"
+        },
+        {
+          "type": "textfield",
+          "label": "Correspondence Address Line 2",
+          "key": "correspondenceAddressLine2",
+          "description": "Suite, Room, Apt. #, etc."
+        },
+        {
+          "type": "textfield",
+          "label": "City/Town",
+          "key": "correspondenceCity"
+        },
+        {
+          "type": "textfield",
+          "label": "State",
+          "key": "correspondenceState",
+          "inputMask": "AA",
+          "description": "2 letter abbreviation"
+        },
+        {
+          "type": "textfield",
+          "label": "ZIP Code + 4",
+          "key": "correspondenceZip",
+          "inputMask": "99999-9999"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Telephone Number (if applicable)",
+          "key": "correspondencePhone"
+        },
+        {
+          "type": "phoneNumber",
+          "label": "Fax Number (if applicable)",
+          "key": "correspondenceFax"
+        },
+        {
+          "type": "email",
+          "label": "E-mail Address (if applicable)",
+          "key": "correspondenceEmail"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "E. Medical Record Correspondence Address",
+      "key": "medicalRecordCorrespondenceAddress",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> This is the address to which requests for medical records should be sent.</p>",
+          "key": "medicalRecordAddressNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "Check here if your Medical Record Correspondence Address should be mailed to your Correspondence Address in Section 2D",
+          "key": "medicalRecordSameAsCorrespondence"
+        },
+        {
+          "type": "container",
+          "label": "Medical Record Correspondence Address Details",
+          "key": "medicalRecordAddressDetails",
+          "hideLabel": true,
+          "conditional": {
+            "show": false,
+            "when": "medicalRecordSameAsCorrespondence",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "checkbox",
+              "label": "If you are reporting a change to your Medical Record Correspondence Address, check this box and furnish the effective date (Change)",
+              "key": "medicalRecordAddressChanging"
+            },
+            {
+              "type": "datetime",
+              "label": "Change Effective Date",
+              "key": "medicalRecordAddressEffectiveDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "textfield",
+              "label": "Attention (optional)",
+              "key": "medicalRecordAttention"
+            },
+            {
+              "type": "textfield",
+              "label": "Medical Record Correspondence Address Line 1",
+              "key": "medicalRecordAddressLine1",
+              "description": "P.O. Box or Street Name and Number"
+            },
+            {
+              "type": "textfield",
+              "label": "Medical Record Correspondence Address Line 2",
+              "key": "medicalRecordAddressLine2",
+              "description": "Suite, Room, Apt. #, etc."
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "medicalRecordCity"
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "medicalRecordState",
+              "inputMask": "AA",
+              "description": "2 letter abbreviation"
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code + 4",
+              "key": "medicalRecordZip",
+              "inputMask": "99999-9999"
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number (if applicable)",
+              "key": "medicalRecordPhone"
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Fax Number (if applicable)",
+              "key": "medicalRecordFax"
+            },
+            {
+              "type": "email",
+              "label": "E-mail Address (if applicable)",
+              "key": "medicalRecordEmail"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "F. Resident Information",
+      "key": "residentInformation",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> Complete this sub-section only if you are currently a resident in a formal residency or fellowship program.</p>",
+          "key": "residentInformationNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "I am currently a resident in a formal residency or fellowship program",
+          "key": "isResident"
+        },
+        {
+          "type": "container",
+          "label": "Resident Details",
+          "key": "residentDetails",
+          "hideLabel": true,
+          "conditional": {
+            "show": true,
+            "when": "isResident",
+            "eq": true
+          },
+          "components": [
+            {
+              "type": "htmlelement",
+              "tag": "p",
+              "content": "1. Provide the name and address of the hospital/facility where you are a resident.",
+              "key": "residentHospitalInstructions"
+            },
+            {
+              "type": "textfield",
+              "label": "Name of Hospital/Facility",
+              "key": "residentHospitalName"
+            },
+            {
+              "type": "textfield",
+              "label": "Street Address",
+              "key": "residentHospitalStreet"
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "residentHospitalCity"
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "residentHospitalState",
+              "inputMask": "AA",
+              "description": "2 letter abbreviation"
+            },
+            {
+              "type": "datetime",
+              "label": "Date of Completion",
+              "key": "residentCompletionDate",
+              "format": "MM/dd/yyyy",
+              "enableDate": true,
+              "enableTime": false,
+              "description": "2 digit month, 2 digit day, 4 digit year"
+            },
+            {
+              "type": "radio",
+              "label": "2. Are the services that you render at the hospital/facility shown in Section 2F1 part of your requirements for graduation from a formal residency or program?",
+              "key": "residentServicesForGraduation",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ]
+            },
+            {
+              "type": "radio",
+              "label": "3. Do you also render services at other facilities or practice locations?",
+              "key": "residentOtherLocations",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ]
+            },
+            {
+              "type": "radio",
+              "label": "4. Are the services that you render in any of the practice locations you will be reporting in Section 4B and/or Section 4F part of your requirements for graduation from a residency program?",
+              "key": "residentOtherLocationsForGraduation",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "residentOtherLocations",
+                "eq": "yes"
+              }
+            },
+            {
+              "type": "radio",
+              "label": "If yes, has the teaching hospital/facility reported in Section 2F1 above agreed to incur all or substantially all of the costs of your training in the non-hospital/facility location?",
+              "key": "residentTeachingHospitalIncursCosts",
+              "values": [
+                {
+                  "label": "Yes",
+                  "value": "yes"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ],
+              "conditional": {
+                "show": true,
+                "when": "residentOtherLocationsForGraduation",
+                "eq": "yes"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "Practitioner Type",
+      "key": "practitionerTypeSelector",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-info",
+          "content": "<p>Select your practitioner type below. This determines whether you complete Section 2G (Physician Specialty) or Section 2H (Eligible Professional or Other Non-Physician Specialty Type), and which of Sections 2I through 2K apply to you.</p>",
+          "key": "practitionerTypeNote"
+        },
+        {
+          "type": "radio",
+          "label": "Are you enrolling as a physician or as an eligible professional / non-physician practitioner?",
+          "key": "practitionerType",
+          "values": [
+            {
+              "label": "Physician (complete Section 2G)",
+              "value": "physician"
+            },
+            {
+              "label": "Eligible Professional or Other Non-Physician Practitioner (complete Section 2H)",
+              "value": "non_physician"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "G. Physician Specialty",
+      "key": "physicianSpecialty",
+      "conditional": {
+        "show": true,
+        "when": "practitionerType",
+        "eq": "physician"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p>Designate your primary specialty and all secondary specialty(s) below. On the paper form these are marked P=Primary and S=Secondary; here, select one primary specialty and any number of secondary specialties.</p>",
+          "key": "physicianSpecialtyInstructions"
+        },
+        {
+          "type": "select",
+          "label": "Primary Physician Specialty (P)",
+          "key": "primaryPhysicianSpecialty",
+          "placeholder": "Select your primary specialty",
+          "data": {
+            "values": [
+              {
+                "label": "Addiction Medicine",
+                "value": "addiction_medicine"
+              },
+              {
+                "label": "Adult Congenital Heart Disease",
+                "value": "adult_congenital_heart_disease"
+              },
+              {
+                "label": "Advanced Heart Failure and Transplant Cardiology",
+                "value": "advanced_heart_failure_and_transplant_cardiology"
+              },
+              {
+                "label": "Allergy/Immunology",
+                "value": "allergy_immunology"
+              },
+              {
+                "label": "Anesthesiology",
+                "value": "anesthesiology"
+              },
+              {
+                "label": "Cardiac Electrophysiology",
+                "value": "cardiac_electrophysiology"
+              },
+              {
+                "label": "Cardiac Surgery",
+                "value": "cardiac_surgery"
+              },
+              {
+                "label": "Cardiovascular Disease (Cardiology)",
+                "value": "cardiovascular_disease_cardiology"
+              },
+              {
+                "label": "Chiropractic",
+                "value": "chiropractic"
+              },
+              {
+                "label": "Colorectal Surgery (Proctology)",
+                "value": "colorectal_surgery_proctology"
+              },
+              {
+                "label": "Critical Care Intensivists",
+                "value": "critical_care_intensivists"
+              },
+              {
+                "label": "Dentist",
+                "value": "dentist"
+              },
+              {
+                "label": "Dermatology",
+                "value": "dermatology"
+              },
+              {
+                "label": "Diagnostic Radiology",
+                "value": "diagnostic_radiology"
+              },
+              {
+                "label": "Emergency Medicine",
+                "value": "emergency_medicine"
+              },
+              {
+                "label": "Endocrinology",
+                "value": "endocrinology"
+              },
+              {
+                "label": "Family Medicine",
+                "value": "family_medicine"
+              },
+              {
+                "label": "Gastroenterology",
+                "value": "gastroenterology"
+              },
+              {
+                "label": "General Practice",
+                "value": "general_practice"
+              },
+              {
+                "label": "General Surgery",
+                "value": "general_surgery"
+              },
+              {
+                "label": "Geriatric Medicine",
+                "value": "geriatric_medicine"
+              },
+              {
+                "label": "Geriatric Psychiatry",
+                "value": "geriatric_psychiatry"
+              },
+              {
+                "label": "Gynecological Oncology",
+                "value": "gynecological_oncology"
+              },
+              {
+                "label": "Hand Surgery",
+                "value": "hand_surgery"
+              },
+              {
+                "label": "Hematology",
+                "value": "hematology"
+              },
+              {
+                "label": "Hematology/Oncology",
+                "value": "hematology_oncology"
+              },
+              {
+                "label": "Hematopoietic Cell Transplantation and Cellular Therapy",
+                "value": "hematopoietic_cell_transplantation_and_cellular_therapy"
+              },
+              {
+                "label": "Hospice/Palliative Care",
+                "value": "hospice_palliative_care"
+              },
+              {
+                "label": "Hospitalist",
+                "value": "hospitalist"
+              },
+              {
+                "label": "Infectious Disease",
+                "value": "infectious_disease"
+              },
+              {
+                "label": "Internal Medicine",
+                "value": "internal_medicine"
+              },
+              {
+                "label": "Interventional Cardiology",
+                "value": "interventional_cardiology"
+              },
+              {
+                "label": "Interventional Pain Management",
+                "value": "interventional_pain_management"
+              },
+              {
+                "label": "Interventional Radiology",
+                "value": "interventional_radiology"
+              },
+              {
+                "label": "Maxillofacial Surgery",
+                "value": "maxillofacial_surgery"
+              },
+              {
+                "label": "Medical Genetics and Genomics",
+                "value": "medical_genetics_and_genomics"
+              },
+              {
+                "label": "Medical Oncology",
+                "value": "medical_oncology"
+              },
+              {
+                "label": "Medical Toxicology",
+                "value": "medical_toxicology"
+              },
+              {
+                "label": "Micrographic Dermatologic Surgery",
+                "value": "micrographic_dermatologic_surgery"
+              },
+              {
+                "label": "Nephrology",
+                "value": "nephrology"
+              },
+              {
+                "label": "Neurology",
+                "value": "neurology"
+              },
+              {
+                "label": "Neuropsychiatry",
+                "value": "neuropsychiatry"
+              },
+              {
+                "label": "Neurosurgery",
+                "value": "neurosurgery"
+              },
+              {
+                "label": "Nuclear Medicine",
+                "value": "nuclear_medicine"
+              },
+              {
+                "label": "Obstetrics/Gynecology",
+                "value": "obstetrics_gynecology"
+              },
+              {
+                "label": "Ophthalmology",
+                "value": "ophthalmology"
+              },
+              {
+                "label": "Optometry",
+                "value": "optometry"
+              },
+              {
+                "label": "Oral Surgery",
+                "value": "oral_surgery"
+              },
+              {
+                "label": "Orthopedic Surgery",
+                "value": "orthopedic_surgery"
+              },
+              {
+                "label": "Osteopathic Manipulative Medicine",
+                "value": "osteopathic_manipulative_medicine"
+              },
+              {
+                "label": "Otolaryngology",
+                "value": "otolaryngology"
+              },
+              {
+                "label": "Pain Management",
+                "value": "pain_management"
+              },
+              {
+                "label": "Pathology",
+                "value": "pathology"
+              },
+              {
+                "label": "Pediatric Medicine",
+                "value": "pediatric_medicine"
+              },
+              {
+                "label": "Peripheral Vascular Disease",
+                "value": "peripheral_vascular_disease"
+              },
+              {
+                "label": "Physical Medicine and Rehabilitation",
+                "value": "physical_medicine_and_rehabilitation"
+              },
+              {
+                "label": "Plastic and Reconstructive Surgery",
+                "value": "plastic_and_reconstructive_surgery"
+              },
+              {
+                "label": "Podiatry",
+                "value": "podiatry"
+              },
+              {
+                "label": "Preventive Medicine",
+                "value": "preventive_medicine"
+              },
+              {
+                "label": "Psychiatry",
+                "value": "psychiatry"
+              },
+              {
+                "label": "Pulmonary Disease",
+                "value": "pulmonary_disease"
+              },
+              {
+                "label": "Radiation Oncology",
+                "value": "radiation_oncology"
+              },
+              {
+                "label": "Rheumatology",
+                "value": "rheumatology"
+              },
+              {
+                "label": "Sleep Medicine",
+                "value": "sleep_medicine"
+              },
+              {
+                "label": "Sports Medicine",
+                "value": "sports_medicine"
+              },
+              {
+                "label": "Surgical Oncology",
+                "value": "surgical_oncology"
+              },
+              {
+                "label": "Thoracic Surgery",
+                "value": "thoracic_surgery"
+              },
+              {
+                "label": "Undersea and Hyperbaric Medicine",
+                "value": "undersea_and_hyperbaric_medicine"
+              },
+              {
+                "label": "Urology",
+                "value": "urology"
+              },
+              {
+                "label": "Vascular Surgery",
+                "value": "vascular_surgery"
+              },
+              {
+                "label": "Undefined Physician Specialty",
+                "value": "undefined_physician_specialty"
+              }
+            ]
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Undefined Physician Specialty, Specify",
+          "key": "primaryPhysicianSpecialtyOther",
+          "conditional": {
+            "show": true,
+            "when": "primaryPhysicianSpecialty",
+            "eq": "undefined_physician_specialty"
+          }
+        },
+        {
+          "type": "select",
+          "label": "Secondary Physician Specialty(s) (S)",
+          "key": "secondaryPhysicianSpecialties",
+          "placeholder": "Select all secondary specialties that apply",
+          "multiple": true,
+          "data": {
+            "values": [
+              {
+                "label": "Addiction Medicine",
+                "value": "addiction_medicine"
+              },
+              {
+                "label": "Adult Congenital Heart Disease",
+                "value": "adult_congenital_heart_disease"
+              },
+              {
+                "label": "Advanced Heart Failure and Transplant Cardiology",
+                "value": "advanced_heart_failure_and_transplant_cardiology"
+              },
+              {
+                "label": "Allergy/Immunology",
+                "value": "allergy_immunology"
+              },
+              {
+                "label": "Anesthesiology",
+                "value": "anesthesiology"
+              },
+              {
+                "label": "Cardiac Electrophysiology",
+                "value": "cardiac_electrophysiology"
+              },
+              {
+                "label": "Cardiac Surgery",
+                "value": "cardiac_surgery"
+              },
+              {
+                "label": "Cardiovascular Disease (Cardiology)",
+                "value": "cardiovascular_disease_cardiology"
+              },
+              {
+                "label": "Chiropractic",
+                "value": "chiropractic"
+              },
+              {
+                "label": "Colorectal Surgery (Proctology)",
+                "value": "colorectal_surgery_proctology"
+              },
+              {
+                "label": "Critical Care Intensivists",
+                "value": "critical_care_intensivists"
+              },
+              {
+                "label": "Dentist",
+                "value": "dentist"
+              },
+              {
+                "label": "Dermatology",
+                "value": "dermatology"
+              },
+              {
+                "label": "Diagnostic Radiology",
+                "value": "diagnostic_radiology"
+              },
+              {
+                "label": "Emergency Medicine",
+                "value": "emergency_medicine"
+              },
+              {
+                "label": "Endocrinology",
+                "value": "endocrinology"
+              },
+              {
+                "label": "Family Medicine",
+                "value": "family_medicine"
+              },
+              {
+                "label": "Gastroenterology",
+                "value": "gastroenterology"
+              },
+              {
+                "label": "General Practice",
+                "value": "general_practice"
+              },
+              {
+                "label": "General Surgery",
+                "value": "general_surgery"
+              },
+              {
+                "label": "Geriatric Medicine",
+                "value": "geriatric_medicine"
+              },
+              {
+                "label": "Geriatric Psychiatry",
+                "value": "geriatric_psychiatry"
+              },
+              {
+                "label": "Gynecological Oncology",
+                "value": "gynecological_oncology"
+              },
+              {
+                "label": "Hand Surgery",
+                "value": "hand_surgery"
+              },
+              {
+                "label": "Hematology",
+                "value": "hematology"
+              },
+              {
+                "label": "Hematology/Oncology",
+                "value": "hematology_oncology"
+              },
+              {
+                "label": "Hematopoietic Cell Transplantation and Cellular Therapy",
+                "value": "hematopoietic_cell_transplantation_and_cellular_therapy"
+              },
+              {
+                "label": "Hospice/Palliative Care",
+                "value": "hospice_palliative_care"
+              },
+              {
+                "label": "Hospitalist",
+                "value": "hospitalist"
+              },
+              {
+                "label": "Infectious Disease",
+                "value": "infectious_disease"
+              },
+              {
+                "label": "Internal Medicine",
+                "value": "internal_medicine"
+              },
+              {
+                "label": "Interventional Cardiology",
+                "value": "interventional_cardiology"
+              },
+              {
+                "label": "Interventional Pain Management",
+                "value": "interventional_pain_management"
+              },
+              {
+                "label": "Interventional Radiology",
+                "value": "interventional_radiology"
+              },
+              {
+                "label": "Maxillofacial Surgery",
+                "value": "maxillofacial_surgery"
+              },
+              {
+                "label": "Medical Genetics and Genomics",
+                "value": "medical_genetics_and_genomics"
+              },
+              {
+                "label": "Medical Oncology",
+                "value": "medical_oncology"
+              },
+              {
+                "label": "Medical Toxicology",
+                "value": "medical_toxicology"
+              },
+              {
+                "label": "Micrographic Dermatologic Surgery",
+                "value": "micrographic_dermatologic_surgery"
+              },
+              {
+                "label": "Nephrology",
+                "value": "nephrology"
+              },
+              {
+                "label": "Neurology",
+                "value": "neurology"
+              },
+              {
+                "label": "Neuropsychiatry",
+                "value": "neuropsychiatry"
+              },
+              {
+                "label": "Neurosurgery",
+                "value": "neurosurgery"
+              },
+              {
+                "label": "Nuclear Medicine",
+                "value": "nuclear_medicine"
+              },
+              {
+                "label": "Obstetrics/Gynecology",
+                "value": "obstetrics_gynecology"
+              },
+              {
+                "label": "Ophthalmology",
+                "value": "ophthalmology"
+              },
+              {
+                "label": "Optometry",
+                "value": "optometry"
+              },
+              {
+                "label": "Oral Surgery",
+                "value": "oral_surgery"
+              },
+              {
+                "label": "Orthopedic Surgery",
+                "value": "orthopedic_surgery"
+              },
+              {
+                "label": "Osteopathic Manipulative Medicine",
+                "value": "osteopathic_manipulative_medicine"
+              },
+              {
+                "label": "Otolaryngology",
+                "value": "otolaryngology"
+              },
+              {
+                "label": "Pain Management",
+                "value": "pain_management"
+              },
+              {
+                "label": "Pathology",
+                "value": "pathology"
+              },
+              {
+                "label": "Pediatric Medicine",
+                "value": "pediatric_medicine"
+              },
+              {
+                "label": "Peripheral Vascular Disease",
+                "value": "peripheral_vascular_disease"
+              },
+              {
+                "label": "Physical Medicine and Rehabilitation",
+                "value": "physical_medicine_and_rehabilitation"
+              },
+              {
+                "label": "Plastic and Reconstructive Surgery",
+                "value": "plastic_and_reconstructive_surgery"
+              },
+              {
+                "label": "Podiatry",
+                "value": "podiatry"
+              },
+              {
+                "label": "Preventive Medicine",
+                "value": "preventive_medicine"
+              },
+              {
+                "label": "Psychiatry",
+                "value": "psychiatry"
+              },
+              {
+                "label": "Pulmonary Disease",
+                "value": "pulmonary_disease"
+              },
+              {
+                "label": "Radiation Oncology",
+                "value": "radiation_oncology"
+              },
+              {
+                "label": "Rheumatology",
+                "value": "rheumatology"
+              },
+              {
+                "label": "Sleep Medicine",
+                "value": "sleep_medicine"
+              },
+              {
+                "label": "Sports Medicine",
+                "value": "sports_medicine"
+              },
+              {
+                "label": "Surgical Oncology",
+                "value": "surgical_oncology"
+              },
+              {
+                "label": "Thoracic Surgery",
+                "value": "thoracic_surgery"
+              },
+              {
+                "label": "Undersea and Hyperbaric Medicine",
+                "value": "undersea_and_hyperbaric_medicine"
+              },
+              {
+                "label": "Urology",
+                "value": "urology"
+              },
+              {
+                "label": "Vascular Surgery",
+                "value": "vascular_surgery"
+              },
+              {
+                "label": "Undefined Physician Specialty",
+                "value": "undefined_physician_specialty"
+              }
+            ]
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Undefined Secondary Physician Specialty, Specify",
+          "key": "secondaryPhysicianSpecialtyOther",
+          "conditional": {
+            "show": true,
+            "when": "secondaryPhysicianSpecialties",
+            "json": {
+              "in": [
+                "undefined_physician_specialty",
+                {
+                  "var": "data.secondaryPhysicianSpecialties"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "H. Eligible Professional or Other Non-Physician Specialty Type",
+      "key": "nonPhysicianSpecialty",
+      "conditional": {
+        "show": true,
+        "when": "practitionerType",
+        "eq": "non_physician"
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "Check only one of the following.",
+          "key": "nonPhysicianSpecialtyInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Eligible Professional or Other Non-Physician Specialty Type",
+          "key": "nonPhysicianSpecialtyType",
+          "values": [
+            {
+              "label": "Anesthesiology Assistant",
+              "value": "anesthesiology_assistant"
+            },
+            {
+              "label": "Certified Nurse Midwife C.N.M.",
+              "value": "certified_nurse_midwife_c_n_m"
+            },
+            {
+              "label": "Certified Registered Nurse Anesthetist C.R.N.A.",
+              "value": "certified_registered_nurse_anesthetist_c_r_n_a"
+            },
+            {
+              "label": "Certified Clinical Nurse Specialist C.N.S.",
+              "value": "certified_clinical_nurse_specialist_c_n_s"
+            },
+            {
+              "label": "Clinical Social Worker",
+              "value": "clinical_social_worker"
+            },
+            {
+              "label": "Mass Immunization Roster Biller",
+              "value": "mass_immunization_roster_biller"
+            },
+            {
+              "label": "Nurse Practitioner",
+              "value": "nurse_practitioner"
+            },
+            {
+              "label": "Occupational Therapist In Private Practice (See section 2J)",
+              "value": "occupational_therapist_in_private_practice_see_section_2j"
+            },
+            {
+              "label": "Physical Therapist In Private Practice (See section 2J)",
+              "value": "physical_therapist_in_private_practice_see_section_2j"
+            },
+            {
+              "label": "Physician Assistant",
+              "value": "physician_assistant"
+            },
+            {
+              "label": "Psychologist, Clinical",
+              "value": "psychologist_clinical"
+            },
+            {
+              "label": "Psychologist Billing Independently",
+              "value": "psychologist_billing_independently"
+            },
+            {
+              "label": "Qualified Audiologist",
+              "value": "qualified_audiologist"
+            },
+            {
+              "label": "Qualified Speech Language Pathologist",
+              "value": "qualified_speech_language_pathologist"
+            },
+            {
+              "label": "Registered Dietitian or Nutrition Professional",
+              "value": "registered_dietitian_or_nutrition_professional"
+            },
+            {
+              "label": "Undefined Non-Physician Practitioner Specialty",
+              "value": "undefined_non_physician_practitioner_specialty"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "label": "Undefined Non-Physician Practitioner Specialty, Specify",
+          "key": "nonPhysicianSpecialtyOther",
+          "conditional": {
+            "show": true,
+            "when": "nonPhysicianSpecialtyType",
+            "eq": "undefined_non_physician_practitioner_specialty"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "1. Does the practitioner identified in Section 2A provide acupuncture services and meet all state laws and requirements regarding such services?",
+          "key": "providesAcupunctureServices",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> If yes, a current copy of certification and proof of educational requirements must be submitted with this application (see Section 12).</p>",
+          "key": "acupunctureNote",
+          "conditional": {
+            "show": true,
+            "when": "providesAcupunctureServices",
+            "eq": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "I. Psychologist Information",
+      "key": "psychologistInformation",
+      "conditional": {
+        "show": true,
+        "when": "nonPhysicianSpecialtyType",
+        "json": {
+          "in": [
+            {
+              "var": "data.nonPhysicianSpecialtyType"
+            },
+            [
+              "psychologist_clinical",
+              "psychologist_billing_independently"
+            ]
+          ]
+        }
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "1. Clinical Psychologists",
+          "key": "clinicalPsychologistSubheader"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> A clinical psychologist must hold a doctoral degree in psychology and be licensed or certified, on the basis of the doctoral degree in psychology, by the state in which he or she practices.</p>",
+          "key": "clinicalPsychologistNote"
+        },
+        {
+          "type": "textfield",
+          "label": "Identify the type of your doctoral psychology degree (e.g., Ph.D., Ed.D., Psy.D.)",
+          "key": "psychologyDoctoralDegreeType"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "h5",
+          "content": "2. Psychologists Billing Independently",
+          "key": "independentPsychologistSubheader",
+          "className": "mt-3"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p><strong>NOTE:</strong> Answer the questions below only if you are a psychologist billing independently.</p>",
+          "key": "independentPsychologistNote"
+        },
+        {
+          "type": "radio",
+          "label": "a. Do you render services of your own responsibility, free from the administrative control of an employer such as a physician, institution, or agency?",
+          "key": "psychologistOwnResponsibility",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "b. Do you treat your own patients?",
+          "key": "psychologistTreatsOwnPatients",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "c. Do you have the right to bill directly, and to collect and retain the fee for your services?",
+          "key": "psychologistBillsDirectly",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "d. Is your private practice located in an institution or other facility?",
+          "key": "psychologistPracticeInInstitution",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "content": "If YES to question (d) above, answer questions 1 and 2 below.",
+          "key": "psychologistInstitutionInstructions",
+          "conditional": {
+            "show": true,
+            "when": "psychologistPracticeInInstitution",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "1. If your private practice is located in an institution or other facility, is your office confined to a separately identified part of the institution/facility that is used solely as your office and cannot be construed as extending throughout the entire institution/facility?",
+          "key": "psychologistOfficeConfined",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "psychologistPracticeInInstitution",
+            "eq": "yes"
+          }
+        },
+        {
+          "type": "radio",
+          "label": "2. If your private practice is located in an institution/facility, do you also render services to patients from outside the institution or facility where your office is located?",
+          "key": "psychologistServesOutsidePatients",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "psychologistPracticeInInstitution",
+            "eq": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "J. Physical/Occupational Therapist Information",
+      "key": "therapistInformation",
+      "conditional": {
+        "show": true,
+        "when": "nonPhysicianSpecialtyType",
+        "json": {
+          "in": [
+            {
+              "var": "data.nonPhysicianSpecialtyType"
+            },
+            [
+              "physical_therapist_in_private_practice_see_section_2j",
+              "occupational_therapist_in_private_practice_see_section_2j"
+            ]
+          ]
+        }
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "font-weight-bold",
+          "content": "Physical Therapists/Occupational Therapists in Private Practice (PT/OT) ONLY.",
+          "key": "therapistInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "1. Do you ONLY render PT/OT services in the patients' homes?",
+          "key": "ptotOnlyInPatientHomes",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "2. Do you maintain private office space?",
+          "key": "ptotMaintainsPrivateOffice",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "3. Do you own, lease, or rent your private office space?",
+          "key": "ptotOwnsLeasesOffice",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "4. Is this private office space used exclusively for your private practice?",
+          "key": "ptotOfficeExclusive",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "radio",
+          "label": "5. Do you provide PT/OT services outside of your office and/or patients' homes?",
+          "key": "ptotServicesOutsideOffice",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p>If you responded YES to questions 2, 3 or 4 above, report your private office space as a practice location in Section 4B.</p>",
+          "key": "ptotPracticeLocationNote"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "K. Clinical Nurse Specialist/Nurse Practitioner Information",
+      "key": "cnsNpInformation",
+      "conditional": {
+        "show": true,
+        "when": "nonPhysicianSpecialtyType",
+        "json": {
+          "in": [
+            {
+              "var": "data.nonPhysicianSpecialtyType"
+            },
+            [
+              "certified_clinical_nurse_specialist_c_n_s",
+              "nurse_practitioner"
+            ]
+          ]
+        }
+      },
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "font-weight-bold",
+          "content": "Clinical Nurse Specialists/Nurse Practitioners ONLY.",
+          "key": "cnsNpInstructions"
+        },
+        {
+          "type": "radio",
+          "label": "Are you an employee of a skilled nursing facility (SNF)?",
+          "key": "cnsNpIsSnfEmployee",
+          "values": [
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ]
+        },
+        {
+          "type": "container",
+          "label": "Skilled Nursing Facility Information",
+          "key": "snfDetails",
+          "hideLabel": true,
+          "conditional": {
+            "show": true,
+            "when": "cnsNpIsSnfEmployee",
+            "eq": "yes"
+          },
+          "components": [
+            {
+              "type": "htmlelement",
+              "tag": "p",
+              "content": "If yes, furnish the SNF's name and address below.",
+              "key": "snfInstructions"
+            },
+            {
+              "type": "textfield",
+              "label": "Skilled Nursing Facility Name",
+              "key": "snfName"
+            },
+            {
+              "type": "textfield",
+              "label": "Skilled Nursing Facility Address Line 1",
+              "key": "snfAddressLine1",
+              "description": "Street Name and Number - Not a P.O. Box"
+            },
+            {
+              "type": "textfield",
+              "label": "Skilled Nursing Facility Address Line 2",
+              "key": "snfAddressLine2",
+              "description": "Suite, Room, etc. (if applicable)"
+            },
+            {
+              "type": "textfield",
+              "label": "City/Town",
+              "key": "snfCity"
+            },
+            {
+              "type": "textfield",
+              "label": "State",
+              "key": "snfState",
+              "inputMask": "AA",
+              "description": "2 letter abbreviation"
+            },
+            {
+              "type": "textfield",
+              "label": "ZIP Code + 4",
+              "key": "snfZip",
+              "inputMask": "99999-9999"
+            },
+            {
+              "type": "textfield",
+              "label": "Tax Identification Number of SNF",
+              "key": "snfTin",
+              "inputMask": "99-9999999"
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Telephone Number",
+              "key": "snfPhone"
+            },
+            {
+              "type": "phoneNumber",
+              "label": "Fax Number (if applicable)",
+              "key": "snfFax"
+            },
+            {
+              "type": "email",
+              "label": "E-mail Address (if applicable)",
+              "key": "snfEmail"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

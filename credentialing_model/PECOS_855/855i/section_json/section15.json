@@ -1,0 +1,181 @@
+{
+  "title": "Section 15: Certification Statement and Signature",
+  "key": "section15Certification",
+  "components": [
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-danger",
+      "content": "<h3>Section 15: Certification Statement and Signature</h3><p><strong>IMPORTANT:</strong> In order to process this application it MUST be signed and dated. Signing this application certifies, under penalty of perjury, that all information provided is true, correct, and complete.</p>",
+      "key": "section15Header"
+    },
+    {
+      "type": "htmlelement",
+      "tag": "div",
+      "className": "alert alert-warning",
+      "content": "<p><strong>NOTE:</strong> The Section 15C language only applies if the application is submitted to establish, change or terminate a reassignment of benefits.</p>",
+      "key": "section15ReassignmentNote"
+    },
+    {
+      "type": "fieldset",
+      "legend": "A. Certification Statement",
+      "key": "certificationStatement",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "font-weight-bold",
+          "content": "Under the penalty of perjury, I, the undersigned, certify to the following:",
+          "key": "certificationIntro"
+        },
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<ol><li>I agree to notify the Medicare contractor of any future changes to the information contained in this form in accordance with the time frames established in 42 C.F.R. 424.516.</li><li>I have read and understand the Penalties for Falsifying Information, as printed in Section 14 of this application. I understand that any deliberate omission, misrepresentation, or falsification of any information contained in this application or contained in any communication supplying information to Medicare, or any deliberate alteration of any text on this application form, may be punished by criminal, civil, or administrative penalties including, but not limited to, the denial or revocation of Medicare billing privileges, and/or the imposition of fines, civil damages, and/or imprisonment.</li><li>I agree to abide by the Medicare laws, regulations and program instructions that apply to me. I understand that payment of a claim by Medicare is conditioned upon the claim and the underlying transaction complying with such laws, regulations, and program instructions (including, but not limited to, the Federal anti-kickback statute and the Stark law), and on the supplier's compliance with all applicable conditions of participation in Medicare.</li><li>Neither I, nor any managing employee reported in this application, is currently sanctioned, suspended, debarred or excluded by the Medicare or State Health Care Program, or otherwise prohibited from providing services to Medicare or other federal program beneficiaries.</li><li>I authorize the Medicare contractor to verify the information contained herein. I agree to notify the Medicare contractor of any future changes to the information contained in this application.</li><li>I will not knowingly present or cause to be presented a false or fraudulent claim for payment by Medicare, and will not submit claims with deliberate ignorance or reckless disregard of their truth or falsity.</li></ol>",
+          "key": "certificationItems"
+        },
+        {
+          "type": "checkbox",
+          "label": "I have read, understand, and agree to the certification statement above",
+          "key": "certificationAgreement"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "B. Signature and Date",
+      "key": "practitionerSignature",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "p",
+          "className": "font-weight-bold",
+          "content": "Practitioner Signature (First, Middle, Last Name, Jr., Sr., M.D., etc.). In order to process this application it MUST be signed and dated.",
+          "key": "practitionerSignatureInstructions"
+        },
+        {
+          "type": "textfield",
+          "label": "First Name (Print)",
+          "key": "practitionerFirstName"
+        },
+        {
+          "type": "textfield",
+          "label": "Middle Initial",
+          "key": "practitionerMiddleInitial",
+          "inputMask": "A"
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name (Print)",
+          "key": "practitionerLastName"
+        },
+        {
+          "type": "textfield",
+          "label": "Jr., Sr., M.D., etc.",
+          "key": "practitionerSuffix"
+        },
+        {
+          "type": "signature",
+          "label": "Practitioner Signature",
+          "key": "practitionerSignatureImage",
+          "footer": "Sign above"
+        },
+        {
+          "type": "datetime",
+          "label": "Date Signed",
+          "key": "practitionerDateSigned",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year"
+        }
+      ]
+    },
+    {
+      "type": "fieldset",
+      "legend": "C. Delegated or Authorized Official of Individual/Organization/Group Certification Statement and Signature",
+      "key": "delegatedOfficialSignature",
+      "components": [
+        {
+          "type": "htmlelement",
+          "tag": "div",
+          "className": "alert alert-secondary",
+          "content": "<p>Complete this sub-section <strong>only</strong> if this application is submitted to establish, change or terminate a reassignment of benefits (Section 4F). By signing below, the delegated or authorized official of the individual/organization/group receiving the reassigned benefits certifies that the information in Section 4F is true, correct, and complete, and agrees to abide by the Medicare laws, regulations and program instructions that apply to the reassignment.</p>",
+          "key": "delegatedOfficialNote"
+        },
+        {
+          "type": "checkbox",
+          "label": "This application establishes, changes or terminates a reassignment of benefits (Section 4F is completed)",
+          "key": "hasReassignment"
+        },
+        {
+          "type": "textfield",
+          "label": "First Name (Print)",
+          "key": "delegatedOfficialFirstName",
+          "conditional": {
+            "show": true,
+            "when": "hasReassignment",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Middle Initial",
+          "key": "delegatedOfficialMiddleInitial",
+          "inputMask": "A",
+          "conditional": {
+            "show": true,
+            "when": "hasReassignment",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Last Name (Print)",
+          "key": "delegatedOfficialLastName",
+          "conditional": {
+            "show": true,
+            "when": "hasReassignment",
+            "eq": true
+          }
+        },
+        {
+          "type": "textfield",
+          "label": "Jr., Sr., M.D., etc.",
+          "key": "delegatedOfficialSuffix",
+          "conditional": {
+            "show": true,
+            "when": "hasReassignment",
+            "eq": true
+          }
+        },
+        {
+          "type": "signature",
+          "label": "Delegated or Authorized Official's Signature",
+          "key": "delegatedOfficialSignatureImage",
+          "footer": "Sign above",
+          "conditional": {
+            "show": true,
+            "when": "hasReassignment",
+            "eq": true
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Date Signed",
+          "key": "delegatedOfficialDateSigned",
+          "format": "MM/dd/yyyy",
+          "enableDate": true,
+          "enableTime": false,
+          "description": "2 digit month, 2 digit day, 4 digit year",
+          "conditional": {
+            "show": true,
+            "when": "hasReassignment",
+            "eq": true
+          }
+        }
+      ]
+    }
+  ]
+}

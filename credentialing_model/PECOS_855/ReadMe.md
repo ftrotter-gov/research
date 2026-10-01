@@ -131,8 +131,37 @@ python3 -m http.server 8855
 ## Form Status
 
 - ✅ **855O** - Complete (simple architecture)
+- ✅ **855I** - Complete (modular architecture, all 15 sections)
 - 🚧 **855B** - In Progress (modular architecture, Section 1 complete)
-- ⏳ **855A, 855I, 855S** - Planned
+- ⏳ **855A, 855S** - Planned
+
+### 855I Notes
+
+The CMS-855I (rev. 05/23) models physicians and non-physician practitioners:
+
+- **No attachments.** Unlike the 855A (1 attachment) and 855B (3 attachments), the
+  855I has none; the form is Sections 1-15 only.
+- **Blank sections are included as stubs.** Sections 5, 7, 9, 10, and 11 are marked
+  "This Section Intentionally Left Blank" on the paper form. They are included as stub
+  pages (the 855A convention) so that wizard page numbers match the paper form.
+- **The CMS-855R is discontinued.** All reassignment-of-benefits actions are now
+  reported in Section 4F, so the 855I's Section 12 has no CMS-855R checkbox.
+- **Section 2G (Physician Specialty)** carries all 71 specialty labels from the PDF.
+  The paper form marks each with P=Primary / S=Secondary; this is modeled as one
+  `select` for the primary specialty plus one `multiple: true` `select` for secondary
+  specialties, rather than 142 individual controls. Specialty value slugs match those
+  already used in `855o.json`.
+- **Fixed-count PDF tables use unbounded `datagrid`s.** The paper form allocates a
+  fixed number of rows (e.g. 3 adverse-action rows, 12 + 4 home-service location rows).
+  These are modeled as `datagrid`s, consistent with how the 855A/855B handled the
+  equivalent tables.
+- **Sections 2G-2K are conditionally gated.** A `practitionerType` discriminator shows
+  Section 2G for physicians and Section 2H for non-physician practitioners; Sections 2I
+  (Psychologist), 2J (PT/OT), and 2K (CNS/NP) appear only for the relevant specialty
+  types selected in 2H.
+- **New component types.** The 855I is the first form here to use `container` (to scope
+  conditionally-shown address blocks) and `signature` (Section 15 signatures). Both are
+  core Form.io types.
 
 ## References
 

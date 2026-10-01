@@ -102,7 +102,7 @@
               "value": "retired_physician"
             },
             {
-              "label": "Other",
+              "label": "Other (Shows new form) ◿",
               "value": "other"
             }
           ]
@@ -300,7 +300,7 @@
           "html": "<h3>C. LICENSE/CERTIFICATION INFORMATION</h3>"
         },
         {
-          "label": "I have license information",
+          "label": "I have license information (Shows new form) ◿",
           "type": "checkbox",
           "key": "identifying_has_license"
         },
@@ -542,7 +542,7 @@
           ]
         },
         {
-          "label": "I have certification information",
+          "label": "I have certification information (Shows new form) ◿",
           "type": "checkbox",
           "key": "identifying_has_certification"
         },
@@ -581,7 +581,7 @@
           ]
         },
         {
-          "label": "I have DEA registration information",
+          "label": "I have DEA registration information (Shows new form) ◿",
           "type": "checkbox",
           "key": "identifying_has_dea"
         },
@@ -634,7 +634,7 @@
           "key": "final_adverse_legal_actions_history",
           "values": [
             {
-              "label": "YES \u2013 continue below",
+              "label": "YES \u2013 continue below (Shows new form) ◿",
               "value": "yes"
             },
             {
@@ -686,11 +686,11 @@
           "key": "medical_specialty_is_physician",
           "values": [
             {
-              "label": "Yes, I am a physician",
+              "label": "Yes, I am a physician (Shows new form) ◿",
               "value": "yes"
             },
             {
-              "label": "No, I am not a physician",
+              "label": "No, I am not a physician (Shows new form) ◿",
               "value": "no"
             }
           ]
@@ -994,7 +994,7 @@
                 "value": "vascular_surgery"
               },
               {
-                "label": "Undefined Physician Specialty",
+                "label": "Undefined Physician Specialty (Shows new form) ◿",
                 "value": "undefined_physician"
               }
             ]
@@ -1056,7 +1056,7 @@
               "value": "physician_assistant"
             },
             {
-              "label": "Unlisted Practitioner Type",
+              "label": "Unlisted Practitioner Type (Shows new form) ◿",
               "value": "unlisted"
             }
           ]
@@ -1372,7 +1372,7 @@
           "defaultValue": "no",
           "values": [
             {
-              "label": "Yes",
+              "label": "Yes (Shows new form) ◿",
               "value": "yes"
             },
             {

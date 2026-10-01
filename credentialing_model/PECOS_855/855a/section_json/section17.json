@@ -18,7 +18,7 @@
     },
     {
       "type": "checkbox",
-      "label": "I am attaching additional documentation with this application",
+      "label": "I am attaching additional documentation with this application (Shows new form) ◿",
       "key": "hasAttachments"
     },
     {

@@ -163,15 +163,25 @@ The CMS-855I (rev. 05/23) models physicians and non-physician practitioners:
   conditionally-shown address blocks) and `signature` (Section 15 signatures). Both are
   core Form.io types.
 
-### The "(Shows new form)" convention
+### The "(Shows new form) ◿" convention
 
-On paper, the 855I tells you to "Go to Section 1B below" — an instruction that makes no
-sense in a wizard, where the target is hidden until you trigger it. Conditional sections
-therefore *look* missing.
+*Applies to all four forms: 855A, 855B, 855I, 855O.*
+
+On paper, these forms say things like "Go to Section 1B below" — an instruction that
+makes no sense in a wizard, where the target is hidden until you trigger it. Conditional
+sections therefore *look* missing.
 
 To fix this, every option that **reveals** additional fields has the suffix
-`(Shows new form) ◿` appended to its label (46 across 8 sections), where `◿` is the
-Lower Right Triangle character (U+25FF, `&#9727;` / `&#x25FF;`).
+`(Shows new form) ◿` appended to its label, where `◿` is the Lower Right Triangle
+character (U+25FF, `&#9727;` / `&#x25FF;`).
+
+| Form | Markers |
+|------|---------|
+| 855A | 20 |
+| 855B | 62 |
+| 855I | 43 |
+| 855O | 10 |
+| **Total** | **135** |
 
 Implementation notes:
 
@@ -182,11 +192,16 @@ Implementation notes:
   `855i_index.html`. That was removed: it added fragile client-side machinery (a
   `TreeWalker` plus a `MutationObserver` to survive conditional reveals) for a purely
   cosmetic gain, and it hid the marker from anyone reading the JSON directly.
-- Only *revealing* options are marked. Triggers that **hide** content when checked —
-  `licenseNotApplicable`, `certificationNotApplicable`, `deaNotApplicable`,
+- Only *revealing* options are marked. Triggers that **hide** content when selected are
+  deliberately left unmarked, since marking them would be actively misleading. In the
+  855I these are `licenseNotApplicable`, `certificationNotApplicable`, `deaNotApplicable`,
   `medicalRecordSameAsCorrespondence`, `recordsStoredAtPracticeLocation`,
-  `iAmTheManagingEmployee`, `billingAgencyNotApplicable` — are deliberately left
-  unmarked, since marking them would be actively misleading.
+  `iAmTheManagingEmployee`, and `billingAgencyNotApplicable`. The 855I's
+  `practiceArrangement` radio is also unmarked: all three of its options are `show: false`
+  conditions that *narrow* which sub-sections apply rather than revealing new ones.
+- Markers were applied by analysing each form's `conditional` blocks programmatically
+  (including `json`-logic conditions), not by hand, so coverage is exhaustive. To
+  re-derive or audit them, see the analysis approach described above.
 
 ## References
 

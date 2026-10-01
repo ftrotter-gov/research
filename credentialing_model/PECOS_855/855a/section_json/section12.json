@@ -69,7 +69,7 @@
           "label": "Does this HHA contract with a nursing registry whereby the latter furnishes personnel to perform HHA services?",
           "key": "hhaUsesRegistry",
           "values": [
-            {"label": "Yes - Furnish information below", "value": "yes"},
+            {"label": "Yes - Furnish information below (Shows new form) ◿", "value": "yes"},
             {"label": "No - Skip to Section 13", "value": "no"}
           ]
         },

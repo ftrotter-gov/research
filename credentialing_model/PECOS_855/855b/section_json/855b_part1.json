@@ -48,11 +48,11 @@
                   "value": "reactivating"
                 },
                 {
-                  "label": "You are reporting a change to your Medicare enrollment information",
+                  "label": "You are reporting a change to your Medicare enrollment information (Shows new form) ◿",
                   "value": "reporting_change"
                 },
                 {
-                  "label": "You are voluntarily terminating your Medicare enrollment",
+                  "label": "You are voluntarily terminating your Medicare enrollment (Shows new form) ◿",
                   "value": "voluntarily_terminating"
                 }
               ],

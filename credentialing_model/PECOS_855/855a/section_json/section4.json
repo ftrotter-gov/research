@@ -16,7 +16,7 @@
       "components": [
         {
           "type": "checkbox",
-          "label": "Changing, adding, or removing practice location information",
+          "label": "Changing, adding, or removing practice location information (Shows new form) ◿",
           "key": "practiceLocationChange"
         },
         {
@@ -155,12 +155,12 @@
           "values": [
             {"label": "Mail to primary practice location address (Section 4A)", "value": "practice_location"},
             {"label": "Mail to correspondence address (Section 2C)", "value": "correspondence"},
-            {"label": "Mail to different address (specify below)", "value": "different"}
+            {"label": "Mail to different address (specify below) (Shows new form) ◿", "value": "different"}
           ]
         },
         {
           "type": "checkbox",
-          "label": "Change - Updating remittance address",
+          "label": "Change - Updating remittance address (Shows new form) ◿",
           "key": "remittanceChange",
           "conditional": {
             "show": true,

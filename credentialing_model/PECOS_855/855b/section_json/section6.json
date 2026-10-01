@@ -28,7 +28,7 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Changing information for this individual",
+              "label": "Changing information for this individual (Shows new form) ◿",
               "key": "ind1Changing"
             },
             {
@@ -194,12 +194,12 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Check to add a second individual",
+              "label": "Check to add a second individual (Shows new form) ◿",
               "key": "hasInd2"
             },
             {
               "type": "checkbox",
-              "label": "Changing information for this individual",
+              "label": "Changing information for this individual (Shows new form) ◿",
               "key": "ind2Changing",
               "conditional": {
                 "show": true,
@@ -347,7 +347,7 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Check to add a third individual",
+              "label": "Check to add a third individual (Shows new form) ◿",
               "key": "hasInd3"
             },
             {

@@ -11,7 +11,7 @@
     },
     {
       "type": "checkbox",
-      "label": "Change - Checking this will add or update contact person information",
+      "label": "Change - Checking this will add or update contact person information (Shows new form) ◿",
       "key": "contactPersonChange"
     },
     {

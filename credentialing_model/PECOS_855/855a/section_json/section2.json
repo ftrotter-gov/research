@@ -25,25 +25,82 @@
           "label": "Type of provider (other than hospitals)",
           "key": "providerTypeNonHospital",
           "values": [
-            {"label": "Community Mental Health Center", "value": "cmhc"},
-            {"label": "Comprehensive Outpatient Rehabilitation Facility", "value": "corf"},
-            {"label": "Critical Access Hospital", "value": "cah"},
-            {"label": "End-Stage Renal Disease Facility", "value": "esrd"},
-            {"label": "Federally Qualified Health Center", "value": "fqhc"},
-            {"label": "Histocompatibility Laboratory", "value": "histo_lab"},
-            {"label": "Home Health Agency", "value": "hha"},
-            {"label": "Hospice", "value": "hospice"},
-            {"label": "Indian Health Services Facility", "value": "ihs"},
-            {"label": "Indian Health Services—Rural Emergency Hospital", "value": "ihs_reh"},
-            {"label": "Opioid Treatment Program", "value": "otp"},
-            {"label": "Organ Procurement Organization", "value": "opo"},
-            {"label": "Outpatient Physical Therapy/Occupational Therapy/Speech Pathology Services", "value": "opt"},
-            {"label": "Religious Non-Medical Health Care Institution", "value": "rnmhci"},
-            {"label": "Rural Emergency Hospital", "value": "reh"},
-            {"label": "Rural Health Clinic", "value": "rhc"},
-            {"label": "Skilled Nursing Facility", "value": "snf"},
-            {"label": "Hospital (go to hospital subgroups below)", "value": "hospital"},
-            {"label": "Other (Specify)", "value": "other"}
+            {
+              "label": "Community Mental Health Center",
+              "value": "cmhc"
+            },
+            {
+              "label": "Comprehensive Outpatient Rehabilitation Facility",
+              "value": "corf"
+            },
+            {
+              "label": "Critical Access Hospital",
+              "value": "cah"
+            },
+            {
+              "label": "End-Stage Renal Disease Facility",
+              "value": "esrd"
+            },
+            {
+              "label": "Federally Qualified Health Center",
+              "value": "fqhc"
+            },
+            {
+              "label": "Histocompatibility Laboratory",
+              "value": "histo_lab"
+            },
+            {
+              "label": "Home Health Agency",
+              "value": "hha"
+            },
+            {
+              "label": "Hospice",
+              "value": "hospice"
+            },
+            {
+              "label": "Indian Health Services Facility",
+              "value": "ihs"
+            },
+            {
+              "label": "Indian Health Services\u2014Rural Emergency Hospital",
+              "value": "ihs_reh"
+            },
+            {
+              "label": "Opioid Treatment Program",
+              "value": "otp"
+            },
+            {
+              "label": "Organ Procurement Organization",
+              "value": "opo"
+            },
+            {
+              "label": "Outpatient Physical Therapy/Occupational Therapy/Speech Pathology Services",
+              "value": "opt"
+            },
+            {
+              "label": "Religious Non-Medical Health Care Institution",
+              "value": "rnmhci"
+            },
+            {
+              "label": "Rural Emergency Hospital",
+              "value": "reh"
+            },
+            {
+              "label": "Rural Health Clinic",
+              "value": "rhc"
+            },
+            {
+              "label": "Skilled Nursing Facility",
+              "value": "snf"
+            },
+            {
+              "label": "Hospital (go to hospital subgroups below) (Shows new form) ◿",
+              "value": "hospital"
+            },
+            {
+              "label": "Other (Specify) (Shows new form) ◿",
+              "value": "other"
+            }
           ]
         },
         {
@@ -66,19 +123,58 @@
             "eq": "hospital"
           },
           "values": [
-            {"label": "Hospital—General", "value": "general"},
-            {"label": "Hospital—Acute care", "value": "acute"},
-            {"label": "Hospital—Children's (excluded from PPS)", "value": "childrens"},
-            {"label": "Hospital—Long-term (excluded from PPS)", "value": "long_term"},
-            {"label": "Hospital—Psychiatric (excluded from PPS)", "value": "psychiatric"},
-            {"label": "Hospital—Rehabilitation (excluded from PPS)", "value": "rehabilitation"},
-            {"label": "Hospital—Short-term (general and specialty)", "value": "short_term"},
-            {"label": "Hospital—Swing-bed approved", "value": "swing_bed"},
-            {"label": "Hospital—Psychiatric unit", "value": "psych_unit"},
-            {"label": "Hospital—Rehabilitation unit", "value": "rehab_unit"},
-            {"label": "Hospital—Specialty hospital (cardiac, orthopedic, or surgical)", "value": "specialty"},
-            {"label": "Hospital—Transplant program", "value": "transplant"},
-            {"label": "Other (Specify)", "value": "other"}
+            {
+              "label": "Hospital\u2014General",
+              "value": "general"
+            },
+            {
+              "label": "Hospital\u2014Acute care",
+              "value": "acute"
+            },
+            {
+              "label": "Hospital\u2014Children's (excluded from PPS)",
+              "value": "childrens"
+            },
+            {
+              "label": "Hospital\u2014Long-term (excluded from PPS)",
+              "value": "long_term"
+            },
+            {
+              "label": "Hospital\u2014Psychiatric (excluded from PPS)",
+              "value": "psychiatric"
+            },
+            {
+              "label": "Hospital\u2014Rehabilitation (excluded from PPS)",
+              "value": "rehabilitation"
+            },
+            {
+              "label": "Hospital\u2014Short-term (general and specialty)",
+              "value": "short_term"
+            },
+            {
+              "label": "Hospital\u2014Swing-bed approved",
+              "value": "swing_bed"
+            },
+            {
+              "label": "Hospital\u2014Psychiatric unit",
+              "value": "psych_unit"
+            },
+            {
+              "label": "Hospital\u2014Rehabilitation unit",
+              "value": "rehab_unit"
+            },
+            {
+              "label": "Hospital\u2014Specialty hospital (cardiac, orthopedic, or surgical)",
+              "value": "specialty"
+            },
+            {
+              "label": "Hospital\u2014Transplant program",
+              "value": "transplant"
+            },
+            {
+              "label": "Other (Specify)",
+              "value": "other"
+            }
           ]
         },
         {
@@ -96,8 +192,14 @@
           "label": "If 'hospital' was checked, does this hospital have a compliance plan that states that the hospital checks all managing employees against the exclusion/debarment lists of both the HHS Office of the Inspector General (OIG) and the General Services Administration (GSA)?",
           "key": "hospitalCompliancePlan",
           "values": [
-            {"label": "Yes", "value": "yes"},
-            {"label": "No", "value": "no"}
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
           ],
           "conditional": {
             "show": true,
@@ -110,8 +212,14 @@
           "label": "Is the provider a physician-owned hospital?",
           "key": "physicianOwnedHospital",
           "values": [
-            {"label": "Yes", "value": "yes"},
-            {"label": "No", "value": "no"}
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
           ],
           "conditional": {
             "show": true,
@@ -143,9 +251,18 @@
           "label": "Type of other name (if applicable)",
           "key": "otherNameType",
           "values": [
-            {"label": "Former Legal Business Name", "value": "former"},
-            {"label": "Doing business as name", "value": "dba"},
-            {"label": "Other (specify)", "value": "other"}
+            {
+              "label": "Former Legal Business Name",
+              "value": "former"
+            },
+            {
+              "label": "Doing business as name",
+              "value": "dba"
+            },
+            {
+              "label": "Other (specify) (Shows new form) ◿",
+              "value": "other"
+            }
           ],
           "conditional": {
             "show": true,
@@ -196,9 +313,18 @@
           "label": "IRS business designation",
           "key": "irsDesignation",
           "values": [
-            {"label": "Proprietary", "value": "proprietary"},
-            {"label": "Non-profit (Submit IRS Form 501(c)(3))", "value": "nonprofit"},
-            {"label": "Disregarded Entity (Submit IRS Form 8832, if applicable)", "value": "disregarded"}
+            {
+              "label": "Proprietary",
+              "value": "proprietary"
+            },
+            {
+              "label": "Non-profit (Submit IRS Form 501(c)(3))",
+              "value": "nonprofit"
+            },
+            {
+              "label": "Disregarded Entity (Submit IRS Form 8832, if applicable)",
+              "value": "disregarded"
+            }
           ]
         },
         {
@@ -206,11 +332,26 @@
           "label": "Identify the business structure",
           "key": "businessStructure",
           "values": [
-            {"label": "Corporation", "value": "corporation"},
-            {"label": "Limited Liability Company", "value": "llc"},
-            {"label": "Partnership", "value": "partnership"},
-            {"label": "Sole proprietor", "value": "sole_proprietor"},
-            {"label": "Other (specify)", "value": "other"}
+            {
+              "label": "Corporation",
+              "value": "corporation"
+            },
+            {
+              "label": "Limited Liability Company",
+              "value": "llc"
+            },
+            {
+              "label": "Partnership",
+              "value": "partnership"
+            },
+            {
+              "label": "Sole proprietor",
+              "value": "sole_proprietor"
+            },
+            {
+              "label": "Other (specify) (Shows new form) ◿",
+              "value": "other"
+            }
           ]
         },
         {
@@ -228,13 +369,34 @@
           "label": "Federal and/or state government type (if applicable)",
           "key": "governmentType",
           "values": [
-            {"label": "Federal", "value": "federal"},
-            {"label": "State", "value": "state"},
-            {"label": "City", "value": "city"},
-            {"label": "County", "value": "county"},
-            {"label": "City-county", "value": "city_county"},
-            {"label": "Hospital district", "value": "hospital_district"},
-            {"label": "Other (specify)", "value": "other"}
+            {
+              "label": "Federal",
+              "value": "federal"
+            },
+            {
+              "label": "State",
+              "value": "state"
+            },
+            {
+              "label": "City",
+              "value": "city"
+            },
+            {
+              "label": "County",
+              "value": "county"
+            },
+            {
+              "label": "City-county",
+              "value": "city_county"
+            },
+            {
+              "label": "Hospital district",
+              "value": "hospital_district"
+            },
+            {
+              "label": "Other (specify) (Shows new form) ◿",
+              "value": "other"
+            }
           ]
         },
         {
@@ -252,8 +414,14 @@
           "label": "Is this provider an Indian Health Service (IHS) Facility?",
           "key": "isIhsFacility",
           "values": [
-            {"label": "Yes", "value": "yes"},
-            {"label": "No", "value": "no"}
+            {
+              "label": "Yes",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
           ]
         }
       ]
@@ -343,7 +511,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Change - Checking this will replace any current correspondence mailing address on file",
+          "label": "Change - Checking this will replace any current correspondence mailing address on file (Shows new form) ◿",
           "key": "correspondenceChange"
         },
         {
@@ -427,7 +595,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Change - Checking this will replace any current medical record correspondence address on file",
+          "label": "Change - Checking this will replace any current medical record correspondence address on file (Shows new form) ◿",
           "key": "medicalRecordChange",
           "customConditional": "show = !data.medicalRecordUseCorrespondence;"
         },
@@ -513,8 +681,14 @@
           "label": "Is this provider accredited?",
           "key": "isAccredited",
           "values": [
-            {"label": "Yes", "value": "yes"},
-            {"label": "No", "value": "no"}
+            {
+              "label": "Yes (Shows new form) ◿",
+              "value": "yes"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
           ]
         },
         {

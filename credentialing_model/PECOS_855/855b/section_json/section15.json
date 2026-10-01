@@ -35,7 +35,7 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Changing or removing 1st Authorized Official",
+              "label": "Changing or removing 1st Authorized Official (Shows new form) ◿",
               "key": "authOfficial1Changing"
             },
             {
@@ -132,12 +132,12 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Add a 2nd Authorized Official",
+              "label": "Add a 2nd Authorized Official (Shows new form) ◿",
               "key": "hasAuthOfficial2"
             },
             {
               "type": "checkbox",
-              "label": "Changing or removing 2nd Authorized Official",
+              "label": "Changing or removing 2nd Authorized Official (Shows new form) ◿",
               "key": "authOfficial2Changing",
               "conditional": {
                 "show": true,
@@ -267,12 +267,12 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Add a 1st Delegated Official",
+              "label": "Add a 1st Delegated Official (Shows new form) ◿",
               "key": "hasDelegatedOfficial1"
             },
             {
               "type": "checkbox",
-              "label": "Changing or removing 1st Delegated Official",
+              "label": "Changing or removing 1st Delegated Official (Shows new form) ◿",
               "key": "delegatedOfficial1Changing",
               "conditional": {
                 "show": true,
@@ -388,7 +388,7 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Add a 2nd Delegated Official",
+              "label": "Add a 2nd Delegated Official (Shows new form) ◿",
               "key": "hasDelegatedOfficial2"
             },
             {

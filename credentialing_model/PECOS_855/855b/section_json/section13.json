@@ -11,7 +11,7 @@
     },
     {
       "type": "checkbox",
-      "label": "I want to designate a contact person",
+      "label": "I want to designate a contact person (Shows new form) ◿",
       "key": "hasContactPerson",
       "description": "Check this box if you want to provide a contact person for Medicare enrollment matters"
     },
@@ -34,7 +34,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Changing or removing contact person information",
+          "label": "Changing or removing contact person information (Shows new form) ◿",
           "key": "contactPersonChanging"
         },
         {

@@ -34,7 +34,7 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Changing information for this organization",
+              "label": "Changing information for this organization (Shows new form) ◿",
               "key": "org1Changing"
             },
             {
@@ -232,12 +232,12 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Check to add a second organization",
+              "label": "Check to add a second organization (Shows new form) ◿",
               "key": "hasOrg2"
             },
             {
               "type": "checkbox",
-              "label": "Changing information for this organization",
+              "label": "Changing information for this organization (Shows new form) ◿",
               "key": "org2Changing",
               "conditional": {
                 "show": true,
@@ -496,7 +496,7 @@
           "key": "orgHasFinalAdverseAction",
           "values": [
             {
-              "label": "Yes - continue below",
+              "label": "Yes - continue below (Shows new form) ◿",
               "value": "yes"
             },
             {

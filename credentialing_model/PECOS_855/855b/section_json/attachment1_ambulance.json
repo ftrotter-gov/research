@@ -51,7 +51,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Changing geographic service areas",
+          "label": "Changing geographic service areas (Shows new form) ◿",
           "key": "geoChanging"
         },
         {

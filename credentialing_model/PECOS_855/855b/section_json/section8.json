@@ -30,7 +30,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Changing, adding, or removing billing agency/agent information",
+          "label": "Changing, adding, or removing billing agency/agent information (Shows new form) ◿",
           "key": "billingAgencyChanging"
         },
         {
@@ -63,11 +63,11 @@
           "key": "billingAgencyOrAgent",
           "values": [
             {
-              "label": "Billing Agency (Business Entity)",
+              "label": "Billing Agency (Business Entity) (Shows new form) ◿",
               "value": "agency"
             },
             {
-              "label": "Billing Agent (Individual Person)",
+              "label": "Billing Agent (Individual Person) (Shows new form) ◿",
               "value": "agent"
             }
           ],

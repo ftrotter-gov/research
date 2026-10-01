@@ -46,7 +46,7 @@
           "key": "hasFinalAdverseAction",
           "values": [
             {
-              "label": "Yes - continue below",
+              "label": "Yes - continue below (Shows new form) ◿",
               "value": "yes"
             },
             {

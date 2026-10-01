@@ -46,23 +46,23 @@
               "value": "reactivating"
             },
             {
-              "label": "You are changing your Medicare information",
+              "label": "You are changing your Medicare information (Shows new form) ◿",
               "value": "changing_information"
             },
             {
-              "label": "There has been a Change of Ownership (CHOW) of the Medicare-enrolled provider",
+              "label": "There has been a Change of Ownership (CHOW) of the Medicare-enrolled provider (Shows new form) ◿",
               "value": "change_of_ownership"
             },
             {
-              "label": "Your organization has taken part in an acquisition or merger",
+              "label": "Your organization has taken part in an acquisition or merger (Shows new form) ◿",
               "value": "acquisition_merger"
             },
             {
-              "label": "Your organization has consolidated with another organization",
+              "label": "Your organization has consolidated with another organization (Shows new form) ◿",
               "value": "consolidation"
             },
             {
-              "label": "You are voluntarily terminating your Medicare enrollment",
+              "label": "You are voluntarily terminating your Medicare enrollment (Shows new form) ◿",
               "value": "voluntarily_terminating"
             }
           ],

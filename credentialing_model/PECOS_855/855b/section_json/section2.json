@@ -98,7 +98,7 @@
         },
         {
           "type": "checkbox",
-          "label": "I have license information",
+          "label": "I have license information (Shows new form) ◿",
           "key": "hasLicenseInformation"
         },
         {
@@ -146,7 +146,7 @@
         },
         {
           "type": "checkbox",
-          "label": "I have certification information",
+          "label": "I have certification information (Shows new form) ◿",
           "key": "hasCertificationInformation"
         },
         {
@@ -288,7 +288,7 @@
               "value": "sole_proprietor"
             },
             {
-              "label": "Other (Specify)",
+              "label": "Other (Specify) (Shows new form) ◿",
               "value": "other"
             }
           ]
@@ -312,7 +312,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Reporting a change to correspondence address",
+          "label": "Reporting a change to correspondence address (Shows new form) ◿",
           "key": "correspondenceAddressChange"
         },
         {
@@ -393,7 +393,7 @@
         },
         {
           "type": "checkbox",
-          "label": "Reporting a change to medical record correspondence address",
+          "label": "Reporting a change to medical record correspondence address (Shows new form) ◿",
           "key": "medicalRecordAddressChange"
         },
         {
@@ -482,7 +482,7 @@
               "value": "ambulance"
             },
             {
-              "label": "Ambulatory Surgical Center",
+              "label": "Ambulatory Surgical Center (Shows new form) ◿",
               "value": "surgical_center"
             },
             {
@@ -490,7 +490,7 @@
               "value": "clinic_group"
             },
             {
-              "label": "Hospital Department(s)",
+              "label": "Hospital Department(s) (Shows new form) ◿",
               "value": "hospital_dept"
             },
             {
@@ -522,7 +522,7 @@
               "value": "pharmacy"
             },
             {
-              "label": "Physical/Occupational Therapy Group in Private Practice",
+              "label": "Physical/Occupational Therapy Group in Private Practice (Shows new form) ◿",
               "value": "therapy_group"
             },
             {
@@ -534,7 +534,7 @@
               "value": "radiation_therapy"
             },
             {
-              "label": "Other (Specify)",
+              "label": "Other (Specify) (Shows new form) ◿",
               "value": "other"
             }
           ]
@@ -577,7 +577,7 @@
               "value": "entire_hospital"
             },
             {
-              "label": "Separately bill for each hospital department",
+              "label": "Separately bill for each hospital department (Shows new form) ◿",
               "value": "separate_departments"
             }
           ]
@@ -734,7 +734,7 @@
           "key": "ascAccreditationStatus",
           "values": [
             {
-              "label": "The enrolling ASC supplier is accredited",
+              "label": "The enrolling ASC supplier is accredited (Shows new form) ◿",
               "value": "accredited"
             },
             {

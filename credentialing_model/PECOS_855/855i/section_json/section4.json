@@ -20,15 +20,15 @@
           "key": "practiceArrangement",
           "values": [
             {
-              "label": "I do NOT have a private practice but I reassign ALL of my benefits to an entity (complete Section 4F only) (Shows new form) ◿",
+              "label": "I do NOT have a private practice but I reassign ALL of my benefits to an entity (complete Section 4F only)",
               "value": "no_practice_all_reassigned"
             },
             {
-              "label": "I DO have a private practice and I also reassign ANY of my benefits to an entity (complete Sections 4A-4F) (Shows new form) ◿",
+              "label": "I DO have a private practice and I also reassign ANY of my benefits to an entity (complete Sections 4A-4F)",
               "value": "practice_and_some_reassigned"
             },
             {
-              "label": "I DO have a private practice and I ONLY render services in my own private practice (complete Sections 4A-4E) (Shows new form) ◿",
+              "label": "I DO have a private practice and I ONLY render services in my own private practice (complete Sections 4A-4E)",
               "value": "practice_only"
             }
           ]

@@ -55,7 +55,7 @@
           "key": "hasAdverseLegalActions",
           "values": [
             {
-              "label": "Yes - Continue below and report each action",
+              "label": "Yes - Continue below and report each action (Shows new form) ◿",
               "value": "yes"
             },
             {
@@ -131,7 +131,7 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Check if you have a second adverse action to report",
+              "label": "Check if you have a second adverse action to report (Shows new form) ◿",
               "key": "hasAdverseAction2"
             },
             {
@@ -181,7 +181,7 @@
           "components": [
             {
               "type": "checkbox",
-              "label": "Check if you have a third adverse action to report",
+              "label": "Check if you have a third adverse action to report (Shows new form) ◿",
               "key": "hasAdverseAction3"
             },
             {
